@@ -1,0 +1,51 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:html="http://struts.apache.org/tags-html"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          version="2.0">
+
+<html:xhtml/>
+
+<h1>
+	<fmt:message key = "MostarEstadoSalaContent.title"/> 
+</h1>
+
+<div align="center">
+
+<c:forEach var="i" begin="0" end="${numFilas - 1}">
+	<c:forEach var="j" begin="0" end="${numButacas - 1}">
+		<c:choose>
+			<c:when test="${empty butacas[i][j]}">
+				<img src = "img/pasillo.jpg" align="middle" alt="20" height="20" style="border: 0px solid"/>
+			</c:when>
+			<c:otherwise>
+				<c:choose>
+					<c:when test="${butacas[i][j].estado eq 0}">
+						<c:url var="comprarTicket" value="ComprarTicket.do"> 
+							<c:param name="idTicket" value="${butacas[i][j].idTicket}"/>
+						</c:url>
+						<a href="${comprarTicket }">
+							<img src = "img/vacio.jpg" align="middle" alt="20" height="20" style="border: 0px solid"/>
+						</a>
+					</c:when>
+					<c:when test="${butacas[i][j].estado eq 1}">
+							<img src = "img/marcado.jpg" align="middle" alt="20" height="20" style="border: 0px solid"/>
+					</c:when>
+					<c:when test="${butacas[i][j].estado eq 2}">
+							<img src = "img/ocupado.jpg" align="middle" alt="20" height="20" style="border: 0px solid"/>
+					</c:when>
+				
+				</c:choose>
+			</c:otherwise> 
+		
+		</c:choose>
+	
+		 
+	</c:forEach>
+	<br /> 
+</c:forEach>
+
+</div>
+
+</jsp:root>

@@ -1,0 +1,49 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:html="http://struts.apache.org/tags-html"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          version="2.0">
+          
+<html:xhtml/>
+
+
+<c:forEach var="sesion" items="${listasesiones}">
+		<c:if test="${(sesion.idSesion==idSesion)}">
+			<c:forEach var="pelicula" items="${detallepelicula}">
+				<c:if test="${(sesion.idPelicula==pelicula.idPelicula)}">
+	
+					<h1>
+						<c:url var="urlFSala" value="MostrarEstadoSala.do">
+							<c:param name="idSesion" value="${idSesion}"/>
+						</c:url>
+						
+						<a href="${urlFSala}">
+							${pelicula.titulo}
+						</a>
+						
+					</h1>
+					 
+					 <c:url var="urlFoto" value="img/pelicula/${pelicula.titulo}"/>
+						<p>
+							<img src="${urlFoto}"/>
+						</p>
+						
+						<p>
+							${pelicula.descripcion}
+						</p>
+					
+					<p>
+						<fmt:message key="MostrarDetallesPelicula.director"/>  ${pelicula.director}
+					</p>
+					
+					<p>
+						<fmt:message key="MostrarDetallesPelicula.clasificacion" /> ${pelicula.clasificacion}
+					</p>
+
+			</c:if>
+		</c:forEach>
+	</c:if>
+</c:forEach>
+
+</jsp:root>

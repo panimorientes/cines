@@ -1,0 +1,98 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:html="http://struts.apache.org/tags-html"
+          version="2.0">
+
+<html:xhtml/>
+
+<html:form action="AnadirPelicula.do" focus="titulo" enctype="multipart/form-data">
+
+    <html:hidden property="action" value="REGISTER"/>
+    
+   
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="AdminPelicula.titulo"/>
+        </span>
+        <span class="forminput">
+            <html:text property="titulo" size="25" maxlength="50"/>
+            <html:errors property="titulo"/>
+        </span>
+    </div>
+    
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="AdminPelicula.director"/>
+        </span>
+        <span class="forminput">    
+            <html:text property="director" size="25" maxlength="40"/>
+            <html:errors property="director"/>
+        </span>
+    </div>
+    
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="AdminPelicula.clasificacion"/>
+        </span>
+        <span class="forminput">
+        	 <html:select property="clasificacion">
+            	
+            		<html:option value="Humor">
+	            		Humor
+            		</html:option>
+            	
+            		<html:option value="Accion">
+	            		Accion
+            		</html:option>
+            		
+            		<html:option value="Aventuras">
+	            		Aventuras
+            		</html:option>
+            		
+            		<html:option value="Suspense">
+	            		Suspense
+            		</html:option>
+            		
+            </html:select>            
+            <html:errors property="clasificacion"/>
+        </span>
+    </div>
+    
+    
+     <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="AdminPelicula.descripcion"/>
+        </span>
+        <span class="forminput">
+            <html:text property="descripcion" size="50" maxlength="50"/>
+            <html:errors property="descripcion"/>
+        </span>
+    </div>
+    
+    
+    
+     <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="AnadirPelicula.file"/>
+        </span>
+        <span class="forminput">
+        	<html:file property="file" size="20"/>
+            <html:errors property="file"/>
+        </span>
+    </div>
+   
+      
+  
+    
+    <p></p> <p></p>
+   <p align="center">
+        <html:submit>
+            <fmt:message key="Buttons.anadir"/>
+        </html:submit>
+    </p>
+
+</html:form>
+
+</jsp:root>

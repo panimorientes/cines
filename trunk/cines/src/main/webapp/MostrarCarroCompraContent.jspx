@@ -1,0 +1,50 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:html="http://struts.apache.org/tags-html"
+    version="2.0">
+    
+<html:xhtml/>
+
+<h1>
+	<fmt:message key="MostrarCarroCompraContent.title"/>
+</h1>
+<div align="justify">
+<table>
+<tr>
+	<td>ID</td> <td>Descripcion</td> <td>Importe</td>
+</tr>
+<c:set var="i" value="1"/>
+<c:forEach var="item" items="${carro.lineas}">
+<tr>
+	<td> ${ i } </td>
+	<td> ${ item.descripcion } </td>
+	<td> ${ item.precio }</td> 
+	<td>  
+		<c:url var="urlElim" value="EliminarLineaCarro.do">
+			<c:param name="numLinea" value="${i}"/>
+		</c:url>
+		<a href="${urlElim }">
+			<img src="img/papelera1.jpeg" width="20" height="20" title="Eliminar linea"/>  
+		</a>
+	</td>
+	<c:set var="i" value="${i+1}"/>
+</tr>
+</c:forEach>
+</table>
+</div>
+
+<div align="right">
+	Importe: ${carro.total }
+</div>
+<p>
+</p>
+<p>
+<div align="right">
+	<a href="CarroTerminar.do">
+		<fmt:message key="CarroCompra.Terminar"/>
+	</a>
+</div>
+</p>
+</jsp:root>

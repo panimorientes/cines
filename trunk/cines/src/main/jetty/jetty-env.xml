@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN"
+"http://jetty.mortbay.org/configure.dtd">
+<Configure class="org.mortbay.jetty.webapp.WebAppContext">
+ 
+ 
+  <!-- MySQL -->
+  <New id="J2EE-ExamplesDS-MySQL"
+       class="org.mortbay.jetty.plus.naming.Resource">
+    <Arg>jdbc/cines</Arg>
+    <Arg>
+      <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
+        <Set name="url">jdbc:mysql://localhost/cines</Set>
+        <Set name="user">cines</Set>
+        <Set name="password">cines</Set>
+     </New>
+    </Arg>
+   </New>
+</Configure>

@@ -1,0 +1,13 @@
+<!-- In a real portal, this page would display useful information. -->
+
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+    version="2.0">
+
+<p class="info">
+    <fmt:message key="MainPageContent.content"/>
+</p>
+
+  
+</jsp:root>

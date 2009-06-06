@@ -1,0 +1,85 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:html="http://struts.apache.org/tags-html"
+          version="2.0">
+
+<html:xhtml/>
+
+<html:form action="AnadirCine.do" focus="nombre">
+
+    <html:hidden property="action" value="REGISTER"/>
+
+	 
+
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="AdminCine.nombre"/>
+        </span>
+        <span class="forminput">
+            <html:text property="nombre" size="25" maxlength="50"/>
+            <html:errors property="nombre"/>
+        </span>
+    </div>
+    
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="AdminCine.numSalas"/>
+        </span>
+        <span class="forminput">    
+            <html:text property="numSalas" size="25" maxlength="40"/>
+            <html:errors property="numSalas"/>
+        </span>
+    </div>
+    
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="AdminCine.cp"/>
+        </span>
+        <span class="forminput">
+            <html:text property="cp" size="8" maxlength="8"/>
+            <html:errors property="cp"/>
+        </span>
+    </div>
+    
+     <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="UserDireccion.ciudad"/>
+        </span>
+        <span class="forminput">
+            <html:text property="ciudad" size="30" maxlength="30"/>
+            <html:errors property="ciudad"/>
+        </span>
+    </div>
+    
+     <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="UserDireccion.direccion"/>
+        </span>
+        <span class="forminput">
+            <html:text property="direccion" size="30" maxlength="30"/>
+            <html:errors property="direccion"/>
+        </span>
+    </div>  
+
+	 <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="UserDireccion.numero"/>
+        </span>
+        <span class="forminput">
+            <html:text property="numero" size="2" maxlength="4"/>
+            <html:errors property="numero"/>
+        </span>
+    </div>
+    <!-- <jsp:directive.include file="UserProfileDetails.jspf"/> -->
+    
+     <p></p>
+   <p align="center">
+        <html:submit>
+            <fmt:message key="Buttons.anadir"/>
+        </html:submit>
+    </p>
+
+</html:form>
+
+</jsp:root>

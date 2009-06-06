@@ -1,0 +1,45 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:html="http://struts.apache.org/tags-html"
+          version="2.0">
+
+<html:xhtml/>
+
+<html:form action="RegistrarTarjeta.do" focus="login">
+
+    <html:hidden property="action" value="REGISTER"/>
+
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="UserTarjeta.login"/>
+        </span>
+        <span class="forminput">
+            <html:text readonly="true" property="login" size="16" maxlength="30" value="${sessionScope.login}"/>
+            <!--<html:errors property="login"/>  -->
+        </span>
+    </div>
+    
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="UserTarjeta.tarjeta"/>
+        </span>
+        <span class="forminput">    
+            <html:text property="tarjeta" size="20" maxlength="8"/>
+            <html:errors property="tarjeta"/>
+        </span>
+    </div>
+   
+	
+    <!-- <jsp:directive.include file="UserProfileDetails.jspf"/> -->
+    
+   <p></p>
+   <p align="center">
+        <html:submit>
+            <fmt:message key="Buttons.register"/>
+        </html:submit>
+    </p>
+
+</html:form>
+
+</jsp:root>

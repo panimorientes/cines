@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+    <definition name=".Base" page="/commontiles/layouts/DefaultLayout.jspx">
+        <put name="title"  value="${title}" />
+        <put name="pageTitle"  value="/commontiles/DefaultPageTitle.jspx" />
+        <!-- In derived tiles, define one of the following attributes:
+        <put name="headerSpecificAsTile"  value="${headerSpecificAsTile}" />
+        <put name="headerSpecificAsKey"  value="${headerSpecificAsKey}" />
+        -->
+        <put name="content"  value="${content}" />
+        <put name="footer" value="/commontiles/DefaultFooter.jspx" />
+        <put name="busca" value="/BusquedaContent.jspx" />
+    </definition>
+    
+    <definition name=".InternalError" extends=".Base" >
+        <put name="title"  value="InternalError.title" />
+        <put name="headerSpecificAsKey" value="InternalError.headerSpecific" />
+        <put name="content" value="/InternalErrorContent.jspx" />
+    </definition>
+    
+    <definition name=".MainPage" extends=".Base" >
+        <put name="title"  value="MainPage.title" />
+        <put name="headerSpecificAsTile" value="/MainPageHeaderSpecific.jspx" />
+        <put name="content" value="/MainPageContent.jspx" />
+    </definition>
+    
+    <definition name=".Authentication" extends=".Base" >
+        <put name="title"  value="Authentication.title" />
+        <put name="headerSpecificAsKey" value="Authentication.headerSpecific" />
+        <put name="content" value="/AuthenticationContent.jspx" />
+    </definition>
+    
+    <definition name=".RegisterUser" extends=".Base" >
+        <put name="title"  value="RegisterUser.title" />
+        <put name="headerSpecificAsKey" value="RegisterUser.headerSpecific" />
+        <put name="content" value="/RegisterUserContent.jspx" />
+    </definition>
+    
+    <definition name=".RegistrarTarjeta" extends=".Base" >
+        <put name="title"  value="RegistrarTarjeta.title" />
+        <put name="headerSpecificAsKey" value="RegistrarTarjeta.headerSpecific" />
+        <put name="content" value="/RegistrarTarjetaContent.jspx" />
+    </definition>
+
+    <definition name=".AnadirPelicula" extends=".Base" >
+        <put name="title"  value="AnadirPelicula.title" />
+        <put name="headerSpecificAsKey" value="AnadirPelicula.headerSpecific" />
+        <put name="content" value="/AnadirPeliculaContent.jspx" />
+    </definition>
+
+    <definition name=".EliminarPelicula" extends=".Base" >
+        <put name="title"  value="EliminarPelicula.title" />
+        <put name="headerSpecificAsKey" value="EliminarPelicula.headerSpecific" />
+        <put name="content" value="/EliminarPeliculaContent.jspx" />
+    </definition>
+    
+     <definition name=".EliminarSesion" extends=".Base" >
+        <put name="title"  value="EliminarSesion.title" />
+        <put name="headerSpecificAsKey" value="EliminarSesion.headerSpecific" />
+        <put name="content" value="/EliminarSesionContent.jspx" />
+    </definition>
+    
+    <definition name=".Anadirdvd" extends=".Base" >
+        <put name="title"  value="Anadirdvd.title" />
+        <put name="headerSpecificAsKey" value="Anadirdvd.headerSpecific" />
+        <put name="content" value="/AnadirdvdContent.jspx" />
+    </definition>
+    
+     
+    <definition name=".AnadirMerchandising" extends=".Base" >
+        <put name="title"  value="AnadirMerchandising.title" />
+        <put name="headerSpecificAsKey" value="AnadirMerchandising.headerSpecific" />
+        <put name="content" value="/AnadirMerchandisingContent.jspx" />
+    </definition>
+    
+    <definition name=".HistorialPedidos" extends=".Base" >
+        <put name="title"  value="HistorialPedidos.title" />
+        <put name="headerSpecificAsKey" value="HistorialPedidos.headerSpecific" />
+        <put name="content" value="/HistorialPedidosContent.jspx" />
+    </definition>
+    
+     <definition name=".AnadirCine" extends=".Base" >
+        <put name="title"  value="AnadirCine.title" />
+        <put name="headerSpecificAsKey" value="AnadirCine.headerSpecific" />
+        <put name="content" value="/AnadirCineContent.jspx" />
+    </definition>
+    
+     <definition name=".SalaLlena" extends=".Base" >
+        <put name="title"  value="SalaLlena.title" />
+        <put name="headerSpecificAsKey" value="SalaLlena.headerSpecific" />
+        <put name="content" value="/SalaLlenaContent.jspx" />
+    </definition>
+    
+    <definition name=".UpdateUserProfileDetails" extends=".Base" >
+        <put name="title"  value="UpdateUserProfileDetails.title" />
+        <put name="headerSpecificAsKey" 
+             value="UpdateUserProfileDetails.headerSpecific" />
+        <put name="content" value="/UpdateUserProfileDetailsContent.jspx" />
+    </definition>
+    
+    <definition name=".ChangePassword" extends=".Base" >
+        <put name="title"  value="ChangePassword.title" />
+        <put name="headerSpecificAsKey" value="ChangePassword.headerSpecific" />
+        <put name="content" value="/ChangePasswordContent.jspx" />
+    </definition>
+    
+    <definition name=".AnadirSala" extends=".Base" >
+        <put name="title"  value="AnadirSala.title" />
+        <put name="headerSpecificAsKey" value="AnadirSala.headerSpecific" />
+        <put name="content" value="/AnadirSalaContent.jspx" />
+    </definition>
+    
+     <definition name=".FormaSala" extends=".Base" >
+        <put name="title"  value="FormaSala.title" />
+        <put name="headerSpecificAsKey" value="FormaSala.headerSpecific" />
+        <put name="content" value="/FormaSalaContent.jspx" />
+    </definition>
+    
+     <definition name=".AnadirSesion" extends=".Base" >
+        <put name="title"  value="AnadirSesion.title" />
+        <put name="headerSpecificAsKey" value="AnadirSesion.headerSpecific" />
+        <put name="content" value="/AnadirSesionContent.jspx" />
+    </definition>
+    
+     <definition name=".MostrarCartelera" extends=".Base" >
+        <put name="title"  value="MostrarCartelera.title" />
+         <put name="headerSpecificAsTile" value="/MainPageHeaderSpecific.jspx" />
+        <put name="content" value="/MostrarCarteleraContent.jspx" />
+    </definition>
+    
+   <definition name=".MostrarDetallesPelicula" extends=".Base" >
+        <put name="title"  value="MostrarCartelera.title" />
+        <put name="headerSpecificAsKey" value="MostrarDetallesPelicula.headerSpecific" />
+        <put name="content" value="/MostrarDetallesPeliculaContent.jspx" />
+    </definition>
+    
+    <definition name=".Mostrardvd" extends=".Base" >
+        <put name="title"  value="Mostrardvd.title" />
+        <put name="headerSpecificAsKey" value="Mostrardvd.headerSpecific" />
+        <put name="content" value="/MostrardvdContent.jspx" />
+    </definition>
+    
+    <definition name=".MostrarMerchandising" extends=".Base" >
+        <put name="title"  value="MostrarMerchandising.title" />
+        <put name="headerSpecificAsKey" value="MostrarMerchandising.headerSpecific" />
+        <put name="content" value="/MostrarMerchandisingContent.jspx" />
+    </definition>
+    
+      <definition name=".MostrarPeliculasAdmin" extends=".Base" >
+        <put name="title"  value="MostrarPeliculasAdmin.title" />
+        <put name="headerSpecificAsKey" value="MostrarPeliculasAdmin.headerSpecific" />
+        <put name="content" value="/MostrarPeliculasAdminContent.jspx" />
+    </definition>
+    
+      <definition name=".Busqueda" extends=".Base" >
+        <put name="title"  value="Busqueda.title" />
+        <put name="headerSpecificAsKey" value="Busqueda.headerSpecific" />
+        <put name="content" value="/BusquedaContent.jspx" />
+    </definition>
+    
+    <definition name=".MostrarEstadoSala" extends=".Base" >
+        <put name="title"  value="MostrarEstadoSala.title" />
+        <put name="headerSpecificAsKey" value="MostrarEstadoSala.headerSpecific" />
+        <put name="content" value="/MostrarEstadoSalaContent.jspx" />
+    </definition>
+
+    <definition name=".CarroCompra" extends=".Base" >
+        <put name="title"  value="MostrarCarroCompra.title" />
+        <put name="headerSpecificAsKey" value="MostrarCarroCompra.headerSpecific" />
+        <put name="content" value="/MostrarCarroCompraContent.jspx" />
+    </definition>
+
+
+</tiles-definitions>

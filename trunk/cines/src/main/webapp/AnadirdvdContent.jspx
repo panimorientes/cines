@@ -1,0 +1,127 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:html="http://struts.apache.org/tags-html"
+          version="2.0">
+
+<html:xhtml/>
+
+<html:form action="Anadirdvd.do" focus="titulo" enctype="multipart/form-data">
+
+    <html:hidden property="action" value="REGISTER"/>
+    
+  
+   
+   
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="dvd.titulo"/>
+        </span>
+        <span class="forminput">
+            <html:text property="titulo" size="25" maxlength="50"/>
+            <html:errors property="titulo"/>
+        </span>
+    </div>
+    
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="dvd.director"/>
+        </span>
+        <span class="forminput">    
+            <html:text property="director" size="25" maxlength="40"/>
+            <html:errors property="director"/>
+        </span>
+    </div>
+    
+      <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="dvd.clasificacion"/>
+        </span>
+        <span class="forminput">
+        	 <html:select property="clasificacion">
+            	
+            		<html:option value="Humor">
+	            		Humor
+            		</html:option>
+            	
+            		<html:option value="Accion">
+	            		Accion
+            		</html:option>
+            		
+            		<html:option value="Aventuras">
+	            		Aventuras
+            		</html:option>
+            		
+            		<html:option value="Suspense">
+	            		Suspense
+            		</html:option>
+            		
+            </html:select>            
+            <html:errors property="clasificacion"/>
+        </span>
+    </div>
+    
+  
+     <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="dvd.descripcion"/>
+        </span>
+        <span class="forminput">
+            <html:text property="descripcion" size="30" maxlength="60"/>
+            <html:errors property="descripcion"/>
+        </span>
+    </div>
+    
+     <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="dvd.precio"/>
+        </span>
+        <span class="forminput">
+            <html:text property="precio" size="5" maxlength="5"/>
+            <html:errors property="precio"/>
+        </span>
+    </div>
+     <div class="row">        
+     <span class="formlabel">
+      <fmt:message key="dvd.disponibilidad"/>
+       </span>
+        <span class="forminput">
+            <html:select property="disponibilidad">
+            	
+            		<html:option value="true">
+	            		True
+            		</html:option>
+            	
+            		<html:option value="false">
+	            		False
+            		</html:option>
+            		
+            </html:select>
+            <html:errors property="disponibilidad"/>
+        </span>
+    </div> 
+      
+        
+     <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="dvd.file"/>
+        </span>
+        <span class="forminput">
+        	<html:file property="file" size="20"/>
+            <html:errors property="file"/>
+        </span>
+    </div>
+   
+  
+    
+      <p></p>
+   <p align="center">
+        <html:submit>
+            <fmt:message key="Buttons.anadir"/>
+        </html:submit>
+    </p>
+
+</html:form>
+
+</jsp:root>

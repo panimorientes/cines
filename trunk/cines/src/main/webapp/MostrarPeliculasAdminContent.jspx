@@ -1,0 +1,36 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:html="http://struts.apache.org/tags-html"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          version="2.0">
+
+<html:xhtml/>
+
+<table>
+<tbody>
+
+<c:forEach var="pelis" items="${peliculas}">
+<tr>
+												<td> <c:url var="urlFoto" value="img/pelicula/${pelis.titulo}"/>
+												<p>
+													<img src="${urlFoto}" width="50" height="50"/>
+												</p></td>
+												
+												<td>${pelis.titulo}</td>
+												
+												<td><c:if test="${sessionScope.login=='Administrator'}">	
+													<c:url var="urlEPeli" value="EliminarPelicula.do">
+														<c:param name="idPeli" value="${pelis.idPelicula}"/>
+													</c:url>
+													
+													<a href="${urlEPeli}">
+														<img src="img/papelera1.jpeg" width="20" height="20" title="Eliminar pelicula y sesion"/>
+													</a>
+												</c:if></td>									
+</tr>
+</c:forEach>
+</tbody>
+</table>
+
+</jsp:root>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+  <distributable/>
+
+  <!-- ======================= Standard TagLibs configuration ============== -->
+  
+  <context-param>
+      <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+      <param-value>javi.http.view.messages.Messages</param-value>
+  </context-param>
+
+  <!-- ======================== Front controller configuration ============= -->
+
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/Struts/struts-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <init-param>
+      <param-name>detail</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+
+  <!-- ====================== Servlet mapping ============================== -->
+
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ============================= Session =============================== -->
+
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+
+  <!-- =========================== Welcome page ============================ -->
+
+  <welcome-file-list>
+    <welcome-file>Index.jspx</welcome-file>
+  </welcome-file-list>
+  
+  <!-- ========================== Cines DataSource ==================== -->
+
+  <resource-ref>
+    <res-ref-name>jdbc/cines</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+   
+  
+
+  <!-- ========================== Environment entries ====================== -->
+
+ <env-entry>
+    <env-entry-name>UserFacadeDelegateFactory/delegateClassName</env-entry-name>
+    <env-entry-value>javi.model.userfacade.plain.PlainUserFacadeDelegate</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+  <env-entry>
+    <env-entry-name>SQLUserProfileDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.userprofile.dao.StandardSQLUserProfileDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+  <env-entry>
+    <env-entry-name>SQLUserTarjetaDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.tarjeta.dao.StandardSQLTarjetaDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+   <env-entry>
+    <env-entry-name>SQLPedidoDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.pedido.dao.StandardSQLPedidoDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+   <env-entry>
+    <env-entry-name>SQLLPedidoDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.lpedido.dao.StandardSQLLPedidoDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+  <env-entry>
+    <env-entry-name>AdminFacadeDelegateFactory/delegateClassName</env-entry-name>
+    <env-entry-value>javi.model.adminfacade.plain.PlainAdminFacadeDelegate</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+   <env-entry>
+    <env-entry-name>SQLButacaDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.butaca.dao.StandardSQLButacaDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+   <env-entry>
+    <env-entry-name>SQLDireccionDAOFactory/daoClassName</env-entry-name>
+     <env-entry-value>javi.model.direccion.dao.StandardSQLDireccionDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+   <env-entry>
+    <env-entry-name>BusquedaFacadeDelegateFactory/delegateClassName</env-entry-name>
+    <env-entry-value>javi.model.busquedafacade.plain.PlainBusquedaFacadeDelegate</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+
+  <env-entry>
+    <env-entry-name>SQLPeliculaDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.pelicula.dao.MysqlPeliculaDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+  <env-entry>
+    <env-entry-name>SQLdvdDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.dvd.dao.MysqldvdDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+  <env-entry>
+    <env-entry-name>SQLMerchandisingDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.merchandising.dao.MysqlMerchandisingDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+   <env-entry>
+    <env-entry-name>SQLCineDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.cine.dao.MysqlCineDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+  <env-entry>
+    <env-entry-name>SQLSalaDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.sala.dao.StandardSQLSalaDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+  <env-entry>
+    <env-entry-name>SQLSesionDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.sesion.dao.MysqlSesionDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+  <env-entry>
+    <env-entry-name>SQLTicketDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.ticket.dao.MysqlTicketDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+  <env-entry>
+    <env-entry-name>SQLPedidoDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.pedido.dao.StandardSQLPedidoDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+
+	<env-entry>
+		<env-entry-name>GenericEntityIdentifierRetriever/query</env-entry-name>
+		<env-entry-value>SELECT LAST_INSERT_ID()</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	
+	
+	<env-entry>
+		<env-entry-name>EntityIdentifierRetrieverFactory/retrieverClassName</env-entry-name>
+		<env-entry-value>es.udc.fbellas.j2ee.util.sql.GenericEntityIdentifierRetriever</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>	
+</web-app>

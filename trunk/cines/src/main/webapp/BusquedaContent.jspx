@@ -1,0 +1,78 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:html="http://struts.apache.org/tags-html"
+          version="2.0">
+
+<html:xhtml/>
+
+
+<p></p> 
+<h1>
+ <![CDATA[ &nbsp; ]]>
+<td><span class="formlabel">
+	<fmt:message key="Pelicula.titulo"/>
+</span></td>
+
+ <![CDATA[ &nbsp; ]]>
+
+<td><span class="formlabel">
+	<fmt:message key="Sesion.startDate"/>
+</span></td>
+
+ <![CDATA[ &nbsp; &nbsp; ]]>
+
+<td><span class="formlabel">
+	<fmt:message key="Sesion.hora"/>
+</span></td>
+</h1>
+
+<p></p> 
+<table>
+<tbody>
+<thead>
+<tr>
+
+</tr>
+</thead>
+<c:forEach var="sesion" items="${listasesion}">
+	<c:forEach var="pelicula" items="${peliculas}">
+
+		<c:if test="${sesion.idPelicula==pelicula.idPelicula}">    
+<tr>
+</tr>
+
+<tr>
+	
+
+<td><div style="margin-left:0px; with: 396px"> <p>
+			
+												<c:url var="urlDPeli" value="MostrarDetallesPelicula.do">
+													<c:param name="idCine" value="${sesion.idCine}"/>
+													<c:param name="sesion" value="${sesion.idSesion}"/>
+												</c:url>		            	
+							            			<a href="${urlDPeli}">
+														${pelicula.titulo}
+													</a>
+												</p>
+												
+</div></td>
+												<fmt:formatDate var="fecha" value="${sesion.fecha.time}"/>
+												<td>${fecha}</td>
+												<td>${sesion.hora}</td>
+												
+											
+											
+</tr>
+		</c:if>
+	</c:forEach>
+</c:forEach>
+
+</tbody>
+</table>
+
+
+</jsp:root>
+
+

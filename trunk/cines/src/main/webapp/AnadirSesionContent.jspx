@@ -1,0 +1,138 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:html="http://struts.apache.org/tags-html"
+          version="2.0">
+
+<html:xhtml/>
+
+<html:form action="AnadirSesion.do" focus="titulo">
+
+    <html:hidden property="action" value="REGISTER"/>
+    
+       
+ <div class="row">        
+     <span class="formlabel">
+      <fmt:message key="AnadirSesion.titulo"/>
+       </span>
+        <span class="forminput">
+            <html:select property="titulo">
+            	<c:forEach var="titulo" items="${listapeliculas}">
+            		<html:option value="${titulo.titulo}">
+	            		${titulo.titulo}
+            		</html:option>
+            	</c:forEach>
+            </html:select>
+            <html:errors property="titulo"/>
+        </span>
+    </div> 
+ 
+ 	<div class="row">        
+     <span class="formlabel">
+      <fmt:message key="AnadirSesion.nombre"/>
+       </span>
+        <span class="forminput">
+            <html:select property="nombre">
+            	<c:forEach var="nombre" items="${listacines}">
+            		<html:option value="${nombre.nombre}">
+	            		${nombre.nombre}
+            		</html:option>
+            	</c:forEach>
+            </html:select>
+            <html:errors property="nombre"/>
+        </span>
+    </div> 
+ 	
+ 	<div class="row">        
+        <span class="formlabel">
+            <fmt:message key="AdminSesion.idSala"/>
+        </span>
+        <span class="forminput">
+            <html:text property="idSala" size="2" maxlength="2"/>
+            <html:errors property="idSala"/>
+        </span>
+    </div>
+   
+   
+   
+     <div class="row">
+        <span class="formlabel">
+            <fmt:message key="AdminSesion.startDate"/>
+        </span>
+        <span class="forminput">
+        
+            <fmt:message key="AdminSesion.day"/> 
+            <html:select property="startDay">
+                <html:options name="dateRanges" property="days"/>
+            </html:select>
+            
+            <![CDATA[ &nbsp; ]]>
+            <fmt:message key="AdminSesion.month"/>            
+            <html:select property="startMonth">
+                <html:options name="dateRanges" property="months"/>
+            </html:select>
+
+            <![CDATA[ &nbsp; ]]>
+            <fmt:message key="AdminSesion.year"/>
+            <html:select property="startYear">
+                <html:options name="dateRanges" property="years"/>
+            </html:select>
+            
+        </span>
+    </div>
+   
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="AdminSesion.hora"/>
+        </span>
+        <span class="forminput">    
+            <html:text property="hora" size="8" maxlength="8"/>
+            <html:errors property="hora"/>
+        </span>
+    </div>
+    
+   
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="AdminSesion.precio"/>
+        </span>
+        <span class="forminput">
+            <html:text property="precio" size="5" maxlength="5"/>
+            <html:errors property="precio"/>
+        </span>
+    </div>
+    
+  
+      
+   <div class="row">        
+     <span class="formlabel">
+      <fmt:message key="AdminSesion.numerada"/>
+       </span>
+        <span class="forminput">
+            <html:select property="numerada">
+            	
+            		<html:option value="true">
+	            		True
+            		</html:option>
+            	
+            		<html:option value="false">
+	            		False
+            		</html:option>
+            		
+            </html:select>
+            <html:errors property="numerada"/>
+        </span>
+    </div> 
+   
+   
+      <p></p><p></p>
+   <p align="center">
+        <html:submit>
+            <fmt:message key="Buttons.anadir"/>
+        </html:submit>
+    </p>
+    
+</html:form>
+
+</jsp:root>

@@ -1,0 +1,88 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:html="http://struts.apache.org/tags-html"
+          version="2.0">
+
+<html:xhtml/>
+
+<html:form action="AnadirSala.do" focus="idCine">
+
+    <html:hidden property="action" value="REGISTER"/>
+
+
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="CineVO.nombre"/>
+        </span>
+        <span class="forminput">
+            <html:select property="cine">
+            	<c:forEach var="cines" items="${listacines}">
+            		<html:option value="${cines.nombre}">
+	            		${cines.nombre}
+            		</html:option>
+            	</c:forEach>
+            </html:select>
+            <html:errors property="cine"/>
+        </span>
+    </div>
+    
+    
+    
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="AdminSala.idSala"/>
+        </span>
+        <span class="forminput">    
+            <html:text property="idSala" size="2" maxlength="2"/>
+            <html:errors property="idSala"/>
+        </span>
+    </div>
+    
+    
+     <div class="row">       									        
+        <span class="formlabel">
+            <fmt:message key="AnadirSalaContent.listaButacas"/>
+        </span>
+        <span class="forminput">   
+        	<c:forEach var="i" begin="1" end="${numFilas*asientos}">
+		        
+			    <html:checkbox property="butacas[${i}]" value="false" style="size=1" />			
+				
+				<c:if test='${i%asientos==0 and i!=0}'> 			
+					<br /> 
+				</c:if>
+            </c:forEach> 
+        </span>
+    </div> 			
+    
+
+	 <div class="row">        
+        <span class="forminput">    
+            <html:hidden property="numFilas" value="${numFilas}"/>
+            <html:errors property="numFilas"/>
+        </span>
+    </div>
+    
+     <div class="row">        
+        <span class="forminput">    
+            <html:hidden property="asientos" value="${asientos}"/>
+            <html:errors property="asientos"/>
+        </span>
+    </div>
+
+ 
+ <p></p><p></p>
+   <p align="center">
+        <html:submit>
+            <fmt:message key="Buttons.anadir"/>
+        </html:submit>
+    </p>
+    
+    
+    
+    
+</html:form>
+
+</jsp:root>
