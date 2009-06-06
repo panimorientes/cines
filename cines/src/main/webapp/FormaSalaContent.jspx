@@ -1,0 +1,63 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:html="http://struts.apache.org/tags-html"
+          version="2.0">
+
+<html:xhtml/>
+
+<html:form action="FormaSala.do" focus="numFilas">
+
+    <html:hidden property="action" value="REGISTER"/>
+
+
+   <div class="row">        
+     <span class="fromlabel">
+      <fmt:message key="FormaSala.numFilas"/>
+       </span>
+        <span class="forminput">
+            <html:select property="numFilas">
+            	<c:forEach var="i" begin="0" end="20">
+            		<html:option value="${i}">
+	            		${i}
+            		</html:option>
+            	
+            	</c:forEach> 
+            </html:select>
+            <html:errors property="numFilas"/>
+        </span>
+    </div> 
+    
+    <div class="row">        
+     <span class="formlabel">
+      <fmt:message key="FormaSala.asientos"/>
+       </span>
+        <span class="forminput">
+            <html:select property="asientos">
+            	<c:forEach var="i" begin="0" end="20">
+            		<html:option value="${i}">
+	            		${i}
+            		</html:option>
+            	
+            	</c:forEach> 
+            </html:select>
+            <html:errors property="asientos"/>
+        </span>
+    </div> 
+    
+    
+             
+   <p></p><p></p>
+   <p align="center">
+        <html:submit>
+            <fmt:message key="Buttons.anadir"/>
+        </html:submit>
+    </p>
+    
+    
+    
+    
+</html:form>
+
+</jsp:root>

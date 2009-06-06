@@ -1,0 +1,82 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:html="http://struts.apache.org/tags-html"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          version="2.0">
+
+<html:xhtml/>
+
+
+<p></p>
+<h6>
+ <![CDATA[ &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; ]]>
+ <td><span class="formlabel">
+	<fmt:message key="Merchandising.descripcion"/>
+</span></td>
+
+  <![CDATA[ &nbsp; ]]>
+<td><span class="formlabel">
+	<fmt:message key="Merchandising.talla"/>
+</span></td>
+
+ <![CDATA[ &nbsp; ]]>
+
+<td><span class="formlabel">
+	<fmt:message key="Merchandising.precio"/>
+</span></td>
+
+ <![CDATA[ &nbsp; ]]>
+
+<td><span class="formlabel">
+	<fmt:message key="Merchandising.disponibilidad"/>
+</span></td>
+
+
+</h6>
+
+<table>
+<tbody>
+
+<c:forEach var="mer" items="${merchandising}">
+<tr>
+
+												<td><c:url var="urlFoto" value="img/merchandising/${mer.descrip}"/>
+													<p>
+														<img src="${urlFoto}" width="50" height="50"/>
+													</p>
+												</td>
+												<td>${mer.descrip}</td>
+												<td>${mer.talla}</td>
+												<td>${mer.precio}</td>
+												<td>${mer.disponibilidad}</td>	
+												<td><c:if test="${sessionScope.login=='Administrator'}">	
+													<c:url var="urlEMerchandising" value="EliminarMerchandising.do">
+														<c:param name="idMerchandising" value="${mer.idMerchandising}"/>
+													</c:url>
+													
+													<a href="${urlEMerchandising}">
+														<img src="img/papelera1.jpeg" width="20" height="20" title="Eliminar merchandising"/>
+													</a>
+												</c:if></td>
+												
+											
+												<c:if test="${mer.disponibilidad}">
+	
+												<td>
+													<c:url var = "urlCompra" value="ComprarM.do">
+														<c:param name="id" value="${mer.referencia}"/>
+													</c:url>
+													<a href="${urlCompra }">
+														Comprar
+													</a>
+												</td>			
+
+												</c:if>
+																									
+</tr>
+</c:forEach>
+</tbody>
+</table>
+
+</jsp:root>

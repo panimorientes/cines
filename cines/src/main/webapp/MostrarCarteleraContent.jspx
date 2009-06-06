@@ -1,0 +1,126 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:html="http://struts.apache.org/tags-html"
+          version="2.0">
+
+<html:xhtml/>
+
+<html:form action="MostrarCartelera.do" focus="nombre">
+
+    <html:hidden property="action" value="REGISTER"/>
+
+  
+
+<div class="row">        
+     <span class="formlabel">
+      <fmt:message key="MostrarCartelera.nombre"/>
+       </span>
+        <span class="forminput">
+            <html:select property="nombre" onchange="submit()">
+            	<c:forEach var="cine" items="${listacines}">
+            		<html:option value="${cine.nombre}">
+	            		${cine.nombre}
+            		</html:option>
+            	</c:forEach>
+            </html:select>
+            <html:errors property="nombre"/>
+        </span>
+    </div> 
+
+<p></p> <p></p> <p></p> 
+<h1>
+ <![CDATA[ &nbsp; ]]>
+<td><span class="formlabel">
+	<fmt:message key="Pelicula.titulo"/>
+</span></td>
+
+ <![CDATA[ &nbsp; ]]>
+
+<td><span class="formlabel">
+	<fmt:message key="Sesion.startDate"/>
+</span></td>
+
+ <![CDATA[ &nbsp; &nbsp; ]]>
+
+<td><span class="formlabel">
+	<fmt:message key="Sesion.hora"/>
+</span></td>
+
+<![CDATA[ &nbsp; &nbsp; ]]>
+
+<td><span class="formlabel">
+	<fmt:message key="Sesion.idSala"/>
+</span></td>
+</h1>
+
+<p></p> 
+<table>
+<tbody>
+<thead>
+<tr>
+
+</tr>
+</thead>
+<c:forEach var="sesion" items="${listasesion}">
+<tr>
+    
+</tr>
+<tr>
+	
+
+<td><div style="margin-left:0px; with: 396px"> <p>
+			
+												<c:url var="urlDPeli" value="MostrarDetallesPelicula.do">
+													<c:param name="idCine" value="${sesion.idCine}"/>
+													<c:param name="sesion" value="${sesion.idSesion}"/>
+												</c:url>
+
+											
+									            	<c:forEach var="pelicula" items="${listapeliculas}">
+									            		<c:if test="${sesion.idPelicula==pelicula.idPelicula}">
+									            			<a href="${urlDPeli}">
+																${pelicula.titulo}
+															</a>
+														</c:if>
+													</c:forEach>
+											 
+												</p>
+												
+</div></td>
+												<fmt:formatDate var="fecha" value="${sesion.fecha.time}"/>
+												<td>${fecha}</td>
+												<td>${sesion.hora}</td>
+												<td>${sesion.idSala}</td>
+												
+											
+												
+												<td><c:if test="${sessionScope.login=='Administrator'}">
+													
+													<c:url var="urlESesion" value="EliminarSesion.do">
+														<c:param name="sesion" value="${sesion.idSesion}"/>
+													</c:url>
+													<a href="${urlESesion}">
+														<img src="img/papelera1.jpeg" width="20" height="20" title="Eliminar sesion"/>
+													</a>
+													
+												</c:if></td>
+</tr>
+</c:forEach>
+</tbody>
+</table>
+
+</html:form>
+
+
+	 <div class="row">        
+        <span class="forminput">    
+            <html:hidden property="titulo" value="${sesion.titulo}"/>
+            <html:errors property="titulo"/>
+        </span>
+    </div>
+
+</jsp:root>
+
+

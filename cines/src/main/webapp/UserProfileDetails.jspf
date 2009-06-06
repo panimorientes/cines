@@ -1,0 +1,105 @@
+<div class="row">		
+	<span class="formlabel">
+		<fmt:message key="UserProfile.nombre"/>
+	</span>
+	<span class="forminput">	
+		<html:text property="nombre" size="16" maxlength="30"/>
+		<html:errors property="nombre"/>
+	</span>
+</div>
+
+<div class="row">		
+	<span class="formlabel">
+		<fmt:message key="UserProfile.ape1"/>
+	</span>
+	<span class="forminput">	
+		<html:text property="ape1" size="16" maxlength="40"/>
+		<html:errors property="ape1"/>
+	</span>
+</div>
+
+<div class="row">		
+	<span class="formlabel">
+		<fmt:message key="UserProfile.ape2"/>
+	</span>
+	<span class="forminput">	
+		<html:text property="ape2" size="16" maxlength="40"/>
+		<html:errors property="ape2"/>
+	</span>
+</div>
+
+<div class="row">		
+	<span class="formlabel">
+		<fmt:message key="UserDireccion.cp"/>
+	</span>
+	<span class="forminput">	
+		<html:text property="cp" size="5" maxlength="5"/>
+		<html:errors property="cp"/>
+	</span>
+</div>
+
+<div class="row">		
+	<span class="formlabel">
+		<fmt:message key="UserDireccion.ciudad"/>
+	</span>
+	<span class="forminput">	
+		<html:text property="ciudad" size="10" maxlength="12"/>
+		<html:errors property="ciudad"/>
+	</span>
+</div>
+
+<div class="row">		
+	<span class="formlabel">
+		<fmt:message key="UserDireccion.direccion"/>
+	</span>
+	<span class="forminput">	
+		<html:text property="direccion" size="25" maxlength="40"/>
+		<html:errors property="direccion"/>
+	</span>
+</div>
+
+<div class="row">		
+	<span class="formlabel">
+		<fmt:message key="UserDireccion.numero"/>
+	</span>
+	<span class="forminput">	
+		<html:text property="numero" size="5" maxlength="5"/>
+		<html:errors property="numero"/>
+	</span>
+</div>
+
+<div class="row">		
+	<span class="formlabel">
+		<fmt:message key="UserProfile.email"/>
+	</span>
+	<span class="forminput">	
+		<html:text property="email" size="16" maxlength="60"/>
+		<html:errors property="email"/>
+	</span>
+</div>
+
+<div class="row">
+	<span class="formlabel">
+		<fmt:message key="UserProfile.language"/>
+	</span>
+	<span class="forminput">
+		<html:select property="lenguaje">
+			<html:options collection="languages" property="value" 
+						  labelProperty="label"/>
+		</html:select>
+		<html:errors property="language"/>
+	</span>
+</div>
+
+<div class="row">
+	<span class="formlabel">
+		<fmt:message key="UserProfile.pais"/>
+	</span>
+	<span class="forminput">
+		<html:select property="pais">
+			<html:options collection="countries" property="value" 
+						  labelProperty="label"/>
+		</html:select>
+		<html:errors property="country"/>
+	</span>
+</div>

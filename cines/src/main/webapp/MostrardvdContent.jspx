@@ -1,0 +1,85 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:html="http://struts.apache.org/tags-html"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          version="2.0">
+
+<html:xhtml/>
+
+
+<p></p>
+<h6>
+<![CDATA[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ]]>
+<td><span class="formlabel">
+	<fmt:message key="dvd.titulo"/>
+</span></td>
+<![CDATA[ &nbsp;&nbsp; &nbsp;&nbsp;  ]]>
+<td><span class="formlabel">
+	<fmt:message key="dvd.director"/>
+</span></td>
+<![CDATA[ &nbsp;&nbsp; &nbsp;&nbsp;  ]]>
+<td><span class="formlabel">
+	<fmt:message key="dvd.clasificacion"/>
+</span></td>
+<![CDATA[ &nbsp;&nbsp; &nbsp;&nbsp;  ]]>
+<td><span class="formlabel">
+	<fmt:message key="dvd.precio"/>
+</span></td>
+<![CDATA[ &nbsp; &nbsp; &nbsp;&nbsp; ]]>
+<td><span class="formlabel">
+	<fmt:message key="dvd.disponibilidad"/>
+</span></td>
+
+												
+</h6>
+
+<p></p> 
+<table>
+<tbody>
+
+<c:forEach var="dvd" items="${dvds}">
+<tr>
+												<td><c:url var="urlFoto" value="img/dvd/${dvd.titulo}"/>
+													<p>
+														<img src="${urlFoto}" width="50" height="50"/>
+													</p>
+												</td>
+												<td>${dvd.titulo}</td>
+												<td>${dvd.director}</td>
+												<td>${dvd.clasificacion}</td>
+												<td>${dvd.precio}</td>
+												<td>${dvd.disponibilidad}</td>	
+												<td><c:if test="${sessionScope.login=='Administrator'}">	
+													<c:url var="urlEdvd" value="Eliminardvd.do">
+														<c:param name="idDvd" value="${dvd.idDvd}"/>
+													</c:url>
+													
+													<a href="${urlEdvd}">
+														<img src="img/papelera1.jpeg" width="20" height="20" title="Eliminar dvd"/>
+													</a>
+												</c:if></td>													
+																						
+												<c:if test="${dvd.disponibilidad}">
+
+												<td>
+													<c:url var = "urlCompra" value="ComprarD.do">
+														<c:param name="id" value="${dvd.titulo}"/>
+													</c:url>
+													<a href="${urlCompra }">
+														Comprar
+													</a>
+												</td>			
+
+												</c:if>
+																								
+												
+</tr>
+</c:forEach>
+</tbody>
+</table>
+
+
+
+
+</jsp:root>

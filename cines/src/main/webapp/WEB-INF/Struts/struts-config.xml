@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ============ Form Bean Definitions =================================== -->
+
+<form-beans>
+
+    <form-bean name="loginForm"
+type="javi.http.view.actionforms.LoginForm"/>
+
+    <form-bean name="userProfileForm"
+type="javi.http.view.actionforms.UserProfileForm"/>
+
+    <form-bean name="changePasswordForm"
+type="javi.http.view.actionforms.ChangePasswordForm"/>
+
+ <form-bean name="registrarTarjetaForm"
+type="javi.http.view.actionforms.RegistrarTarjetaForm"/>
+
+ <form-bean name="anadirPeliculaForm"
+type="javi.http.view.actionforms.AnadirPeliculaForm"/>
+
+<form-bean name="anadirdvdForm"
+type="javi.http.view.actionforms.AnadirdvdForm"/>
+
+<form-bean name="anadirMerchandisingForm"
+type="javi.http.view.actionforms.AnadirMerchandisingForm"/>
+
+<form-bean name="anadirCineForm"
+type="javi.http.view.actionforms.AnadirCineForm"/>
+
+<form-bean name="anadirSalaForm"
+type="javi.http.view.actionforms.AnadirSalaForm"/>
+
+<form-bean name="formaSalaForm"
+type="javi.http.view.actionforms.FormaSalaForm"/>
+
+<form-bean name="anadirSesionForm"
+type="javi.http.view.actionforms.AnadirSesionForm"/>
+
+<form-bean name="mostrarCarteleraForm"
+type="javi.http.view.actionforms.MostrarCarteleraForm"/>
+
+<form-bean name="mostrarDetallesPeliculaForm"
+type="javi.http.view.actionforms.MostrarDetallesPeliculaForm"/>
+
+<form-bean name="mostrardvdForm"
+type="javi.http.view.actionforms.MostrardvdForm"/>
+
+<form-bean name="mostrarMerchandisingForm"
+type="javi.http.view.actionforms.MostrarMerchandisingForm"/>
+
+<form-bean name="mostrarPeliculasAdminForm"
+type="javi.http.view.actionforms.MostrarPeliculasAdminForm"/>
+
+<form-bean name="busquedaForm"
+type="javi.http.view.actionforms.BusquedaForm"/>
+
+<form-bean name="historialPedidosForm"
+type="javi.http.view.actionforms.HistorialPedidosForm"/>
+
+
+
+</form-beans>
+
+<!-- ============ Global Forward Definitions ============================== -->
+
+<global-forwards>
+    <forward name="MainPage" path="/MainPage.do" redirect="true"/>
+    <forward name="AuthenticationPage" path="/ShowAuthentication.do" 
+             redirect="true"/>
+    <forward name="InternalError" path="/InternalError.do" redirect="true"/>
+</global-forwards>
+
+<!-- ============ Action Mapping Definitions ============================== -->
+
+<action-mappings
+type="javi.http.controller.frontcontroller.MiniPortalActionMapping">
+
+    <action path="/InternalError"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter=".InternalError"/>
+
+    <action path="/MainPage"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter=".MainPage"/>
+            
+    <action path="/ShowAuthentication"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter=".Authentication"/>
+
+    <action path="/Login"
+			type="javi.http.controller.actions.LoginAction"
+            name="loginForm"
+            scope="request"
+            input=".Authentication"
+            validate="true"/>
+    
+    <action path="/Logout"
+			type="javi.http.controller.actions.LogoutAction"/>
+            
+    <action path="/EditUserProfileForRegistration"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/EditUserProfile.do"/>
+            
+    <action path="/EditUserProfileForUpdating"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/EditUserProfile.do">
+        <set-property property="authenticationRequired" value="true"/>
+    </action>
+            
+    <action path="/EditUserProfile"
+			type="javi.http.controller.actions.EditUserProfileAction"
+            name="userProfileForm"
+            scope="request"
+            validate="false">
+            
+        <forward name="RegisterUserForm" path=".RegisterUser"/>
+        <forward name="UpdateUserProfileDetailsForm" path=".UpdateUserProfileDetails"/>
+            
+    </action>
+    
+     <action path="/EditCineAction"
+			type="javi.http.controller.actions.EditCineAction"
+            name="anadirSalaForm"
+            scope="request"
+            validate="true">
+        <forward name="AnadirSalaForm" path=".AnadirSalaForm"/>      
+    </action>
+    
+    <action path="/EditPeliculaAction"
+			type="javi.http.controller.actions.EditPeliculaAction"
+            name="anadirSesionForm"
+            scope="request"
+            validate="true">
+        <forward name="AnadirSesionForm" path=".AnadirSesionForm"/>      
+    </action>
+    
+       <action path="/EditSalaAction"
+			type="javi.http.controller.actions.EditSalaAction"
+            name="anadirPeliculaForm"
+            scope="request"
+            validate="true">
+        <forward name="AnadirPeliculaForm" path=".AnadirPeliculaForm"/>      
+    </action>
+    
+    <action path="/RegisterUser"
+			type="javi.http.controller.actions.RegisterUserAction"
+            name="userProfileForm"
+            scope="request"
+            input="/EditUserProfile.do"
+            validate="true"/>
+            
+    <action path="/UpdateUserProfileDetails"
+			type="javi.http.controller.actions.UpdateUserProfileDetailsAction"
+            name="userProfileForm"
+            scope="request"
+            input="/EditUserProfile.do"
+            validate="true">
+        <set-property property="authenticationRequired" value="true"/>
+    </action>
+            
+    <action path="/ShowChangePassword"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter=".ChangePassword">
+        <set-property property="authenticationRequired" value="true"/>
+    </action>
+            
+    <action path="/ChangePassword"
+			type="javi.http.controller.actions.ChangePasswordAction"
+            name="changePasswordForm"
+            scope="request"
+            input=".ChangePassword"
+            validate="true">
+        <set-property property="authenticationRequired" value="true"/>
+    </action>
+    
+    
+     <action path="/MostrarDetallesPelicula"
+			type="javi.http.controller.actions.MostrarDetallesPeliculaAction">
+        <forward name="MostrarDetallesPelicula" path=".MostrarDetallesPelicula"/>
+    </action>
+    
+     <action path="/HistorialPedidos"
+			type="javi.http.controller.actions.HistorialPedidosAction">
+			<set-property property="authenticationRequired" value="true"/>
+       <forward name="HistorialPedidos" path=".HistorialPedidos"/>
+    </action>
+
+     <action path="/EliminarPelicula"
+			type="javi.http.controller.actions.EliminarPeliculaAction">
+        <set-property property="authenticationRequired" value="true"/>
+    </action>
+    
+     <action path="/EliminarSesion"
+			type="javi.http.controller.actions.EliminarSesionAction">
+        <set-property property="authenticationRequired" value="true"/>
+    </action>
+    
+     <action path="/Eliminardvd"
+			type="javi.http.controller.actions.EliminardvdAction">
+        <set-property property="authenticationRequired" value="true"/>
+    </action>
+    
+    <action path="/EliminarMerchandising"
+			type="javi.http.controller.actions.EliminarMerchandisingAction">
+        <set-property property="authenticationRequired" value="true"/>
+    </action>
+    
+     <action path="/Mostrardvd"
+			type="javi.http.controller.actions.MostrardvdAction">
+        <forward name="MostrardvdForm" path=".Mostrardvd"/>
+    </action>
+     
+    <action path="/MostrarMerchandising"
+			type="javi.http.controller.actions.MostrarMerchandisingAction">
+        <forward name="MostrarMerchandisingForm" path=".MostrarMerchandising"/>
+    </action>
+    
+     <action path="/MostrarPeliculasAdmin"
+			type="javi.http.controller.actions.MostrarPeliculasAdminAction">
+        <forward name="MostrarPeliculasAdminForm" path=".MostrarPeliculasAdmin"/>
+    </action>
+    
+      <action path="/Busqueda"
+			type="javi.http.controller.actions.BusquedaAction"
+			name="busquedaForm"
+            scope="request"
+            input=".Busqueda">
+        <forward name="BusquedaForm" path=".Busqueda"/>
+    </action>
+    
+    
+    <action path="/ShowRegistrarTarjeta"
+    		type="org.apache.struts.actions.ForwardAction"
+    		parameter=".RegistrarTarjeta">
+    		<set-property property="authenticationRequired" value="true"/>
+    </action>
+     <action path="/RegistrarTarjeta"
+			type="javi.http.controller.actions.RegistrarTarjetaAction"
+            name="registrarTarjetaForm"
+            scope="request"
+            input=".RegistrarTarjeta"
+            validate="true">
+        <set-property property="authenticationRequired" value="true"/>
+    </action>
+    
+    <action path="/ShowAnadirCine"
+    		type="org.apache.struts.actions.ForwardAction"
+    		parameter=".AnadirCine">
+    		<set-property property="adminRequired" value="true"/>
+    </action>	
+     <action path="/AnadirCine"
+			type="javi.http.controller.actions.AnadirCineAction"
+            name="anadirCineForm"
+            scope="request"
+            input=".AnadirCine"
+            validate="true">
+        <set-property property="adminRequired" value="true"/>
+    </action>
+  
+	<action path="/ShowAnadirPelicula"
+    		type="org.apache.struts.actions.ForwardAction"
+    		parameter=".AnadirPelicula">
+    		<set-property property="adminRequired" value="true"/>
+    </action>	
+    <action path="/AnadirPelicula"
+			type="javi.http.controller.actions.AnadirPeliculaAction"
+            name="anadirPeliculaForm"
+            scope="request"
+            input=".AnadirPelicula"
+            validate="true">
+        <set-property property="adminRequired" value="true"/>
+    </action>
+    
+    <action path="/ShowAnadirdvd"
+    		type="org.apache.struts.actions.ForwardAction"
+    		parameter=".Anadirdvd">
+    		<set-property property="adminRequired" value="true"/>
+    </action>	
+    <action path="/Anadirdvd"
+			type="javi.http.controller.actions.AnadirdvdAction"
+            name="anadirdvdForm"
+            scope="request"
+            input=".Anadirdvd"
+            validate="true">
+        <set-property property="adminRequired" value="true"/>
+    </action>
+    
+     <action path="/ShowAnadirMerchandising"
+    		type="org.apache.struts.actions.ForwardAction"
+    		parameter=".AnadirMerchandising">
+    		<set-property property="adminRequired" value="true"/>
+    </action>	
+    <action path="/AnadirMerchandising"
+			type="javi.http.controller.actions.AnadirMerchandisingAction"
+            name="anadirMerchandisingForm"
+            scope="request"
+            input=".AnadirMerchandising"
+            validate="true">
+        <set-property property="adminRequired" value="true"/>
+    </action>
+       
+      
+    <action path="/ShowAnadirSala"
+    		type="javi.http.controller.actions.EditCineAction"
+    		parameter=".AnadirSala">
+    		<set-property property="adminRequired" value="true"/>
+    		<forward name="AnadirSalaForm" path=".AnadirSala"/>
+    </action>	
+    
+     <action path="/AnadirSala"
+			type="javi.http.controller.actions.AnadirSalaAction"
+            name="anadirSalaForm"
+            scope="request"
+            input=".AnadirSala"
+            validate="true">
+        <set-property property="adminRequired" value="true"/>
+    </action>
+    
+    <action path="/ShowFormaSala"
+    		type="org.apache.struts.actions.ForwardAction"
+    		parameter=".FormaSala">
+    		<set-property property="adminRequired" value="true"/>
+    </action>	
+    
+     <action path="/FormaSala"
+			type="javi.http.controller.actions.FormaSalaAction"
+            name="formaSalaForm"
+            scope="request"
+            input=".FormaSala"
+            validate="true">
+        <set-property property="adminRequired" value="true"/>
+        <forward name="AnadirSalaForm" path=".AnadirSala"/>
+    </action>
+    
+    
+
+  <action path="/ShowAnadirSesion"
+    		type="javi.http.controller.actions.EditPeliculaAction"
+    		parameter=".AnadirSesion">
+    		<set-property property="adminRequired" value="true"/>
+    		<forward name="AnadirSesionForm" path=".AnadirSesion"/>
+    </action>	
+    
+     <action path="/AnadirSesion"
+			type="javi.http.controller.actions.AnadirSesionAction"
+            name="anadirSesionForm"
+            scope="request"
+            input=".AnadirSesion"
+            validate="true">
+        <set-property property="adminRequired" value="true"/>
+    </action>
+    
+    
+	<action path="/MostrarEstadoSala"
+			type="javi.http.controller.actions.MostrarEstadoSalaAction">
+			<set-property property="authenticationRequired" value="true"/>
+			<forward name="MostrarEstadoSala" path=".MostrarEstadoSala"/>
+			<forward name="SalaLlena" path=".SalaLlena"/>
+			
+    </action>
+    
+     
+    <action path="/ShowMostrarCartelera"
+    		type="javi.http.controller.actions.MostrarCarteleraAction"
+    		parameter=".MostrarCartelera">   	
+    		<forward name="MostrarCarteleraForm" path=".MostrarCartelera"/>
+    </action>	
+    
+     <action path="/MostrarCartelera"
+			type="javi.http.controller.actions.MostrarCarteleraAction"
+            name="mostrarCarteleraForm"
+            scope="request"
+            input=".MostrarCartelera"
+            validate="false">
+            <forward name="MostrarCarteleraForm" path=".MostrarCartelera"/>
+        </action>
+  
+    <action path="/ComprarTicket"
+    	type="javi.http.controller.actions.ComprarTicketAction">
+    	<set-property property="authenticationRequired" value="true"/>
+    	<forward name="MostrarSesion" path="/mostrarsesion.jsp"/>
+    </action>
+    
+    <action path="/VerCarro"
+    	type="javi.http.controller.actions.MostrarCarroAction">
+    	<set-property property="authenticationRequired" value="true"/>
+    	<forward name="CarroCompra" path=".CarroCompra"/>
+    </action>    
+
+    <action path="/EliminarLineaCarro"
+    	type="javi.http.controller.actions.EliminarLineaCarroAction">
+    		<set-property property="authenticationRequired" value="true"/>
+    		<forward name="MostrarCarro" path="/VerCarro.do"></forward>
+	 </action>
+	 
+	 <action path="/CarroTerminar"
+	 	type="javi.http.controller.actions.TerminarCarroAction">
+	 	<set-property property="authenticationRequired" value="true"/>
+	 	<forward name="Terminar" path="/VerCarro.do"></forward>
+	 </action>
+	 
+	 <action path="/ComprarM"
+	 	type="javi.http.controller.actions.ComprarM">
+	 	<set-property property="authenticationRequired" value="true"/>
+	 </action>
+	 
+	 <action path="/ComprarD"
+	 	type="javi.http.controller.actions.ComprarD">
+	 	<set-property property="authenticationRequired" value="true"/>
+	 </action>
+
+    <!-- ===================================================================
+         The standard administrative actions available with Struts. These must 
+         be either omitted or protected by security in a real application 
+         deployment. 
+         =================================================================== -->
+
+    <action path="/admin/addFormBean"
+            type="org.apache.struts.actions.AddFormBeanAction"/>
+    <action path="/admin/addForward"
+            type="org.apache.struts.actions.AddForwardAction"/>
+    <action path="/admin/addMapping"
+            type="org.apache.struts.actions.AddMappingAction"/>
+    <action path="/admin/reload"
+            type="org.apache.struts.actions.ReloadAction"/>
+    <action path="/admin/removeFormBean"
+            type="org.apache.struts.actions.RemoveFormBeanAction"/>
+    <action path="/admin/removeForward"
+            type="org.apache.struts.actions.RemoveForwardAction"/>
+    <action path="/admin/removeMapping"
+            type="org.apache.struts.actions.RemoveMappingAction"/>
+
+</action-mappings>
+
+<!-- ============ Front Controller Configuration ========================== -->
+
+<controller 
+processorClass="javi.http.controller.frontcontroller.MiniPortalRequestProcessor"></controller>
+
+<!-- ============ Message Resources Definitions =========================== -->
+
+<message-resources
+   parameter="javi.http.view.messages.Messages"/>
+
+<!-- ============================ Tiles Plugin ============================ -->
+
+<plug-in className="org.apache.struts.tiles.TilesPlugin" >
+    <set-property property="definitions-config"
+                  value="/WEB-INF/Struts/tiles-defs.xml" />
+</plug-in>  
+
+<plug-in className="javi.http.controller.plugin.CinePlugIn"/>
+</struts-config>

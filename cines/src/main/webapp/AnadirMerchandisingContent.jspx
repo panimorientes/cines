@@ -1,0 +1,116 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:html="http://struts.apache.org/tags-html"
+          version="2.0">
+
+<html:xhtml/>
+
+<html:form action="AnadirMerchandising.do" focus="descripcion" enctype="multipart/form-data">
+
+    <html:hidden property="action" value="REGISTER"/>
+    
+      <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="Merchandising.descripcion"/>
+        </span>
+        <span class="forminput">
+            <html:text property="descripcion" size="20" maxlength="20"/>
+            <html:errors property="descripcion"/>
+        </span>
+    </div>
+  
+   
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="Merchandising.referencia"/>
+        </span>
+        <span class="forminput">
+            <html:text property="referencia" size="8" maxlength="8"/>
+            <html:errors property="referencia"/>
+        </span>
+    </div>
+    
+      <div class="row">        
+     <span class="formlabel">
+      <fmt:message key="Merchandising.talla"/>
+       </span>
+        <span class="forminput">
+            <html:select property="talla">
+            	
+            		<html:option value="S">
+	            		S
+            		</html:option>
+            	
+            		<html:option value="L">
+	            		L
+            		</html:option>
+            		
+            		<html:option value="XL">
+	            		XL
+            		</html:option>
+            		
+            		<html:option value="XXL">
+	            		XXL
+            		</html:option>
+            		
+            </html:select>
+            <html:errors property="talla"/>
+        </span>
+    </div> 
+    
+    <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="Merchandising.precio"/>
+        </span>
+        <span class="forminput">
+            <html:text property="precio" size="5" maxlength="5"/>
+            <html:errors property="precio"/>
+        </span>
+    </div>
+    
+      <div class="row">        
+     <span class="formlabel">
+      <fmt:message key="Merchandising.disponibilidad"/>
+       </span>
+        <span class="forminput">
+            <html:select property="disponibilidad">
+            	
+            		<html:option value="true">
+	            		True
+            		</html:option>
+            	
+            		<html:option value="false">
+	            		False
+            		</html:option>
+            		
+            </html:select>
+            <html:errors property="disponibilidad"/>
+        </span>
+    </div> 
+    
+      
+     <div class="row">        
+        <span class="formlabel">
+            <fmt:message key="Merchandising.file"/>
+        </span>
+        <span class="forminput">
+        	<html:file property="file" size="20"/>
+            <html:errors property="file"/>
+        </span>
+    </div>
+   
+      
+  
+    
+     <p></p>
+   <p align="center">
+        <html:submit>
+            <fmt:message key="Buttons.anadir"/>
+        </html:submit>
+    </p>
+
+</html:form>
+
+</jsp:root>

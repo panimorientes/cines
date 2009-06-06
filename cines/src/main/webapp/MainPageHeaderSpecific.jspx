@@ -1,0 +1,133 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:html="http://struts.apache.org/tags-html"
+    version="2.0">
+
+
+<c:choose>
+
+    <jsp:output omit-xml-declaration="true"/>
+          
+    <c:when test="${empty sessionScope.login}">    
+    
+    	<ul>
+    	<li>
+        <html:link action="ShowAuthentication.do">
+            <fmt:message key="MainPageHeaderSpecific.authenticate"/>
+        </html:link>
+        </li>
+         <li>
+        <html:link action="/MostrarMerchandising.do">
+            <fmt:message key="MainPageHeaderSpecific.mostrarMerchandising"/>
+        </html:link>
+        </li>
+        <li>
+        <html:link action="/Mostrardvd.do">
+            <fmt:message key="MainPageHeaderSpecific.mostrardvd"/>
+        </html:link>
+        </li>
+        <li>
+        <html:link action="/ShowMostrarCartelera.do">
+            <fmt:message key="MainPageHeaderSpecific.mostrarCartelera"/>
+        </html:link>
+        </li>
+       
+        </ul>
+    </c:when>
+    <c:when test="${sessionScope.login=='Administrator'}">    
+    	<ul>
+
+        <li>
+        <html:link action="/ShowMostrarCartelera.do">
+            <fmt:message key="MainPageHeaderSpecific.mostrarCartelera"/>
+        </html:link>
+        </li>
+    	<li>
+        <html:link action="/ShowAnadirPelicula.do">
+            <fmt:message key="MainPageHeaderSpecific.anadirPelicula"/>
+        </html:link>
+        </li>
+        <li>
+        <html:link action="/MostrarPeliculasAdmin.do">
+            <fmt:message key="MainPageHeaderSpecific.mostrarPeliculasAdmin"/>
+        </html:link>
+        </li>
+        <li>
+         <html:link action="/ShowAnadirMerchandising.do">
+            <fmt:message key="MainPageHeaderSpecific.anadirMerchandising"/>
+        </html:link>  
+        </li>
+         <li>
+        <html:link action="/MostrarMerchandising.do">
+            <fmt:message key="MainPageHeaderSpecific.mostrarMerchandising"/>
+        </html:link>
+        </li>
+        <li>
+         <html:link action="/ShowAnadirdvd.do">
+            <fmt:message key="MainPageHeaderSpecific.anadirdvd"/>
+        </html:link>  
+        </li>
+         <li>
+        <html:link action="/Mostrardvd.do">
+            <fmt:message key="MainPageHeaderSpecific.mostrardvd"/>
+        </html:link>
+        </li>
+        <li>
+        <html:link action="/ShowAnadirCine.do">
+            <fmt:message key="MainPageHeaderSpecific.anadirCine"/>
+        </html:link>  
+        </li>
+        <li>
+         <html:link action="/ShowFormaSala.do">
+            <fmt:message key="MainPageHeaderSpecific.formaSala"/>
+        </html:link>  
+         </li>
+         <li>
+        <html:link action="/ShowAnadirSesion.do">
+            <fmt:message key="MainPageHeaderSpecific.anadirSesion"/>
+        </html:link>  
+        </li>
+        <li>
+        <html:link action="Logout.do">
+            <fmt:message key="MainPageHeaderSpecific.logout"/>
+        </html:link>
+       </li>
+	    </ul>        
+       
+    </c:when>
+    <c:otherwise>
+    <ul>
+    <li>
+        <html:link action="EditUserProfileForUpdating.do?action=UPDATE">
+            <fmt:message key="MainPageHeaderSpecific.updateProfile"/>
+        </html:link>
+        </li>
+         <li>
+        <html:link action="/MostrarMerchandising.do">
+            <fmt:message key="MainPageHeaderSpecific.mostrarMerchandising"/>
+        </html:link>
+        </li>
+        <li>
+        <html:link action="/Mostrardvd.do">
+            <fmt:message key="MainPageHeaderSpecific.mostrardvd"/>
+        </html:link>
+        </li>
+        <li>
+        <html:link action="/ShowMostrarCartelera.do">
+            <fmt:message key="MainPageHeaderSpecific.mostrarCartelera"/>
+        </html:link>
+        </li>
+        <li>
+        <html:link action="Logout.do">
+            <fmt:message key="MainPageHeaderSpecific.logout"/>
+        </html:link>
+        </li>
+        </ul>
+    </c:otherwise>
+    
+</c:choose>
+
+
+</jsp:root>

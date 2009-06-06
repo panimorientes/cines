@@ -1,0 +1,56 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns:html="http://struts.apache.org/tags-html"
+          version="2.0">
+          
+<html:xhtml/>
+
+<p><html:link action="EditUserProfileForRegistration.do?action=REGISTER">
+        <fmt:message key="AuthenticationContent.register"/>
+</html:link></p>
+
+<html:form action="Login.do" focus="login">
+    
+    <div class="row">
+    	<span class="formlabel">
+            <fmt:message key="UserProfile.login"/>
+        </span>
+        
+        <span class="forminput">
+            <html:text property="login" size="20" maxlength="20"/>
+            <html:errors property="login"/>
+        </span>
+    </div>
+    
+    <div class="row">
+    	<span class="formlabel">
+            <fmt:message key="UserProfile.pass"/>
+        </span>
+        
+        <span class="forminput">
+            <html:password property="pass" size="20"  maxlength="20"/>
+            <html:errors property="pass"/>
+        </span>
+    </div>
+    
+    <div class="row">      
+        <span class="formlabel">
+            <fmt:message key="AuthenticationContent.rememberMyPassword"/>
+        </span>
+        
+        <span class="forminput">  
+            <html:checkbox property="rememberMyPassword"/>
+        </span>
+    </div>
+  
+   <p></p>
+   <p align="center">
+        <html:submit>
+            <fmt:message key="Buttons.login"/>
+        </html:submit>
+    </p>
+    
+</html:form>
+
+</jsp:root>
