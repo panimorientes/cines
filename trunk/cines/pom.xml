@@ -1,38 +1,37 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
     http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>es.udc.fbellas.j2ee</groupId>
-        <artifactId>j2ee-examples</artifactId>
-        <version>2.1.3</version>
-    </parent>
-    <groupId>javi</groupId>
-    <artifactId>cines</artifactId>
-    <packaging>war</packaging>
-    <version>2.1.3</version>
-    <name>Cines System</name>
-    <url>http://www.tic.udc.es/~fbellas/teaching/is</url>
-  
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven2-plugin</artifactId>
-                <configuration>
-                    <deployer>
-                        <deployables>
-                            <deployable>
-                                <artifactId>${pom.artifactId}</artifactId>
-                                <groupId>${pom.groupId}</groupId>
-                                <pingURL>http://localhost:8080/cines</pingURL>
-                            </deployable>
-                        </deployables>
-                    </deployer>
-                </configuration>
-            </plugin>
-            <plugin>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>es.udc.fbellas.j2ee</groupId>
+		<artifactId>j2ee-examples</artifactId>
+		<version>2.1.3</version>
+	</parent>
+	<groupId>javi</groupId>
+	<artifactId>cines</artifactId>
+	<packaging>war</packaging>
+	<version>2.1.3</version>
+	<name>Cines System</name>
+	<url>http://www.tic.udc.es/~fbellas/teaching/is</url>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<configuration>
+					<deployer>
+						<deployables>
+							<deployable>
+								<artifactId>${pom.artifactId}</artifactId>
+								<groupId>${pom.groupId}</groupId>
+								<pingURL>http://localhost:8080/cines</pingURL>
+							</deployable>
+						</deployables>
+					</deployer>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>maven-jetty-plugin</artifactId>
 				<configuration>
@@ -41,11 +40,11 @@
 					</jettyEnvXml>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
 					<!-- Log to the console. -->
-					<requestLog
-						implementation="org.mortbay.jetty.NCSARequestLog">
-						<!-- This doesn't do anything for Jetty, but is a
-							workaround for a Maven bug that prevents the
-							requestLog from being set. -->
+					<requestLog implementation="org.mortbay.jetty.NCSARequestLog">
+						<!--
+							This doesn't do anything for Jetty, but is a workaround for a
+							Maven bug that prevents the requestLog from being set.
+						-->
 						<append>true</append>
 					</requestLog>
 				</configuration>
@@ -57,41 +56,57 @@
 						<version>5.0.5</version>
 					</dependency>
 				</dependencies>
-
 			</plugin>
-        </plugins>
-        <finalName>cines</finalName>
-    </build>
- 
-    <dependencies>
-        <dependency>
-            <groupId>es.udc.fbellas.j2ee</groupId>
-            <artifactId>webutil</artifactId>
-            <version>2.1.3</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.4</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.1.2</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>taglibs</groupId>
-            <artifactId>standard</artifactId>
-            <version>1.1.2</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.1</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<configuration>
+					<contextFile>src/main/tomcat/context.xml</contextFile>
+				</configuration>
+
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.0.5</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+		</plugins>
+		<finalName>cines</finalName>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>es.udc.fbellas.j2ee</groupId>
+			<artifactId>webutil</artifactId>
+			<version>2.1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.1.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>
