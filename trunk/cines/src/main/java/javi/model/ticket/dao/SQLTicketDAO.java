@@ -15,6 +15,7 @@ import es.udc.fbellas.j2ee.util.exceptions.InternalErrorException;
 public interface SQLTicketDAO {
 	
 	
+	//XXX no entiendo aun porque existe la clase Ticket y que es un Ticket. 
 	
 	/**
 	 * Creacion del ticket, se utiliza esta solucion en lugar de recurrir a la 
@@ -68,6 +69,9 @@ public interface SQLTicketDAO {
 	 * @return
 	 * @throws InternalErrorException
 	 */
+	
+	//XXX declaracion de UPDATE esta mal hecha,pone "ticke".
+	//¿¿¿¿ADEMAS, tiene sentido hacer un UPDATE de un ticket????
 	public void update(Connection connection, TicketVO ticke)
 	throws InstanceNotFoundException,InternalErrorException;
 	

@@ -15,6 +15,7 @@ public class StandardSQLDireccionDAO implements SQLDireccionDAO {
     public void create(Connection connection, DireccionVO adminDireccionVO)
     throws  InternalErrorException{
         
+    	//XXX un usuario puede tener mas de una direccion???creo que no,hay k comprobar
         /* Check if the user already exists. */
        /* if (exists(connection, userDireccionVO.getLogin())) {
         	throw new SQLException("Duplicate row for login = '" + 

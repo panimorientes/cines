@@ -34,6 +34,7 @@ public class MysqlSesionDAO extends StandardSQLSesionDAO{
 			/* Fill "preparedStatement". */
 			int i = 1;
 			
+			//XXX que hay en "date"??
 			Timestamp date = new Timestamp(sesionVO.getFecha().getTime()
 					.getTime());
 

@@ -101,6 +101,8 @@ public abstract class StandardSQLSesionDAO implements SQLSesionDAO {
 
 	}
 	
+	//XXX no se supone que la clave primaria de Sesion es idSesion??
+	//    entonces,hay varias sesiones con el mismo idSesion??
 	public List<SesionVO> find1(Connection connection, Long idSesion)
 	throws InstanceNotFoundException, InternalErrorException {
 

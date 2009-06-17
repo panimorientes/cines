@@ -38,6 +38,7 @@ public class TicketVO extends ProductoVO {
 	 * @param precio
 	 */
 	public TicketVO(long idSesion, long fila, long butaca, int estado,double precio) {
+		//XXX cosa? 
 		super(0,precio,"ticket butaca"+fila+" "+butaca);
 		
 		this.idSesion = idSesion;

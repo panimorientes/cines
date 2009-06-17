@@ -94,6 +94,8 @@ public class StandardSQLTarjetaDAO implements SQLTarjetaDAO {
         
     }
         
+    //XXX el metodo FIND creo que esta mal, no se cuando saca de la
+    //    BD el numero de tarjeta para poder hacer TarjetaVO
     public TarjetaVO find(Connection connection, String login)
         throws InstanceNotFoundException, InternalErrorException {
         

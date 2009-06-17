@@ -30,9 +30,11 @@ public class RecuperarPedidosAction implements NonTransactionalPlainAction {
         SQLPedidoDAO pedidoDAO = SQLPedidoDAOFactory.getDAO();
         SQLLPedidoDAO lpedidoDAO = SQLLPedidoDAOFactory.getDAO();
         
+        //recupera todos los pedidos que ha hecho esa persona
         List<PedidoVO> pedidos=pedidoDAO.find(connection,login);
         
-        
+        //devuelve una lista de lineas de pedidos de todos los pedidos que ha hecho
+        //es decir,todas las lineas de pedido que ha hecho
         return lpedidoDAO.recuperarLPedido(connection, pedidos);
                      
 
