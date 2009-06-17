@@ -67,10 +67,12 @@ public class PlainBusquedaFacadeDelegate implements BusquedaFacadeDelegate {
 
     }
 	
+	//XXX para que usa este metodo???
 	public List<PedidoVO> recuperarFechaPed(String login) throws InternalErrorException {
         
         try {
         
+        	//devuelve todos los pedidos que ha hecho una persona(y no lineas pedidos)
             RecuperarFechaPedAction action = new RecuperarFechaPedAction(login);
                 
             return (List<PedidoVO>) PlainActionProcessor.process(getDataSource(),action);
@@ -141,6 +143,7 @@ public class PlainBusquedaFacadeDelegate implements BusquedaFacadeDelegate {
     }
 
 }
+    //XXX que devuelve?una lista con un solo elto??no puede haber mas d 1 sesion con el mismo id
     public List<SesionVO> buscaSesion(long idSesion) throws InternalErrorException {
         
         try {
@@ -160,7 +163,7 @@ public class PlainBusquedaFacadeDelegate implements BusquedaFacadeDelegate {
     }
     
   
-    
+    //XXX devuelve la primera pelicula que encuentra????
     public PeliculaVO buscaPelicula() throws InternalErrorException {
         
         try {

@@ -150,6 +150,9 @@ public void update(Connection connection, SalaVO salaVO)
         String queryString = "UPDATE SALA" +
             " SET id_sala = ?, filas = ?, asientos = ?, idCine = ?" +
             " WHERE id_sala = ?";
+        
+        //XXX comprueba que ahora el cine donde hemos puesto la sala
+        //    no tenga ya una sala con ese numero???
         preparedStatement = connection.prepareStatement(queryString);
         
         /* Fill "preparedStatement". */

@@ -33,7 +33,8 @@ public class MostrarCarteleraAction implements NonTransactionalPlainAction {
         
         CineVO cinevo = busquedaCineDAO.find1(connection, cine); 
         
-        
+        //XXX devuelve las sesiones de este cine,hay que comprobar
+        //	  que no aparezcan las sesiones pasadas
         return  busquedaSesionDAO.find(connection, cinevo.getIdCine());
 
     }

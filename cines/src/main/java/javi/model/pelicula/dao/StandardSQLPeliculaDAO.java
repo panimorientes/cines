@@ -145,6 +145,7 @@ public abstract class StandardSQLPeliculaDAO implements SQLPeliculaDAO {
 
 	}
 	
+	//XXX que sentido tiene este metodo??devuelve solo la 1ª pelicula de la BDs??
 	public PeliculaVO find1(Connection connection)
 	throws InstanceNotFoundException, InternalErrorException {
 		
@@ -236,6 +237,8 @@ public abstract class StandardSQLPeliculaDAO implements SQLPeliculaDAO {
 
 	}
 	
+	//XXX creo que este es el metodo que funciona mal
+	//	  en el codigo hace cosas raras por haber hardcodeado las categorias
 	public List<PeliculaVO> find(Connection connection, String titulo, String categoria)
 	throws InstanceNotFoundException, InternalErrorException {
 
@@ -345,6 +348,8 @@ public abstract class StandardSQLPeliculaDAO implements SQLPeliculaDAO {
 		try {
 
 			/* Create "preparedStatement". */
+			
+			//XXX de donde sale Preferencia??
 			String queryString = "UPDATE PELICULA" +
 			" SET idPelicula = ?, titulo = ?, director = ?, clasificacion = ?, descripcion = ?, Preferencia = ?," +
 			" WHERE titulo = ?";

@@ -14,6 +14,8 @@ import es.udc.fbellas.j2ee.util.sql.GeneralOperations;
 
 public class StandardSQLButacaDAO implements SQLButacaDAO {
 
+	
+	//XXX no entiendo que es ese vector de booleans
     public void create(Connection connection, ButacaVO adminButacaVO, boolean [] array)
         throws DuplicateInstanceException, InternalErrorException {
         

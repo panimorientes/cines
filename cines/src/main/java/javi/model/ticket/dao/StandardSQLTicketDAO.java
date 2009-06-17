@@ -90,7 +90,7 @@ public abstract class StandardSQLTicketDAO implements SQLTicketDAO{
 		
 		
 		if(!resultSet.next())
-			//si no existe devuleve un nulo
+			//si no existe devuelve un nulo
 			return null;
 		else{
 			i = 1;
