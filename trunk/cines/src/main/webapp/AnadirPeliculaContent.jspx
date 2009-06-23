@@ -38,23 +38,11 @@
         </span>
         <span class="forminput">
         	 <html:select property="clasificacion">
-            	
-            		<html:option value="Humor">
-	            		Humor
+            	<c:forEach var="clase" items="${clasificaciones}">
+            		<html:option value="${clase.nombre}">
+	            		${clase.nombre}
             		</html:option>
-            	
-            		<html:option value="Accion">
-	            		Accion
-            		</html:option>
-            		
-            		<html:option value="Aventuras">
-	            		Aventuras
-            		</html:option>
-            		
-            		<html:option value="Suspense">
-	            		Suspense
-            		</html:option>
-            		
+            	</c:forEach>
             </html:select>            
             <html:errors property="clasificacion"/>
         </span>

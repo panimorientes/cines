@@ -40,6 +40,8 @@ public class UserProfileForm extends DefaultActionForm {
     private String email;
     private String lenguaje;
     private String pais;
+    private Long tarjetaAsLong;
+    private String tarjeta;
     
     public UserProfileForm() {
         reset();
@@ -52,7 +54,27 @@ public class UserProfileForm extends DefaultActionForm {
 	}
 
 
+    public void setTarjetaAsLong(Long tarjetaAsLong){
+    	this.tarjetaAsLong = tarjetaAsLong;
+    }
+    
+    public Long getTarjetaAsLong(){
+    	
+    	return tarjetaAsLong;
+    }
 
+    public void setTarjeta(String tarjeta){
+    	
+    	this.tarjeta = tarjeta.trim();
+    	
+    }
+    
+    public String getTarjeta(){
+    	
+    	return tarjeta;
+    	
+    }
+    
 	public void setCpAsLong(Long cpAsLong) {
 		this.cpAsLong = cpAsLong;
 	}
@@ -219,7 +241,7 @@ public class UserProfileForm extends DefaultActionForm {
         PropertyValidator.validateString(errors, "pais", pais, true, Countries.getCountryCodes());
         cpAsLong = new Long(PropertyValidator.validateLong(errors, "cp", cp, true, 1, Long.MAX_VALUE));
         numeroAsLong = new Long(PropertyValidator.validateLong(errors, "numero", numero, true, 1, Long.MAX_VALUE));
-        
+        tarjetaAsLong = new Long(PropertyValidator.validateLong(errors, "tarjeta", tarjeta, true, 1, Long.MAX_VALUE));
         return errors;
         
     }
@@ -239,6 +261,7 @@ public class UserProfileForm extends DefaultActionForm {
         email = null;
         lenguaje = null;
         pais = null;
+        tarjeta = null;
     }
 
 }

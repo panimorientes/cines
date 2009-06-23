@@ -11,6 +11,7 @@ import javi.http.view.actionforms.UserProfileForm;
 import javi.http.view.applicationobjects.Countries;
 import javi.http.view.applicationobjects.Languages;
 import javi.model.direccion.vo.DireccionVO;
+import javi.model.tarjeta.vo.TarjetaVO;
 import javi.model.userprofile.vo.UserProfileDetailsVO;
 import javi.model.userprofile.vo.UserProfileVO;
 
@@ -76,6 +77,11 @@ public class EditUserProfileAction extends DefaultAction {
                 userProfileForm.setCiudad(userDireccionVO.getCiudad());
                 userProfileForm.setDireccion(userDireccionVO.getDireccion());
                 userProfileForm.setNumero(Long.toString(userDireccionVO.getNumero()));
+                
+                TarjetaVO tarjetaVO = SessionManager.getUserFacadeDelegate(request).findUserTarjeta();
+                
+                if (tarjetaVO != null)
+                	userProfileForm.setTarjeta(Long.toString(tarjetaVO.getNumTarjeta()));
                                                                    
             }
             

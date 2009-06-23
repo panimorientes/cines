@@ -265,9 +265,9 @@ type="javi.http.controller.frontcontroller.MiniPortalActionMapping">
     </action>
   
 	<action path="/ShowAnadirPelicula"
-    		type="org.apache.struts.actions.ForwardAction"
-    		parameter=".AnadirPelicula">
-    		<set-property property="adminRequired" value="true"/>
+    		type="javi.http.controller.actions.CargarClasificacionAction">
+    		 <set-property property="adminRequired" value="true"/>
+    		 <forward name="AnadirPelicula2" path=".AnadirPelicula"/>
     </action>	
     <action path="/AnadirPelicula"
 			type="javi.http.controller.actions.AnadirPeliculaAction"
@@ -360,7 +360,6 @@ type="javi.http.controller.frontcontroller.MiniPortalActionMapping">
     
 	<action path="/MostrarEstadoSala"
 			type="javi.http.controller.actions.MostrarEstadoSalaAction">
-			<set-property property="authenticationRequired" value="true"/>
 			<forward name="MostrarEstadoSala" path=".MostrarEstadoSala"/>
 			<forward name="SalaLlena" path=".SalaLlena"/>
 			

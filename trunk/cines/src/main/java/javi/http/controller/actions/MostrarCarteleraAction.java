@@ -32,51 +32,36 @@ public class MostrarCarteleraAction extends DefaultAction {
     	  /* Fill "form". */     
         List<CineVO> cines= SessionManager.getBusquedaFacadeDelegate(request).buscaUserCine();
         
+        if (cines == null || cines.isEmpty())
+        	return mapping.findForward("MainPage");
 
-        if(cines != null && !cines.isEmpty()){
-        	nombre = cines.get(0).getNombre();
-        	request.setAttribute("listacines", cines);
-        }
-
-       
-       
     	
-    	if(form != null && cines != null && cines.size() > 0){
-    	
+    	if(form != null){
     	 MostrarCarteleraForm mostrarCarteleraForm = (MostrarCarteleraForm) form;
          nombre = mostrarCarteleraForm.getNombre();
-         
-   
-         
     	}
+    	else
+    		nombre = cines.get(0).getNombre();
     	
     
+    	List<SesionVO> sesion = SessionManager.getBusquedaFacadeDelegate(request).mostrarCartelera(nombre);
     	
-        /* Fill "form". */     
-    	if(cines != null && !cines.isEmpty() && (form==null)){
-
-    	List<SesionVO> sesion= SessionManager.getBusquedaFacadeDelegate(request).mostrarCartelera(cines.get(0).getNombre());
+    	List<PeliculaVO> pelicula = SessionManager.getBusquedaFacadeDelegate(request).buscaAdminPelicula();
     	
-    	List<PeliculaVO> pelicula= SessionManager.getBusquedaFacadeDelegate(request).buscaAdminPelicula();
-        
-    
+    	
+    	
+    	
+    	int test = 1;
+    	if (sesion.isEmpty()) 
+    		test = 0;
+    	request.setAttribute("test", test);
+    		
+    	
+    	request.setAttribute("listacines", cines);
     	request.setAttribute("listapeliculas", pelicula);
         request.setAttribute("listasesion", sesion);
         request.setAttribute("nombcine", nombre);
         
-
-    	}
-    	List<SesionVO> sesion = null;
-    	List<PeliculaVO> pelicula = null;
-    	if(nombre != null){
-    	sesion= SessionManager.getBusquedaFacadeDelegate(request).mostrarCartelera(nombre);
-    	pelicula= SessionManager.getBusquedaFacadeDelegate(request).buscaAdminPelicula();
-    	}
-        
-    	request.setAttribute("listapeliculas", pelicula);
-        request.setAttribute("listasesion", sesion);
-        request.setAttribute("nombcine", nombre);
-    	
     	
         /* Return ActionForward. */
     	request.setAttribute("nombcine", nombre);

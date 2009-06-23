@@ -162,8 +162,22 @@
   </env-entry>
   
   <env-entry>
+    <env-entry-name>SQLTarjetaDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.tarjeta.dao.StandardSQLTarjetaDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+  <env-entry>
     <env-entry-name>SQLPedidoDAOFactory/daoClassName</env-entry-name>
     <env-entry-value>javi.model.pedido.dao.StandardSQLPedidoDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+  
+  
+  <env-entry>
+    <env-entry-name>SQLClasificacionDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.clasificacion.dao.StandardSQLClasificacionDAO</env-entry-value>
     <env-entry-type>java.lang.String</env-entry-type>
   </env-entry>
 

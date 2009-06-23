@@ -30,6 +30,15 @@
     </div> 
 
 <p></p> <p></p> <p></p> 
+
+
+
+
+<c:if test="${test == 0}">
+	<p><fmt:message key="Sesion.NoHaySesiones"/></p>
+</c:if>
+
+<c:if test="${test != 0}">
 <h1>
  <![CDATA[ &nbsp; ]]>
 <td><span class="formlabel">
@@ -56,70 +65,76 @@
 </h1>
 
 <p></p> 
-<table>
+
+	<table>
 <tbody>
 <thead>
 <tr>
 
 </tr>
 </thead>
-<c:forEach var="sesion" items="${listasesion}">
-<tr>
-    
-</tr>
-<tr>
-	
-
-<td><div style="margin-left:0px; with: 396px"> <p>
+	<c:forEach var="sesion" items="${listasesion}">
+		<tr>
+		    
+		</tr>
+		<tr>
 			
-												<c:url var="urlDPeli" value="MostrarDetallesPelicula.do">
-													<c:param name="idCine" value="${sesion.idCine}"/>
-													<c:param name="sesion" value="${sesion.idSesion}"/>
-												</c:url>
-
-											
-									            	<c:forEach var="pelicula" items="${listapeliculas}">
-									            		<c:if test="${sesion.idPelicula==pelicula.idPelicula}">
-									            			<a href="${urlDPeli}">
-																${pelicula.titulo}
+		
+		<td><div style="margin-left:0px; with: 396px"> <p>
+					
+														<c:url var="urlDPeli" value="MostrarDetallesPelicula.do">
+															<c:param name="idCine" value="${sesion.idCine}"/>
+															<c:param name="sesion" value="${sesion.idSesion}"/>
+														</c:url>
+		
+													
+											            	<c:forEach var="pelicula" items="${listapeliculas}">
+											            		<c:if test="${sesion.idPelicula==pelicula.idPelicula}">
+											            			<a href="${urlDPeli}">
+																		${pelicula.titulo}
+																	</a>
+																</c:if>
+															</c:forEach>
+													 
+														</p>
+														
+		</div></td>
+														<fmt:formatDate var="fecha" value="${sesion.fecha.time}"/>
+														<td>${fecha}</td>
+														<td>${sesion.hora}</td>
+														<td>${sesion.idSala}</td>
+														
+													
+														
+														<td><c:if test="${sessionScope.login=='Administrator'}">
+															
+															<c:url var="urlESesion" value="EliminarSesion.do">
+																<c:param name="sesion" value="${sesion.idSesion}"/>
+															</c:url>
+															<a href="${urlESesion}">
+																<img src="img/papelera1.jpeg" width="20" height="20" title="Eliminar sesion"/>
 															</a>
-														</c:if>
-													</c:forEach>
-											 
-												</p>
-												
-</div></td>
-												<fmt:formatDate var="fecha" value="${sesion.fecha.time}"/>
-												<td>${fecha}</td>
-												<td>${sesion.hora}</td>
-												<td>${sesion.idSala}</td>
-												
-											
-												
-												<td><c:if test="${sessionScope.login=='Administrator'}">
-													
-													<c:url var="urlESesion" value="EliminarSesion.do">
-														<c:param name="sesion" value="${sesion.idSesion}"/>
-													</c:url>
-													<a href="${urlESesion}">
-														<img src="img/papelera1.jpeg" width="20" height="20" title="Eliminar sesion"/>
-													</a>
-													
-												</c:if></td>
-</tr>
-</c:forEach>
-</tbody>
+															
+														</c:if></td>
+		</tr>
+		</c:forEach>
+		</tbody>
 </table>
+</c:if>
+
+
 
 </html:form>
 
 
+<!--  
 	 <div class="row">        
         <span class="forminput">    
             <html:hidden property="titulo" value="${sesion.titulo}"/>
             <html:errors property="titulo"/>
         </span>
     </div>
+-->
 
 </jsp:root>
 

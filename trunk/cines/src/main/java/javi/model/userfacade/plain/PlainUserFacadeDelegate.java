@@ -10,6 +10,7 @@ import javi.model.carroCompra.CarroNotFoundException;
 import javi.model.direccion.vo.DireccionVO;
 import javi.model.dvd.vo.dvdVO;
 import javi.model.merchandising.vo.MerchandisingVO;
+import javi.model.tarjeta.vo.TarjetaVO;
 import javi.model.userfacade.delegate.UserFacadeDelegate;
 import javi.model.userfacade.exceptions.IncorrectPasswordException;
 import javi.model.userfacade.plain.actions.AnadirPedidoAction;
@@ -18,6 +19,7 @@ import javi.model.userfacade.plain.actions.ComprarDAction;
 import javi.model.userfacade.plain.actions.ComprarMAction;
 import javi.model.userfacade.plain.actions.FindUserDireccionAction;
 import javi.model.userfacade.plain.actions.FindUserProfileAction;
+import javi.model.userfacade.plain.actions.FindUserTarjetaAction;
 import javi.model.userfacade.plain.actions.LiberarTicketAction;
 import javi.model.userfacade.plain.actions.LoginAction;
 import javi.model.userfacade.plain.actions.RegisterUserAction;
@@ -43,12 +45,16 @@ public class PlainUserFacadeDelegate implements UserFacadeDelegate {
     
     public PlainUserFacadeDelegate() {
         loginName = null;
-        
     }
     
     public CarroCompra getCarroCompra() throws CarroNotFoundException{
     	return carroCompra;
     }
+    
+    public String getLoginName() {
+    	return loginName;
+    }
+    
     
     public void registerUser(String loginName, String clearPassword, Long cp, String ciudad, String direccion, Long numero,
         UserProfileDetailsVO userProfileDetailsVO)
@@ -85,10 +91,11 @@ public class PlainUserFacadeDelegate implements UserFacadeDelegate {
             LoginResultVO loginResultVO = 
                 (LoginResultVO) PlainActionProcessor.process(getDataSource(),
                     action);
-            this.loginName = loginName;
             
-            //Se da de alta un carro de compra para el usuario.
-            carroCompra = new CarroCompra();
+            this.loginName = loginName;
+            this.carroCompra = new CarroCompra();
+            	
+            	
             
             return loginResultVO;
             
@@ -163,7 +170,7 @@ public class PlainUserFacadeDelegate implements UserFacadeDelegate {
     }
       
     public void registrarTarjeta(Long tarjeta)
-    throws DuplicateInstanceException, InternalErrorException {
+    throws InternalErrorException {
     
     try {
     
@@ -172,8 +179,6 @@ public class PlainUserFacadeDelegate implements UserFacadeDelegate {
         PlainActionProcessor.process(getDataSource(), action);
         //this.loginName = loginName;
         
-    } catch (DuplicateInstanceException e) {
-        throw e;
     } catch (InternalErrorException e) {
         throw e;
     } catch (Exception e) {
@@ -280,6 +285,18 @@ public class PlainUserFacadeDelegate implements UserFacadeDelegate {
 		}
     	
     }
+
+	public TarjetaVO findUserTarjeta() throws InternalErrorException {
+		
+		try {
+			FindUserTarjetaAction action = new FindUserTarjetaAction(loginName);
+			return (TarjetaVO) PlainActionProcessor.process(getDataSource(), action);
+		} catch (ModelException e) {
+			throw new InternalErrorException(e);
+		} catch (InternalErrorException e) {
+			throw new InternalErrorException(e);
+		}
+	}
     
     
 }

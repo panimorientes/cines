@@ -17,7 +17,7 @@
 	<c:forEach var="j" begin="0" end="${numButacas - 1}">
 		<c:choose>
 			<c:when test="${empty butacas[i][j]}">
-				<img src = "img/pasillo.jpg" align="middle" alt="20" height="20" style="border: 0px solid"/>
+				<img src="img/pasillo.jpg" align="middle" alt="20" height="20" style="border:1px solid black"/>
 			</c:when>
 			<c:otherwise>
 				<c:choose>
@@ -25,15 +25,16 @@
 						<c:url var="comprarTicket" value="ComprarTicket.do"> 
 							<c:param name="idTicket" value="${butacas[i][j].idTicket}"/>
 						</c:url>
-						<a href="${comprarTicket }">
-							<img src = "img/vacio.jpg" align="middle" alt="20" height="20" style="border: 0px solid"/>
+						<a href="${comprarTicket}">
+							<img src="img/vacio.jpg" align="middle" alt="20" height="20" style="border:1px solid black"/>
 						</a>
 					</c:when>
 					<c:when test="${butacas[i][j].estado eq 1}">
-							<img src = "img/marcado.jpg" align="middle" alt="20" height="20" style="border: 0px solid"/>
+							<img src="img/marcado.jpg" align="middle" alt="20" height="20" style="border:1px solid black"/>
 					</c:when>
+
 					<c:when test="${butacas[i][j].estado eq 2}">
-							<img src = "img/ocupado.jpg" align="middle" alt="20" height="20" style="border: 0px solid"/>
+							<img src="img/ocupado.jpg" align="middle" alt="20" height="20" style="border:1px solid black"/>
 					</c:when>
 				
 				</c:choose>

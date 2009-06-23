@@ -125,25 +125,25 @@ public class StandardSQLUserProfileDAO implements SQLUserProfileDAO {
             resultSet = preparedStatement.executeQuery();
             
             if (!resultSet.next()) {     
-            	UserProfileVO.class.getName();
+            	throw new InstanceNotFoundException(loginName, UserProfileVO.class.getName());
             }
-
-            /* Get results. */
-            i = 1;
-            String pass = resultSet.getString(i++);
-            String nombre = resultSet.getString(i++);
-            String ape1 = resultSet.getString(i++);
-            String ape2 = resultSet.getString(i++);
-            String email = resultSet.getString(i++);
-            String lenguaje = resultSet.getString(i++);
-            String pais = resultSet.getString(i++);
-            UserProfileDetailsVO userProfileVODetails =
-                new UserProfileDetailsVO(nombre, ape1, ape2, email, lenguaje, pais);
-            
-            /* Return the value object. */
-            return new UserProfileVO(loginName, pass, 
-                userProfileVODetails);
-            
+            else {
+	            /* Get results. */
+	            i = 1;
+	            String pass = resultSet.getString(i++);
+	            String nombre = resultSet.getString(i++);
+	            String ape1 = resultSet.getString(i++);
+	            String ape2 = resultSet.getString(i++);
+	            String email = resultSet.getString(i++);
+	            String lenguaje = resultSet.getString(i++);
+	            String pais = resultSet.getString(i++);
+	            UserProfileDetailsVO userProfileVODetails =
+	                new UserProfileDetailsVO(nombre, ape1, ape2, email, lenguaje, pais);
+	            
+            	/* Return the value object. */
+            	return new UserProfileVO(loginName, pass, 
+            			userProfileVODetails);
+            }
         } catch (SQLException e) {
             throw new InternalErrorException(e);    
         } finally {

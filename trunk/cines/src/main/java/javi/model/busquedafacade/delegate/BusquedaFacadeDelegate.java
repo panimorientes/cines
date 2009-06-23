@@ -5,6 +5,7 @@ import java.util.List;
 
 import javi.model.busquedafacade.vo.EstadoSalaVO;
 import javi.model.cine.vo.CineVO;
+import javi.model.clasificacion.vo.ClasificacionVO;
 import javi.model.dvd.vo.dvdVO;
 import javi.model.lpedido.vo.LPedidoVO;
 import javi.model.merchandising.vo.MerchandisingVO;
@@ -54,6 +55,8 @@ public interface BusquedaFacadeDelegate extends Serializable {
 	 public List<MerchandisingVO> mostrarMerchandising() throws InternalErrorException;
 	 
 	 public List<PedidoVO> recuperarFechaPed(String login) throws InternalErrorException;
+	 
+	 public List<ClasificacionVO> recuperarClasificaciones() throws InternalErrorException;
 	 
 	 /**
 	  * Devulve el estado de la sala para una sesion determinada.

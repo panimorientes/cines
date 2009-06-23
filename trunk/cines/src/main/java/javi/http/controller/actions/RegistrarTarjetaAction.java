@@ -36,7 +36,7 @@ public class RegistrarTarjetaAction extends DefaultAction {
         /* Register user. */            
         ActionMessages errors = new ActionMessages();
           
-        try {
+        
         	
              
              /* Registrar tarjeta. */
@@ -47,10 +47,7 @@ public class RegistrarTarjetaAction extends DefaultAction {
            
          
 
-        } catch (DuplicateInstanceException e) {
-            errors.add("login",
-                new ActionMessage("ErrorMessages.login.alreadyExists"));
-        }            
+                 
         
         /* Return ActionForward. */
         if (errors.isEmpty()) {
