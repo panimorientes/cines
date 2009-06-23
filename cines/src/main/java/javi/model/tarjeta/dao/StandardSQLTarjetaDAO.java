@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javi.model.tarjeta.vo.TarjetaVO;
+import javi.model.ticket.vo.TicketVO;
 import es.udc.fbellas.j2ee.util.exceptions.InstanceNotFoundException;
 import es.udc.fbellas.j2ee.util.exceptions.InternalErrorException;
 import es.udc.fbellas.j2ee.util.sql.GeneralOperations;
@@ -105,7 +106,7 @@ public class StandardSQLTarjetaDAO implements SQLTarjetaDAO {
         try {
 
             /* Create "preparedStatement". */
-            String queryString = "SELECT Tlogin  FROM TARJETA WHERE" +
+            String queryString = "SELECT cod_c_c  FROM TARJETA WHERE" +
                 " Tlogin = ?";
             preparedStatement = connection.prepareStatement(queryString);
             
@@ -116,18 +117,20 @@ public class StandardSQLTarjetaDAO implements SQLTarjetaDAO {
             /* Execute query. */
             resultSet = preparedStatement.executeQuery();
             
-            if (!resultSet.next()) {
-                throw new InstanceNotFoundException(login,
-                    TarjetaVO.class.getName());
-            }
-
-            /* Get results. */
-            i = 1;
-            Long tarjeta = resultSet.getLong(i++);
-           
+            if(!resultSet.next())
+    			return null;
+    		else{
+    			 /* Get results. */
+                i = 1;
+                Long tarjeta = resultSet.getLong(i++);
+                
+                /* Return the value object. */
+                return new TarjetaVO(login, tarjeta);
+    		}
             
-            /* Return the value object. */
-            return new TarjetaVO(login, tarjeta);
+            
+
+           
             
         } catch (SQLException e) {
             throw new InternalErrorException(e);    

@@ -21,12 +21,14 @@ import javi.model.busquedafacade.plain.actions.BuscaUserCineAction;
 import javi.model.busquedafacade.plain.actions.MostrarMerchandisingAction;
 import javi.model.busquedafacade.plain.actions.MostrarSesionesAction;
 import javi.model.busquedafacade.plain.actions.MostrardvdAction;
+import javi.model.busquedafacade.plain.actions.RecuperarClasificacionesAction;
 import javi.model.busquedafacade.plain.actions.RecuperarFechaPedAction;
 import javi.model.busquedafacade.plain.actions.RecuperarPedidosAction;
 import javi.model.busquedafacade.plain.actions.TicketsAction;
 //import javi.model.busquedafacade.plain.actions.ReservardvdAction;
 import javi.model.busquedafacade.vo.EstadoSalaVO;
 import javi.model.cine.vo.CineVO;
+import javi.model.clasificacion.vo.ClasificacionVO;
 import javi.model.dvd.vo.dvdVO;
 import javi.model.lpedido.vo.LPedidoVO;
 import javi.model.merchandising.vo.MerchandisingVO;
@@ -391,6 +393,17 @@ public List<PeliculaVO> busquedaPeliculas(String titulo, String categoria) throw
 		}
     	
     }
+
+	public List<ClasificacionVO> recuperarClasificaciones()
+			throws InternalErrorException {
+		try{
+			RecuperarClasificacionesAction action = new RecuperarClasificacionesAction();
+			return (List<ClasificacionVO>) PlainActionProcessor.process(getDataSource(),action);
+			
+		}catch (ModelException e) {
+			throw new InternalErrorException(e);
+		}
+	}
 
 	
 

@@ -6,6 +6,7 @@ import java.util.Calendar;
 import javi.model.carroCompra.CarroCompra;
 import javi.model.carroCompra.CarroNotFoundException;
 import javi.model.direccion.vo.DireccionVO;
+import javi.model.tarjeta.vo.TarjetaVO;
 import javi.model.userfacade.exceptions.IncorrectPasswordException;
 import javi.model.userfacade.vo.LoginResultVO;
 import javi.model.userprofile.vo.UserProfileDetailsVO;
@@ -29,6 +30,8 @@ public interface UserFacadeDelegate extends Serializable {
 	
 	public CarroCompra getCarroCompra() throws CarroNotFoundException;
 	
+	public String getLoginName();
+	
 	public void comprarM(long id) throws InternalErrorException;
 	
 	public void comprarD(String id) throws InternalErrorException;
@@ -48,6 +51,8 @@ public interface UserFacadeDelegate extends Serializable {
     
     public DireccionVO findUserDireccion() throws InternalErrorException;
     
+    public TarjetaVO findUserTarjeta() throws InternalErrorException;
+    
     public void updateUserProfileDetails(
         UserProfileDetailsVO userProfileDetailsVO, Long cp, String ciudad, String direccion, Long numero)
         throws InternalErrorException;
@@ -57,9 +62,9 @@ public interface UserFacadeDelegate extends Serializable {
         InternalErrorException;
     
     public void registrarTarjeta(Long tarjeta)
-            throws DuplicateInstanceException, InternalErrorException;
+            throws InternalErrorException;
     
-   
     public void anadirPedido(Long idPedido, Calendar fecha)  throws DuplicateInstanceException, InternalErrorException; 
 
+    
 }

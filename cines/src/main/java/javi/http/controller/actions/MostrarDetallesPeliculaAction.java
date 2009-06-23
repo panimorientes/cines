@@ -25,6 +25,7 @@ public class MostrarDetallesPeliculaAction extends DefaultAction {
         HttpServletResponse response)
         throws IOException, ServletException, InternalErrorException {
         
+    	//TODO esto no lo hace bien.
     	if(request.getParameter("idCine") == null )
         	return new ActionForward("ShowMostrarCartelera.do");
     	

@@ -34,7 +34,7 @@ public class ConsultarSesionAction implements TransactionalPlainAction {
     	int numFilas = sala.getNumFilas().intValue();
     	int numAsientos = sala.getAsientos().intValue();
     	
-    	/*Inicializamos el estado se la sala*/
+    	/*Inicializamos el estado de la sala*/
     	estadoSala = new EstadoSalaVO(numFilas, numAsientos);
     	
     	

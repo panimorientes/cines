@@ -46,6 +46,8 @@ public class RegisterUserAction extends DefaultAction {
         try {
             SessionManager.registerUser(request, loginName, clearPassword, cp, ciudad, direccion, numero,
                 userProfileDetailsVO);
+            
+            SessionManager.getUserFacadeDelegate(request).registrarTarjeta(userProfileForm.getTarjetaAsLong());
 
         } catch (DuplicateInstanceException e) {
             errors.add("loginName",

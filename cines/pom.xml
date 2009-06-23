@@ -39,6 +39,25 @@
 						src/main/jetty/jetty-env.xml
 					</jettyEnvXml>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
+					<scanTargetPatterns>
+						<scanTargetPattern>
+							<directory>
+								src/main/webapp
+							</directory>
+							<includes>
+								<include>*</include>
+							</includes>
+						</scanTargetPattern>
+						<scanTargetPattern>
+							<directory>
+								src/main/java
+							</directory>
+							<includes>
+								<include>**/*.xml</include>
+								<include>**/*.html</include>
+							</includes>
+						</scanTargetPattern>
+					</scanTargetPatterns>
 					<!-- Log to the console. -->
 					<requestLog implementation="org.mortbay.jetty.NCSARequestLog">
 						<!--

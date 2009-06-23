@@ -113,13 +113,9 @@ fmt:setLocale tag will not be necessary.
 			
 					<p></p><p></p><p></p>
 				
-					<select name="clasificacion">
-						<option>--CLASIFICACION--</option>
-						<option>HUMOR</option>
-						<option>ACCION</option>
-						<option>AVENTURAS</option>
-						<option>SUSPENSE</option>
-					</select>
+					<html:select property="clasificacion">
+						<html:options name="clasificaciones"/>
+					</html:select>
 			
 					<p></p><p></p>
 		

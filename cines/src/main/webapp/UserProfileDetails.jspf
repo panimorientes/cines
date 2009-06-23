@@ -103,3 +103,13 @@
 		<html:errors property="country"/>
 	</span>
 </div>
+
+<div class="row">
+	<span class="formlabel">
+		<fmt:message key="UserTarjeta.tarjeta"/>
+	</span>
+	<span class="forminput">
+		<html:text property="tarjeta" size="18" maxlength="16"/>
+		<html:errors property="tarjeta"/>
+	</span>
+</div>

@@ -31,7 +31,8 @@ titulo VARCHAR(25) NOT NULL,
 director VARCHAR(25) NOT NULL,
 clasificacion VARCHAR(25) NOT NULL,
 descripcion VARCHAR(50),
-PRIMARY KEY (idPelicula));
+PRIMARY KEY (idPelicula),
+FOREIGN KEY (clasificacion) REFERENCES CLASIFICACION (nombre) ON UPDATE CASCADE);
 
 /*DVD*/
 
@@ -169,5 +170,11 @@ estado INT NOT NULL,
 precio DECIMAL(4,2),
 PRIMARY KEY (idTicket),
 FOREIGN KEY (sesion) REFERENCES SESION(idSESION) ON DELETE CASCADE
+);
+
+
+CREATE TABLE CLASIFICACION (
+nombre VARCHAR(25) NOT NULL,
+PRIMARY KEY (nombre)
 );
 
