@@ -267,10 +267,22 @@ type="javi.http.controller.frontcontroller.MiniPortalActionMapping">
     </action>
   
 	<action path="/ShowAnadirPelicula"
+    		 type="org.apache.struts.actions.ForwardAction"
+            parameter="/CargarClasificaciones.do">
+    </action>	
+    
+    <action path="/ShowAnadirdvd"
+    		type="org.apache.struts.actions.ForwardAction"
+            parameter="/CargarClasificaciones.do">
+    </action>
+    
+    <action path="/CargarClasificaciones"
     		type="javi.http.controller.actions.CargarClasificacionAction">
     		 <set-property property="adminRequired" value="true"/>
-    		 <forward name="AnadirPelicula2" path=".AnadirPelicula"/>
-    </action>	
+    		 <forward name="AnadirPelicula" path=".AnadirPelicula"/>
+    		 <forward name="AnadirDvd" path=".Anadirdvd"/>
+    </action>
+    
     <action path="/AnadirPelicula"
 			type="javi.http.controller.actions.AnadirPeliculaAction"
             name="anadirPeliculaForm"
@@ -280,11 +292,8 @@ type="javi.http.controller.frontcontroller.MiniPortalActionMapping">
         <set-property property="adminRequired" value="true"/>
     </action>
     
-    <action path="/ShowAnadirdvd"
-    		type="org.apache.struts.actions.ForwardAction"
-    		parameter=".Anadirdvd">
-    		<set-property property="adminRequired" value="true"/>
-    </action>	
+    	
+    
     <action path="/Anadirdvd"
 			type="javi.http.controller.actions.AnadirdvdAction"
             name="anadirdvdForm"

@@ -30,8 +30,6 @@ public interface UserFacadeDelegate extends Serializable {
 	
 	public CarroCompra getCarroCompra() throws CarroNotFoundException;
 	
-	public String getLoginName();
-	
 	public void comprarM(long id) throws InternalErrorException;
 	
 	public void comprarD(String id) throws InternalErrorException;
