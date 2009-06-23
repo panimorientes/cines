@@ -100,6 +100,14 @@ type="javi.http.controller.frontcontroller.MiniPortalActionMapping">
             scope="request"
             input=".Authentication"
             validate="true"/>
+            
+     <action path="/Busqueda"
+			type="javi.http.controller.actions.BusquedaAction"
+			name="busquedaForm"
+            scope="request"
+            input=".Busqueda">
+        <forward name="BusquedaForm" path=".Busqueda"/>
+    </action>
     
     <action path="/Logout"
 			type="javi.http.controller.actions.LogoutAction"/>
@@ -227,13 +235,7 @@ type="javi.http.controller.frontcontroller.MiniPortalActionMapping">
         <forward name="MostrarPeliculasAdminForm" path=".MostrarPeliculasAdmin"/>
     </action>
     
-      <action path="/Busqueda"
-			type="javi.http.controller.actions.BusquedaAction"
-			name="busquedaForm"
-            scope="request"
-            input=".Busqueda">
-        <forward name="BusquedaForm" path=".Busqueda"/>
-    </action>
+     
     
     
     <action path="/ShowRegistrarTarjeta"

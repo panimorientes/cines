@@ -1,6 +1,7 @@
 package javi.http.controller.plugin;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 
@@ -28,10 +29,14 @@ public class CinePlugIn implements PlugIn {
         registerApplicationObject("dateRanges", new DateRanges());
         
         BusquedaFacadeDelegate busquedaFacadeDelegate = new PlainBusquedaFacadeDelegate();
+        
+        List<ClasificacionVO> clasificaciones = new ArrayList<ClasificacionVO>();
+        clasificaciones.add(new ClasificacionVO(" "));
         try {
-			registerApplicationObject("clasificaciones", busquedaFacadeDelegate.recuperarClasificaciones());
+        	clasificaciones.addAll(busquedaFacadeDelegate.recuperarClasificaciones());
+			registerApplicationObject("clasificaciones", clasificaciones);
 		} catch (InternalErrorException e) {
-			registerApplicationObject("clasificaciones", new ArrayList<ClasificacionVO>());
+			registerApplicationObject("clasificaciones", clasificaciones);
 		}
         
     }

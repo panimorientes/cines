@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javi.http.controller.session.SessionManager;
 import javi.http.view.actionforms.MostrarCarteleraForm;
 import javi.model.cine.vo.CineVO;
+import javi.model.clasificacion.vo.ClasificacionVO;
 import javi.model.pelicula.vo.PeliculaVO;
 import javi.model.sesion.vo.SesionVO;
 
@@ -62,9 +63,8 @@ public class MostrarCarteleraAction extends DefaultAction {
         request.setAttribute("listasesion", sesion);
         request.setAttribute("nombcine", nombre);
         
-    	
-        /* Return ActionForward. */
-    	request.setAttribute("nombcine", nombre);
+    	request.setAttribute("clasifics", (List<ClasificacionVO>) getServlet().getServletConfig().getServletContext().getAttribute("clasificaciones"));
+        
     	return mapping.findForward("MostrarCarteleraForm");
     	
     }
