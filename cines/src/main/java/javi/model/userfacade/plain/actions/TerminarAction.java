@@ -47,26 +47,23 @@ public class TerminarAction implements TransactionalPlainAction{
 			//Recorremos las lineas del pedido.
 			for(ProductoVO item : carro.getLineas()){
 				
-				//Damos de alta una linea de pedido.
-				LPedidoVO lp = null;
 				switch (item.getTipo()) {
 				case 0:
 					  TicketVO ticket = (TicketVO) item;
-					  lp = new LPedidoVO(pedido.getIdPedido(),new Long(ticket.getIdTicket()),new Long(1L),0);
+					  SQLLPedidoDAOFactory.getDAO().create(connection, new LPedidoVO(pedido.getIdPedido(),new Long(ticket.getIdTicket()),new Long(1L),0));
 					  
 					break;
 				case 1:
 					MerchandisingVO mer = (MerchandisingVO) item;
-					lp = new LPedidoVO(pedido.getIdPedido(), new Long(mer.getIdMerchandising()),new Long(1L),1);
-					
+					SQLLPedidoDAOFactory.getDAO().create(connection, new LPedidoVO(pedido.getIdPedido(), new Long(mer.getIdMerchandising()),new Long(1L),1));
+					break;
 				case 2:
 					dvdVO dvd = (dvdVO) item;
-					lp = new LPedidoVO(pedido.getIdPedido(), new Long(dvd.getIdDvd()), new Long(1L),2);
+					SQLLPedidoDAOFactory.getDAO().create(connection, new LPedidoVO(pedido.getIdPedido(), new Long(dvd.getIdDvd()), new Long(1L),2));
 					break;
 				default:
 					break;
 				}
-				SQLLPedidoDAOFactory.getDAO().create(connection, lp);
 				
 				//Si se trata de un ticket lo reservamos
 				if(item.getTipo() == 0){

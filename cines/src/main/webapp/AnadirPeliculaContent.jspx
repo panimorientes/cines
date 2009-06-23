@@ -38,7 +38,7 @@
         </span>
         <span class="forminput">
         	 <html:select property="clasificacion">
-            	<c:forEach var="clase" items="${clasificaciones}">
+            	<c:forEach var="clase" items="${listaClasificaciones}">
             		<html:option value="${clase.nombre}">
 	            		${clase.nombre}
             		</html:option>

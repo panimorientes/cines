@@ -45,7 +45,7 @@
         </html:link>
         </li>
     	<li>
-        <html:link action="/ShowAnadirPelicula.do">
+        <html:link action="/ShowAnadirPelicula.do?action=PELICULA">
             <fmt:message key="MainPageHeaderSpecific.anadirPelicula"/>
         </html:link>
         </li>
@@ -65,7 +65,7 @@
         </html:link>
         </li>
         <li>
-         <html:link action="/ShowAnadirdvd.do">
+         <html:link action="/ShowAnadirdvd.do?action=DVD">
             <fmt:message key="MainPageHeaderSpecific.anadirdvd"/>
         </html:link>  
         </li>

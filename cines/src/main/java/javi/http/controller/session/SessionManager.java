@@ -184,7 +184,7 @@ public final class SessionManager {
             userProfileDetailsVO.getCountry());
         
         updateSesssionForAuthenticatedUser(request, 
-            userProfileDetailsVO.getNombre(), locale, userFacadeDelegate.getLoginName());
+            userProfileDetailsVO.getNombre(), locale, userFacadeDelegate.findUserProfile().getLoginName());
     }
 
     public final static void changePassword(HttpServletRequest request, 

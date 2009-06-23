@@ -51,11 +51,6 @@ public class PlainUserFacadeDelegate implements UserFacadeDelegate {
     	return carroCompra;
     }
     
-    public String getLoginName() {
-    	return loginName;
-    }
-    
-    
     public void registerUser(String loginName, String clearPassword, Long cp, String ciudad, String direccion, Long numero,
         UserProfileDetailsVO userProfileDetailsVO)
         throws DuplicateInstanceException, InternalErrorException {

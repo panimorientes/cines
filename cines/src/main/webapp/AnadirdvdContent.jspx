@@ -39,26 +39,15 @@
             <fmt:message key="dvd.clasificacion"/>
         </span>
         <span class="forminput">
-        	 <html:select property="clasificacion">
-            	
-            		<html:option value="Humor">
-	            		Humor
+        	  <html:select property="clasificacion">
+            	<c:forEach var="clase" items="${listaClasificaciones}">
+            		<html:option value="${clase.nombre}">
+	            		${clase.nombre}
             		</html:option>
-            	
-            		<html:option value="Accion">
-	            		Accion
-            		</html:option>
-            		
-            		<html:option value="Aventuras">
-	            		Aventuras
-            		</html:option>
-            		
-            		<html:option value="Suspense">
-	            		Suspense
-            		</html:option>
-            		
+            	</c:forEach>
             </html:select>            
             <html:errors property="clasificacion"/>
+
         </span>
     </div>
     

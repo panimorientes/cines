@@ -43,6 +43,10 @@
 	            		S
             		</html:option>
             	
+            		<html:option value="M">
+	            		M
+            		</html:option>
+            		
             		<html:option value="L">
 	            		L
             		</html:option>

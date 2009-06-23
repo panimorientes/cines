@@ -25,16 +25,25 @@ public class CargarClasificacionAction extends DefaultAction {
         HttpServletResponse response)
         throws IOException, ServletException, InternalErrorException {
         
-        
+       
         
        BusquedaFacadeDelegate busquedaFacadeDelegate = SessionManager.getBusquedaFacadeDelegate(request);
        
        List<ClasificacionVO> clasificaciones = busquedaFacadeDelegate.recuperarClasificaciones(); 
      
-       request.setAttribute("clasificaciones",clasificaciones);
+       request.setAttribute("listaClasificaciones",clasificaciones);
+       
+       String action = request.getParameter("action");
             
-       return mapping.findForward("AnadirPelicula2");
-      
+       if (action.equals("PELICULA"))
+    	   return mapping.findForward("AnadirPelicula");
+       else {
+    	   if (action.equals("DVD"))
+    		   return mapping.findForward("AnadirDvd");
+    	   else
+    		   return mapping.findForward("InternalError");
+       }
+    	   
         
     }
 
