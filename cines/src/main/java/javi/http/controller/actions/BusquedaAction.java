@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import javi.http.controller.session.SessionManager;
+import javi.http.view.actionforms.BusquedaForm;
+import javi.http.view.actionforms.LoginForm;
 
 import javi.model.busquedafacade.delegate.BusquedaFacadeDelegate;
 import javi.model.cine.vo.CineVO;
@@ -28,11 +30,12 @@ public class BusquedaAction extends DefaultAction {
         HttpServletResponse response)
         throws IOException, ServletException, InternalErrorException {
             
+    	BusquedaForm busquedaForm = (BusquedaForm) form;
             
-        BusquedaFacadeDelegate busquedaFacadeDelegate = SessionManager.getBusquedaFacadeDelegate(request);
+    	String clave=busquedaForm.getClave();
+    	String clasificacion=busquedaForm.getClasificacion();
 		
-		String clave=new String(request.getParameter("Pclave"));
-		String clasificacion=new String(request.getParameter("clasificacion"));
+        BusquedaFacadeDelegate busquedaFacadeDelegate = SessionManager.getBusquedaFacadeDelegate(request);
 		
 		List<PeliculaVO> pelicula=busquedaFacadeDelegate.busquedaPeliculas(clave, clasificacion);
 		List<SesionVO> sesion= busquedaFacadeDelegate.mostrarSesiones();

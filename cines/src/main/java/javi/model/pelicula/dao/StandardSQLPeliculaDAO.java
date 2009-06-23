@@ -248,7 +248,7 @@ public abstract class StandardSQLPeliculaDAO implements SQLPeliculaDAO {
 
 		try {
 			
-			if(categoria.equals("--CLASIFICACION--") && (!titulo.equals("".trim()))){
+			if(categoria.equals(" ") && (!titulo.equals("".trim()))){
 				/* Create "preparedStatement". */
 				String queryString = "SELECT idPelicula,titulo,director,clasificacion,descripcion FROM PELICULA " +
 						"WHERE titulo LIKE ?";
@@ -272,54 +272,60 @@ public abstract class StandardSQLPeliculaDAO implements SQLPeliculaDAO {
 					peliculas.add(new PeliculaVO(idPelicula,tit, director, clasificacion, descripcion));
 				}
 
-			}if(titulo.equals("".trim()) && (!categoria.equals("--CLASIFICACION--"))){
+			} else {
+				if (titulo.equals("".trim()) && (!categoria.equals(" "))){
+			
 				
-				/* Create "preparedStatement". */
-				String queryString = "SELECT idPelicula,titulo, director, descripcion FROM PELICULA " +
-						"WHERE clasificacion like ?";
-				
-				preparedStatement = connection.prepareStatement(queryString);
-				
-				int i=1;
-				preparedStatement.setString(i++, categoria);
-				
-				/* Execute query. */
-				resultSet = preparedStatement.executeQuery();
-
-				while(resultSet.next()){
-					i=1;
-					long idPelicula = resultSet.getLong(i++);
-					String nombPeli = resultSet.getString(i++);
-					String director = resultSet.getString(i++);
-					String descripcion = resultSet.getString(i++);
-
-					peliculas.add(new PeliculaVO(idPelicula,nombPeli, director, categoria, descripcion));
-				}
+					/* Create "preparedStatement". */
+					String queryString = "SELECT idPelicula,titulo, director, descripcion FROM PELICULA " +
+							"WHERE clasificacion like ?";
+					
+					preparedStatement = connection.prepareStatement(queryString);
+					
+					int i=1;
+					preparedStatement.setString(i++, categoria);
+					
+					/* Execute query. */
+					resultSet = preparedStatement.executeQuery();
+	
+					while(resultSet.next()){
+						i=1;
+						long idPelicula = resultSet.getLong(i++);
+						String nombPeli = resultSet.getString(i++);
+						String director = resultSet.getString(i++);
+						String descripcion = resultSet.getString(i++);
+	
+						peliculas.add(new PeliculaVO(idPelicula,nombPeli, director, categoria, descripcion));
+					}
 				
 				
 			
-			}if(!categoria.equals("--CLASIFICACION--") && (!titulo.equals("".trim()))){
-				/* Create "preparedStatement". */
-				String queryString = "SELECT idPelicula,titulo, director, descripcion FROM PELICULA " +
-						"WHERE titulo like ? AND clasificacion like ?";
+				} else { 
+					if(!categoria.equals(" ") && (!titulo.equals("".trim()))){
 				
-				preparedStatement = connection.prepareStatement(queryString);
-				
-				int i=1;
-				preparedStatement.setString(i++, "%"+titulo+"%");
-				preparedStatement.setString(i++, categoria);
-				
-				/* Execute query. */
-				resultSet = preparedStatement.executeQuery();
-
-				while(resultSet.next()){
-					i=1;
-					long idPelicula = resultSet.getLong(i++);
-					String tit = resultSet.getString(i++);
-					String director = resultSet.getString(i++);
-					String descripcion = resultSet.getString(i++);
-
-					peliculas.add(new PeliculaVO(idPelicula,tit, director, categoria, descripcion));
+						/* Create "preparedStatement". */
+						String queryString = "SELECT idPelicula,titulo, director, descripcion FROM PELICULA " +
+								"WHERE titulo like ? AND clasificacion like ?";
+						
+						preparedStatement = connection.prepareStatement(queryString);
+						
+						int i=1;
+						preparedStatement.setString(i++, "%"+titulo+"%");
+						preparedStatement.setString(i++, categoria);
+						
+						/* Execute query. */
+						resultSet = preparedStatement.executeQuery();
+		
+						while(resultSet.next()){
+							i=1;
+							long idPelicula = resultSet.getLong(i++);
+							String tit = resultSet.getString(i++);
+							String director = resultSet.getString(i++);
+							String descripcion = resultSet.getString(i++);
+		
+							peliculas.add(new PeliculaVO(idPelicula,tit, director, categoria, descripcion));
+						}
+					}
 				}
 				
 			}

@@ -10,11 +10,8 @@ import es.udc.fbellas.j2ee.util.struts.action.PropertyValidator;
 
 public class BusquedaForm extends DefaultActionForm {
 
-    private Long idPelicula;
-    private String titulo;
-    private String director;
+    private String clave;
     private String clasificacion;
-    private String descripcion;
     
     public BusquedaForm() {
         reset();
@@ -37,58 +34,18 @@ public class BusquedaForm extends DefaultActionForm {
 
 
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getClave() {
+		return clave;
 	}
 
 
 
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setClave(String clave) {
+		this.clave = clave;
 	}
 
 
-
-
-	public String getDirector() {
-		return director;
-	}
-
-
-
-
-	public void setDirector(String director) {
-		this.director = director;
-	}
-
-
-
-
-	public Long getIdPelicula() {
-		return idPelicula;
-	}
-
-
-
-
-	public void setIdPelicula(Long idPelicula) {
-		this.idPelicula = idPelicula;
-	}
-
-
-
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-
-
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
 
 
 
@@ -100,23 +57,15 @@ public class BusquedaForm extends DefaultActionForm {
     public ActionErrors validate(ActionMapping mapping,
         HttpServletRequest request) {
         
-        ActionErrors errors = new ActionErrors();
-
-        PropertyValidator.validateMandatory(errors, "titulo", titulo);
-        PropertyValidator.validateMandatory(errors, "director", director);
-        PropertyValidator.validateMandatory(errors, "clasificacion", clasificacion);
-        PropertyValidator.validateMandatory(errors, "descripcion", descripcion);
+        ActionErrors errors = new ActionErrors();       
         
         return errors;
         
     }
     
     private void reset() {
-       idPelicula = null;
-       titulo = null;
-       director = null;
+    	clave = null;
        clasificacion = null;
-       descripcion = null;
      
     }
 
