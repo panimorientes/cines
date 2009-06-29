@@ -8,75 +8,133 @@
 <html:xhtml/>
 
 
-<p></p>
-<h6>
- <![CDATA[ &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; ]]>
- <td><span class="formlabel">
-	<fmt:message key="Merchandising.descripcion"/>
-</span></td>
-
-  <![CDATA[ &nbsp; ]]>
-<td><span class="formlabel">
-	<fmt:message key="Merchandising.talla"/>
-</span></td>
-
- <![CDATA[ &nbsp; ]]>
-
-<td><span class="formlabel">
-	<fmt:message key="Merchandising.precio"/>
-</span></td>
-
- <![CDATA[ &nbsp; ]]>
-
-<td><span class="formlabel">
-	<fmt:message key="Merchandising.disponibilidad"/>
-</span></td>
 
 
-</h6>
+<div class="centerColumn" id="indexProductList">
 
-<table>
-<tbody>
+	<div class="title_box">
+		<div class="row1">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+	    				<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+	    			</div>
+	        	</div>
+	        </div>
+	    </div>
+		<div class="row2">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+						<div class="title_inner4">
+							<html:form action="MostrarCartelera.do" focus="nombre">
+	            				<h1 id="productListHeading">
+	      							Catalogo de merchandising:
+	            				</h1>
+							</html:form>
+						</div>
+	        		</div>
+	        	</div>
+	        </div>
+	    </div>
+		<div class="row3">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+	    				<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+	    			</div>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
 
-<c:forEach var="mer" items="${merchandising}">
-<tr>
+	<div id="productListing">
+		<br class="clearBoth" />
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" id="cat1Table" class="tabTable">
+	    		<tr>
+		        	<td colspan="11">
+		        		<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+		        	</td>
+		        </tr>
+        		<tr>
+        			<td class="productListing-data">
+						FOTO
+					</td>
+					<td class="productListing-data">
+						DESCRIPCION
+					</td>
+					<td class="productListing-data">
+						TALLA
+					</td>
+					<td class="productListing-data">
+						PRECIO
+					</td>
+					<td class="background-white-right">
+						<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
+					</td>
+				</tr>
+				<c:forEach var="mer" items="${merchandising}">
+					<tr>
+				   		<td class="productListing-data">
+					   		<c:url var="urlFoto" value="img/merchandising/${mer.descrip}"/>
+							<img src="${urlFoto}" width="50" height="50"/>
+					   	</td>
+						<td class="productListing-data">
+							${mer.descrip}
+						</td>
+						<td class="productListing-data">
+							${mer.talla}
+						</td>
+						<td class="productListing-data">
+							${mer.precio}
+						</td>
+						<c:if test="${sessionScope.login=='Administrator'}">
+							<td class="productListing-data">
+								<c:url var="urlEMerchandising" value="EliminarMerchandising.do">
+									<c:param name="idMerchandising" value="${mer.idMerchandising}"/>
+								</c:url>
+								<a href="${urlEMerchandising}">
+									<img src="img/papelera1.jpeg" width="20" height="20" title="Eliminar merchandising"/>
+								</a>
+							</td>
+						</c:if>
+						<c:if test="${mer.disponibilidad}">
+							<td class="productListing-data">
+								<c:url var = "urlCompra" value="ComprarM.do">
+									<c:param name="id" value="${mer.referencia}"/>
+								</c:url>
+								<a href="${urlCompra }">
+									Comprar
+								</a>
+							</td>			
+						</c:if>
+			         	<td class="background-white-right">
+			         		<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
+					    </td>
+					</tr>
+				   	<tr>
+			       		<td colspan="11" style="overflow:hidden;">
+							<img src="images/pixel_trans.gif" alt="" width="1" height="8" />
+							<br />
+							<div class="box_line">
+								<div class="inner">
+									<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+								</div>
+							</div>
+							<img src="images/pixel_trans.gif" alt="" width="1" height="18" />
+							<br />
+					   	</td>
+					</tr>
+				    <tr>
+				        <td colspan="11">
+				      		<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+				       	</td>
+				  	</tr>
+			  	</c:forEach>
+		  	</table>
+		  	<br class="clearBoth" />
+	</div>
+</div>
 
-												<td><c:url var="urlFoto" value="img/merchandising/${mer.descrip}"/>
-													<p>
-														<img src="${urlFoto}" width="50" height="50"/>
-													</p>
-												</td>
-												<td>${mer.descrip}</td>
-												<td>${mer.talla}</td>
-												<td>${mer.precio}</td>
-												<td>${mer.disponibilidad}</td>	
-												<td><c:if test="${sessionScope.login=='Administrator'}">	
-													<c:url var="urlEMerchandising" value="EliminarMerchandising.do">
-														<c:param name="idMerchandising" value="${mer.idMerchandising}"/>
-													</c:url>
-													
-													<a href="${urlEMerchandising}">
-														<img src="img/papelera1.jpeg" width="20" height="20" title="Eliminar merchandising"/>
-													</a>
-												</c:if></td>
-												
-											
-												<c:if test="${mer.disponibilidad}">
-	
-												<td>
-													<c:url var = "urlCompra" value="ComprarM.do">
-														<c:param name="id" value="${mer.referencia}"/>
-													</c:url>
-													<a href="${urlCompra }">
-														Comprar
-													</a>
-												</td>			
-
-												</c:if>
-																									
-</tr>
-</c:forEach>
-</tbody>
-</table>
 
 </jsp:root>

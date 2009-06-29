@@ -6,25 +6,48 @@
 
 <html:xhtml/>
 
-<p>
-    <html:link action="ShowChangePassword.do">
-        <fmt:message key="UpdateUserProfileDetailsContent.changePassword"/>
-    </html:link>
-</p>
 
-<html:form action="UpdateUserProfileDetails.do" focus="firstName">
+<div class="centerColumn" id="loginDefault">
+	<div class="c_h_b">
+		<div class="c_h_t">
+    		<div class="c_h_r">
+        		<div class="c_h_l">
+            		<div class="c_h_br">
+                		<div class="c_h_bl">
+                    		<div class="c_h_tr">
+								<h1 id="loginDefaultHeading">Welcome, update your profile</h1>
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+    	</div>
+	</div>
 
-    <html:hidden property="action" value="UPDATE"/>
+	
+<!--BOF normal login-->
+	<html:form action="UpdateUserProfileDetails.do" focus="firstName">
+    	<html:hidden property="action" value="UPDATE"/>
+		<fieldset>
+			<legend>Update your profile</legend>
+		   	
+		   	<jsp:directive.include file="UserProfileDetails.jspf"/>
+		   	
+		</fieldset>
+					
+		<div class="buttonRow forward">
+			<input type="image" src="images/button_submit.gif" alt="Submit the Information" title=" Submit the Information " />
+		</div>
+		<div class="buttonRow back important">
+			<html:link action="ShowChangePassword.do">
+        		<fmt:message key="UpdateUserProfileDetailsContent.changePassword"/>
+    		</html:link>
+		</div>
+	</html:form>
+	<br class="clearBoth" />
+
+</div>
+
     
-    <jsp:directive.include file="UserProfileDetails.jspf"/>
-    
-    <p></p>
-   <p align="center">
-        <html:submit>
-            <fmt:message key="Buttons.register"/>
-        </html:submit>
-    </p>
-    
-</html:form>
 
 </jsp:root>

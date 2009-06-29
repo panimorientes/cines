@@ -7,132 +7,107 @@
 
 <html:xhtml/>
 
-<html:form action="AnadirSesion.do" focus="titulo">
 
-    <html:hidden property="action" value="REGISTER"/>
-    
-       
- <div class="row">        
-     <span class="formlabel">
-      <fmt:message key="AnadirSesion.titulo"/>
-       </span>
-        <span class="forminput">
-            <html:select property="titulo">
+
+
+
+<div class="centerColumn" id="loginDefault">
+	<div class="c_h_b">
+		<div class="c_h_t">
+    		<div class="c_h_r">
+        		<div class="c_h_l">
+            		<div class="c_h_br">
+                		<div class="c_h_bl">
+                    		<div class="c_h_tr">
+								<h1 id="loginDefaultHeading">Administer, anade una nueva sesion</h1>
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+    	</div>
+	</div>
+
+	
+<!--BOF normal login-->
+	<html:form action="AnadirSesion.do" focus="titulo">
+		<fieldset>
+			<legend>Cine details</legend>
+		   	
+		   	<label class="inputLabel" for="login-email-address"><fmt:message key="AnadirSesion.titulo"/>:</label>
+			<html:select property="titulo">
             	<c:forEach var="titulo" items="${listapeliculas}">
             		<html:option value="${titulo.titulo}">
 	            		${titulo.titulo}
             		</html:option>
             	</c:forEach>
             </html:select>
-            <html:errors property="titulo"/>
-        </span>
-    </div> 
- 
- 	<div class="row">        
-     <span class="formlabel">
-      <fmt:message key="AnadirSesion.nombre"/>
-       </span>
-        <span class="forminput">
-            <html:select property="nombre">
+            <span class="alert"><html:errors property="titulo"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="AnadirSesion.nombre"/>:</label>
+			<html:select property="nombre">
             	<c:forEach var="nombre" items="${listacines}">
             		<html:option value="${nombre.nombre}">
 	            		${nombre.nombre}
             		</html:option>
             	</c:forEach>
             </html:select>
-            <html:errors property="nombre"/>
-        </span>
-    </div> 
- 	
- 	<div class="row">        
-        <span class="formlabel">
-            <fmt:message key="AdminSesion.idSala"/>
-        </span>
-        <span class="forminput">
-            <html:text property="idSala" size="2" maxlength="2"/>
-            <html:errors property="idSala"/>
-        </span>
-    </div>
-   
-   
-   
-     <div class="row">
-        <span class="formlabel">
-            <fmt:message key="AdminSesion.startDate"/>
-        </span>
-        <span class="forminput">
-        
-            <fmt:message key="AdminSesion.day"/> 
+            <span class="alert"><html:errors property="nombre"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="AdminSesion.idSala"/>:</label>
+			<html:text property="idSala" size="41" maxlength="10"/>
+            <span class="alert"><html:errors property="idSala"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="AdminSesion.startDate"/>:</label>
+			<fmt:message key="AdminSesion.day"/> 
             <html:select property="startDay">
                 <html:options name="dateRanges" property="days"/>
             </html:select>
-            
             <![CDATA[ &nbsp; ]]>
             <fmt:message key="AdminSesion.month"/>            
             <html:select property="startMonth">
                 <html:options name="dateRanges" property="months"/>
             </html:select>
-
             <![CDATA[ &nbsp; ]]>
             <fmt:message key="AdminSesion.year"/>
             <html:select property="startYear">
                 <html:options name="dateRanges" property="years"/>
             </html:select>
-            
-        </span>
-    </div>
-   
-    <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="AdminSesion.hora"/>
-        </span>
-        <span class="forminput">    
-            <html:text property="hora" size="8" maxlength="8"/>
-            <html:errors property="hora"/>
-        </span>
-    </div>
-    
-   
-    <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="AdminSesion.precio"/>
-        </span>
-        <span class="forminput">
-            <html:text property="precio" size="5" maxlength="5"/>
-            <html:errors property="precio"/>
-        </span>
-    </div>
-    
-  
-      
-   <div class="row">        
-     <span class="formlabel">
-      <fmt:message key="AdminSesion.numerada"/>
-       </span>
-        <span class="forminput">
-            <html:select property="numerada">
-            	
-            		<html:option value="true">
-	            		True
-            		</html:option>
-            	
-            		<html:option value="false">
-	            		False
-            		</html:option>
-            		
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="AdminSesion.hora"/>:</label>
+			<html:text property="hora" size="20" maxlength="20"/>
+			<span class="alert"><html:errors property="hora"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="AdminSesion.precio"/>:</label>
+			<html:text property="precio" size="20" maxlength="10"/>
+			<span class="alert"><html:errors property="precio"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="AdminSesion.numerada"/>:</label>
+			<html:select property="numerada">
+            	<html:option value="true">
+	            	True
+            	</html:option>
+            	<html:option value="false">
+	            	False
+            	</html:option>
             </html:select>
-            <html:errors property="numerada"/>
-        </span>
-    </div> 
-   
-   
-      <p></p><p></p>
-   <p align="center">
-        <html:submit>
-            <fmt:message key="Buttons.anadir"/>
-        </html:submit>
-    </p>
-    
-</html:form>
+			<span class="alert"><html:errors property="numerada"/></span>
+			<br class="clearBoth" />
+		   	
+		</fieldset>
+					
+		<div class="buttonRow forward">
+			<input type="image" src="images/button_submit.gif" alt="Submit the Information" title=" Submit the Information " />
+		</div>
+	</html:form>
+	<br class="clearBoth" />
+
+</div>
 
 </jsp:root>

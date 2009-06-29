@@ -8,42 +8,113 @@
 <html:xhtml/>
 
 
-<c:forEach var="sesion" items="${listasesiones}">
+
+ <div class="centerColumn" id="indexProductList">
+
+	<c:forEach var="sesion" items="${listasesiones}">
 		<c:if test="${(sesion.idSesion==idSesion)}">
 			<c:forEach var="pelicula" items="${detallepelicula}">
 				<c:if test="${(sesion.idPelicula==pelicula.idPelicula)}">
-	
-					<h1>
-						<c:url var="urlFSala" value="MostrarEstadoSala.do">
-							<c:param name="idSesion" value="${idSesion}"/>
-						</c:url>
-						
-						<a href="${urlFSala}">
-							${pelicula.titulo}
-						</a>
-						
-					</h1>
-					 
-					 <c:url var="urlFoto" value="img/pelicula/${pelicula.titulo}"/>
-						<p>
-							<img src="${urlFoto}"/>
-						</p>
-						
-						<p>
-							${pelicula.descripcion}
-						</p>
-					
-					<p>
-						<fmt:message key="MostrarDetallesPelicula.director"/>  ${pelicula.director}
-					</p>
-					
-					<p>
-						<fmt:message key="MostrarDetallesPelicula.clasificacion" /> ${pelicula.clasificacion}
-					</p>
-
-			</c:if>
-		</c:forEach>
-	</c:if>
-</c:forEach>
+					<div class="title_box">
+						<div class="row1">
+				    		<div class="title_inner1">
+				    			<div class="title_inner2">
+				    				<div class="title_inner3">
+				    					<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+				    				</div>
+				        		</div>
+				        	</div>
+    					</div>
+						<div class="row2">
+				    		<div class="title_inner1">
+				    			<div class="title_inner2">
+				    				<div class="title_inner3">
+										<div class="title_inner4">
+				            				<h1 id="productListHeading">${pelicula.titulo}</h1>
+										</div>
+				        			</div>
+				        		</div>
+				        	</div>
+    					</div>
+						<div class="row3">
+    						<div class="title_inner1">
+    							<div class="title_inner2">
+    								<div class="title_inner3">
+    									<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+    								</div>
+        						</div>
+        					</div>
+    					</div>
+					</div>
+					<div class="product_box">
+						<div class="bg_inner9">
+							<div id="categoryImgListing" class="categoryImg">
+								<table style="width:1px; margin-bottom:8px;margin-right:80px;margin-left:40px;">
+                      				<tr>
+				                        <td>
+				                          <div class="img_box11">
+				                            <div class="bg_inner1">
+				                              <div class="bg_inner2">
+				                                <div class="bg_inner3">
+				                                  <div class="bg_inner4">
+				                                    <div class="bg_inner5">
+				                                      <div class="bg_inner6">
+				                                        <div class="bg_inner7">
+				                                          <div class="bg_inner8">
+				                                            <div class="bg_inner9">
+				                                            	<c:url var="urlFoto" value="img/pelicula/${pelicula.titulo}"/>
+																<img src="${urlFoto}" width="150"/>
+				                                            </div>
+				                                          </div>
+				                                        </div>
+				                                      </div>
+				                                    </div>
+				                                  </div>
+				                                </div>
+				                              </div>
+				                            </div>
+				                          </div>
+				                        </td>
+				                      </tr>
+			                    </table>
+							</div>
+							<h3 class="itemTitle" style="margin-top:10px;">
+								Descripcion:
+							</h3>
+							<div class="content">
+								${pelicula.descripcion}
+							</div>
+							<br/>
+							<h3 class="itemTitle">
+								<fmt:message key="MostrarDetallesPelicula.director"/>:
+							</h3>
+							<div class="content">
+								${pelicula.director}
+							</div>
+							<br/>
+							<h3 class="itemTitle">
+								<fmt:message key="MostrarDetallesPelicula.clasificacion" />:
+							</h3>
+							<div class="content">
+								${pelicula.clasificacion}
+							</div>
+							<br/>
+							<br/>
+							<div class="content">
+								<c:url var="urlFSala" value="MostrarEstadoSala.do">
+									<c:param name="idSesion" value="${idSesion}"/>
+								</c:url>
+								<a href="${urlFSala}">
+									Ver Sala
+								</a>
+							</div>
+							<br class="clearBoth" />
+						</div>
+					</div>
+				</c:if>
+			</c:forEach>
+		</c:if>
+	</c:forEach>
+</div>
 
 </jsp:root>

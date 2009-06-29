@@ -7,57 +7,62 @@
 
 <html:xhtml/>
 
-<html:form action="FormaSala.do" focus="numFilas">
 
-    <html:hidden property="action" value="REGISTER"/>
+<div class="centerColumn" id="loginDefault">
+	<div class="c_h_b">
+		<div class="c_h_t">
+    		<div class="c_h_r">
+        		<div class="c_h_l">
+            		<div class="c_h_br">
+                		<div class="c_h_bl">
+                    		<div class="c_h_tr">
+								<h1 id="loginDefaultHeading">Administer, anade una nueva sala</h1>
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+    	</div>
+	</div>
 
-
-   <div class="row">        
-     <span class="fromlabel">
-      <fmt:message key="FormaSala.numFilas"/>
-       </span>
-        <span class="forminput">
-            <html:select property="numFilas">
+	
+<!--BOF normal login-->
+	<html:form action="FormaSala.do" focus="numFilas">
+    	<html:hidden property="action" value="REGISTER"/>
+		<fieldset>
+			<legend>Forma de la sala</legend>
+		   	
+		   	<label class="inputLabel" for="login-email-address"><fmt:message key="FormaSala.numFilas"/>:</label>
+			<html:select property="numFilas">
             	<c:forEach var="i" begin="0" end="20">
             		<html:option value="${i}">
 	            		${i}
             		</html:option>
-            	
             	</c:forEach> 
             </html:select>
-            <html:errors property="numFilas"/>
-        </span>
-    </div> 
-    
-    <div class="row">        
-     <span class="formlabel">
-      <fmt:message key="FormaSala.asientos"/>
-       </span>
-        <span class="forminput">
-            <html:select property="asientos">
+            <span class="alert"><html:errors property="numFilas"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="FormaSala.asientos"/>:</label>
+			<html:select property="asientos">
             	<c:forEach var="i" begin="0" end="20">
             		<html:option value="${i}">
 	            		${i}
             		</html:option>
-            	
             	</c:forEach> 
             </html:select>
-            <html:errors property="asientos"/>
-        </span>
-    </div> 
+            <span class="alert"><html:errors property="asientos"/></span>
+			<br class="clearBoth" />
+			
+		</fieldset>
+					
+		<div class="buttonRow forward">
+			<input type="image" src="images/button_submit.gif" alt="Submit the Information" title=" Submit the Information " />
+		</div>
+	</html:form>
+	<br class="clearBoth" />
+
+</div>
     
-    
-             
-   <p></p><p></p>
-   <p align="center">
-        <html:submit>
-            <fmt:message key="Buttons.anadir"/>
-        </html:submit>
-    </p>
-    
-    
-    
-    
-</html:form>
 
 </jsp:root>

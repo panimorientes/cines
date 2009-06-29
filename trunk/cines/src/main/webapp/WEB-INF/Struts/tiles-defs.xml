@@ -8,14 +8,10 @@
 
     <definition name=".Base" page="/commontiles/layouts/DefaultLayout.jspx">
         <put name="title"  value="${title}" />
-        <put name="pageTitle"  value="/commontiles/DefaultPageTitle.jspx" />
-        <!-- In derived tiles, define one of the following attributes:
-        <put name="headerSpecificAsTile"  value="${headerSpecificAsTile}" />
-        <put name="headerSpecificAsKey"  value="${headerSpecificAsKey}" />
-        -->
         <put name="content"  value="${content}" />
-        <put name="footer" value="/commontiles/DefaultFooter.jspx" />
-        <put name="busca" value="/BusquedaContent.jspx" />
+        <!-- 
+        	<put name="busca" value="/BusquedaContent.jspx" />
+         -->
     </definition>
     
     <definition name=".InternalError" extends=".Base" >

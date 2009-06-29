@@ -5,10 +5,16 @@
           xmlns:c="http://java.sun.com/jsp/jstl/core"
           version="2.0">
 
+
 <html:xhtml/>
-	
-	<h1> La sala no dispone de mas butacas </h1>
-	
-	<p> Intentelo en otra sesion </p>
+
+<div class="centerColumn" id="shippingInfo">
+	<h1 id="shippingInfoHeading">
+    	La sala no dispone de mas butacas.
+    </h1>
+    <p>
+    	Intentelo en otra sesion
+    </p>
+</div>
 
 </jsp:root>

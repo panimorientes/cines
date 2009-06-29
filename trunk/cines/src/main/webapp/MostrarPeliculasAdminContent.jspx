@@ -7,30 +7,110 @@
 
 <html:xhtml/>
 
-<table>
-<tbody>
 
-<c:forEach var="pelis" items="${peliculas}">
-<tr>
-												<td> <c:url var="urlFoto" value="img/pelicula/${pelis.titulo}"/>
-												<p>
-													<img src="${urlFoto}" width="50" height="50"/>
-												</p></td>
-												
-												<td>${pelis.titulo}</td>
-												
-												<td><c:if test="${sessionScope.login=='Administrator'}">	
-													<c:url var="urlEPeli" value="EliminarPelicula.do">
-														<c:param name="idPeli" value="${pelis.idPelicula}"/>
-													</c:url>
-													
-													<a href="${urlEPeli}">
-														<img src="img/papelera1.jpeg" width="20" height="20" title="Eliminar pelicula y sesion"/>
-													</a>
-												</c:if></td>									
-</tr>
-</c:forEach>
-</tbody>
-</table>
+
+<div class="centerColumn" id="indexProductList">
+
+	<div class="title_box">
+		<div class="row1">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+	    				<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+	    			</div>
+	        	</div>
+	        </div>
+	    </div>
+		<div class="row2">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+						<div class="title_inner4">
+							<html:form action="MostrarCartelera.do" focus="nombre">
+	            				<h1 id="productListHeading">
+	      							Peliculas en cartelera:
+	            				</h1>
+							</html:form>
+						</div>
+	        		</div>
+	        	</div>
+	        </div>
+	    </div>
+		<div class="row3">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+	    				<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+	    			</div>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+
+	<div id="productListing">
+		<br class="clearBoth" />
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" id="cat1Table" class="tabTable">
+	    		<tr>
+		        	<td colspan="11">
+		        		<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+		        	</td>
+		        </tr>
+        		<tr>
+        			<td class="productListing-data">
+						FOTO
+					</td>
+					<td class="productListing-data">
+						TITULO
+					</td>
+					<td class="background-white-right">
+						<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
+					</td>
+				</tr>
+				<c:forEach var="pelis" items="${peliculas}">
+					<tr>
+				   		<td class="productListing-data">
+					   		<c:url var="urlFoto" value="img/pelicula/${pelis.titulo}"/>
+							<img src="${urlFoto}" width="50" height="50"/>
+					   	</td>
+						<td class="productListing-data">
+							${pelis.titulo}
+						</td>
+						<c:if test="${sessionScope.login=='Administrator'}">
+							<td class="productListing-data">
+								<c:url var="urlEPeli" value="EliminarPelicula.do">
+									<c:param name="idPeli" value="${pelis.idPelicula}"/>
+								</c:url>
+								<a href="${urlEPeli}">
+									<img src="img/papelera1.jpeg" width="20" height="20" title="Eliminar pelicula y sesion"/>
+								</a>
+							</td>
+						</c:if>
+			         	<td class="background-white-right">
+			         		<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
+					    </td>
+					</tr>
+				   	<tr>
+			       		<td colspan="11" style="overflow:hidden;">
+							<img src="images/pixel_trans.gif" alt="" width="1" height="8" />
+							<br />
+							<div class="box_line">
+								<div class="inner">
+									<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+								</div>
+							</div>
+							<img src="images/pixel_trans.gif" alt="" width="1" height="18" />
+							<br />
+					   	</td>
+					</tr>
+				    <tr>
+				        <td colspan="11">
+				      		<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+				       	</td>
+				  	</tr>
+			  	</c:forEach>
+		  	</table>
+		  	<br class="clearBoth" />
+	</div>
+</div>
 
 </jsp:root>

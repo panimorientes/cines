@@ -6,51 +6,54 @@
           
 <html:xhtml/>
 
-<p><html:link action="EditUserProfileForRegistration.do?action=REGISTER">
-        <fmt:message key="AuthenticationContent.register"/>
-</html:link></p>
+<div class="centerColumn" id="loginDefault">
+	<div class="c_h_b">
+		<div class="c_h_t">
+    		<div class="c_h_r">
+        		<div class="c_h_l">
+            		<div class="c_h_br">
+                		<div class="c_h_bl">
+                    		<div class="c_h_tr">
+								<h1 id="loginDefaultHeading">Welcome, Please Sign In</h1>
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+    	</div>
+	</div>
 
-<html:form action="Login.do" focus="login">
-    
-    <div class="row">
-    	<span class="formlabel">
-            <fmt:message key="UserProfile.login"/>
-        </span>
-        
-        <span class="forminput">
-            <html:text property="login" size="20" maxlength="20"/>
-            <html:errors property="login"/>
-        </span>
-    </div>
-    
-    <div class="row">
-    	<span class="formlabel">
-            <fmt:message key="UserProfile.pass"/>
-        </span>
-        
-        <span class="forminput">
-            <html:password property="pass" size="20"  maxlength="20"/>
-            <html:errors property="pass"/>
-        </span>
-    </div>
-    
-    <div class="row">      
-        <span class="formlabel">
-            <fmt:message key="AuthenticationContent.rememberMyPassword"/>
-        </span>
-        
-        <span class="forminput">  
-            <html:checkbox property="rememberMyPassword"/>
-        </span>
-    </div>
-  
-   <p></p>
-   <p align="center">
-        <html:submit>
-            <fmt:message key="Buttons.login"/>
-        </html:submit>
-    </p>
-    
-</html:form>
+	
+<!--BOF normal login-->
+	<html:form action="Login.do" focus="login">
+		<fieldset>
+			<legend>Returning Customers: Please Log In</legend>
+			<label class="inputLabel" for="login-email-address"><fmt:message key="UserProfile.login"/>:</label>
+			<html:text property="login" size="41" maxlength="16"/>
+		    <span class="alert"><html:errors property="login"/></span>
+		    <br class="clearBoth" />
+		
+			<label class="inputLabel" for="login-password"><fmt:message key="UserProfile.pass"/>:</label>
+			<html:password property="pass" size="41"  maxlength="40"/>
+		   	<span class="alert"><html:errors property="pass"/></span>
+		   	<br class="clearBoth" />
+		   	
+		   	<label class="inputLabel" for="login-password"><fmt:message key="AuthenticationContent.rememberMyPassword"/>:</label>
+			<html:checkbox property="rememberMyPassword"/>
+			<br class="clearBoth" />
+		</fieldset>
+					
+		<div class="buttonRow forward">
+			<input type="image" src="images/button_login.gif" alt="Sign In" title=" Sign In " />
+		</div>
+		<div class="buttonRow back important">
+			<html:link action="EditUserProfileForRegistration.do?action=REGISTER">
+	        	<fmt:message key="AuthenticationContent.register"/>
+			</html:link>
+		</div>
+	</html:form>
+	<br class="clearBoth" />
+
+</div>
 
 </jsp:root>

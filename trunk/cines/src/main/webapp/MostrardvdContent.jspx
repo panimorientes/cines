@@ -8,78 +8,136 @@
 <html:xhtml/>
 
 
-<p></p>
-<h6>
-<![CDATA[ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; ]]>
-<td><span class="formlabel">
-	<fmt:message key="dvd.titulo"/>
-</span></td>
-<![CDATA[ &nbsp;&nbsp; &nbsp;&nbsp;  ]]>
-<td><span class="formlabel">
-	<fmt:message key="dvd.director"/>
-</span></td>
-<![CDATA[ &nbsp;&nbsp; &nbsp;&nbsp;  ]]>
-<td><span class="formlabel">
-	<fmt:message key="dvd.clasificacion"/>
-</span></td>
-<![CDATA[ &nbsp;&nbsp; &nbsp;&nbsp;  ]]>
-<td><span class="formlabel">
-	<fmt:message key="dvd.precio"/>
-</span></td>
-<![CDATA[ &nbsp; &nbsp; &nbsp;&nbsp; ]]>
-<td><span class="formlabel">
-	<fmt:message key="dvd.disponibilidad"/>
-</span></td>
+<div class="centerColumn" id="indexProductList">
 
-												
-</h6>
+	<div class="title_box">
+		<div class="row1">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+	    				<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+	    			</div>
+	        	</div>
+	        </div>
+	    </div>
+		<div class="row2">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+						<div class="title_inner4">
+							<html:form action="MostrarCartelera.do" focus="nombre">
+	            				<h1 id="productListHeading">
+	      							Catalogo de DVD's:
+	            				</h1>
+							</html:form>
+						</div>
+	        		</div>
+	        	</div>
+	        </div>
+	    </div>
+		<div class="row3">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+	    				<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+	    			</div>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
 
-<p></p> 
-<table>
-<tbody>
-
-<c:forEach var="dvd" items="${dvds}">
-<tr>
-												<td><c:url var="urlFoto" value="img/dvd/${dvd.titulo}"/>
-													<p>
-														<img src="${urlFoto}" width="50" height="50"/>
-													</p>
-												</td>
-												<td>${dvd.titulo}</td>
-												<td>${dvd.director}</td>
-												<td>${dvd.clasificacion}</td>
-												<td>${dvd.precio}</td>
-												<td>${dvd.disponibilidad}</td>	
-												<td><c:if test="${sessionScope.login=='Administrator'}">	
-													<c:url var="urlEdvd" value="Eliminardvd.do">
-														<c:param name="idDvd" value="${dvd.idDvd}"/>
-													</c:url>
-													
-													<a href="${urlEdvd}">
-														<img src="img/papelera1.jpeg" width="20" height="20" title="Eliminar dvd"/>
-													</a>
-												</c:if></td>													
-																						
-												<c:if test="${dvd.disponibilidad}">
-
-												<td>
-													<c:url var = "urlCompra" value="ComprarD.do">
-														<c:param name="id" value="${dvd.titulo}"/>
-													</c:url>
-													<a href="${urlCompra }">
-														Comprar
-													</a>
-												</td>			
-
-												</c:if>
-																								
-												
-</tr>
-</c:forEach>
-</tbody>
-</table>
-
-
-
+	<div id="productListing">
+		<br class="clearBoth" />
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" id="cat1Table" class="tabTable">
+	    		<tr>
+		        	<td colspan="11">
+		        		<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+		        	</td>
+		        </tr>
+        		<tr>
+        			<td class="productListing-data">
+						FOTO
+					</td>
+        			<td class="productListing-data">
+						TITULO
+					</td>
+					<td class="productListing-data">
+						DIRECTOR
+					</td>
+					<td class="productListing-data">
+						CLASIFICACION
+					</td>
+					<td class="productListing-data">
+						PRECIO
+					</td>
+					<td class="background-white-right">
+						<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
+					</td>
+				</tr>
+				<c:forEach var="dvd" items="${dvds}">
+					<tr>
+				   		<td class="productListing-data">
+					   		<c:url var="urlFoto" value="img/dvd/${dvd.titulo}"/>
+							<img src="${urlFoto}" width="50" height="50"/>
+					   	</td>
+						<td class="productListing-data">
+							${dvd.titulo}
+						</td>
+						<td class="productListing-data">
+							${dvd.director}
+						</td>
+						<td class="productListing-data">
+							${dvd.clasificacion}
+						</td>
+						<td class="productListing-data">
+							${dvd.precio}
+						</td>
+						<c:if test="${sessionScope.login=='Administrator'}">
+							<td class="productListing-data">
+								<c:url var="urlEdvd" value="Eliminardvd.do">
+									<c:param name="idDvd" value="${dvd.idDvd}"/>
+								</c:url>
+								<a href="${urlEdvd}">
+									<img src="img/papelera1.jpeg" width="20" height="20" title="Eliminar dvd"/>
+								</a>
+							</td>
+						</c:if>
+						<c:if test="${dvd.disponibilidad}">
+							<td class="productListing-data">
+								<c:url var = "urlCompra" value="ComprarD.do">
+									<c:param name="id" value="${dvd.titulo}"/>
+								</c:url>
+								<a href="${urlCompra }">
+									Comprar
+								</a>
+							</td>			
+						</c:if>
+			         	<td class="background-white-right">
+			         		<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
+					    </td>
+					</tr>
+				   	<tr>
+			       		<td colspan="11" style="overflow:hidden;">
+							<img src="images/pixel_trans.gif" alt="" width="1" height="8" />
+							<br />
+							<div class="box_line">
+								<div class="inner">
+									<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+								</div>
+							</div>
+							<img src="images/pixel_trans.gif" alt="" width="1" height="18" />
+							<br />
+					   	</td>
+					</tr>
+				    <tr>
+				        <td colspan="11">
+				      		<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+				       	</td>
+				  	</tr>
+			  	</c:forEach>
+		  	</table>
+		  	<br class="clearBoth" />
+	</div>
+</div>
 
 </jsp:root>

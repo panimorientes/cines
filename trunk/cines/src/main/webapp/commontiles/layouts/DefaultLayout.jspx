@@ -37,120 +37,340 @@ fmt:setLocale tag will not be necessary.
   <title>
     <fmt:message key="${title}"/>    
   </title>
-  <c:url var="stylesURL" value="/css/styles.css" />
-  <link rel="StyleSheet" href="${stylesURL}" type="text/css" media="all" />
   
-  <c:url var="colorURL" value="/css/colour.css" />
-  <link rel="StyleSheet" href="${colorURL}" type="text/css" media="all" />
-  
+	
+	<c:url var="stylesheetURL" value="/css/stylesheet.css" />
+	<link rel="StyleSheet" href="${stylesheetURL}" type="text/css"  />
+	
+	<c:url var="stylesheet_boxesURL" value="/css/stylesheet_boxes.css" />
+	<link rel="StyleSheet" href="${stylesheet_boxesURL}" type="text/css"  />
+	
+	<c:url var="stylesheet_css_buttonsURL" value="/css/stylesheet_css_buttons.css" />
+	<link rel="StyleSheet" href="${stylesheet_css_buttonsURL}" type="text/css"  />
+	
+	<c:url var="stylesheet_mainURL" value="/css/stylesheet_main.css" />
+	<link rel="StyleSheet" href="${stylesheet_mainURL}" type="text/css"  />
+	
+	<c:url var="stylesheet_tmURL" value="/css/stylesheet_tm.css" />
+	<link rel="StyleSheet" href="${stylesheet_tmURL}" type="text/css"  />
+	
+	<c:url var="print_stylesheetURL" value="/css/print_stylesheet.css" />
+	<link rel="StyleSheet" media="print" href="${print_stylesheetURL}" type="text/css"/>
   
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
 </head>
 
-<!-- Start of HTML body. -->
-
-<body>
-
-<!-- Window. -->
-
-<div id="main">
-    
-<!-- Page title. -->    
-<a href="Index.jspx"> 
-<div id="logo">
-	<h1>
-	    <tiles:get name="pageTitle"/>
-    </h1>
-</div>
-</a>
-<!-- Menu. -->
-<div id="content">
-<div id="menu">
-  <tiles:useAttribute name="headerSpecificAsKey" ignore="true"/>
-  <c:choose>
-     <c:when test="${!empty headerSpecificAsKey}">
-       <span id="menuExplanation">
-         <fmt:message key="${headerSpecificAsKey}"/>
-       </span>
-     </c:when>
-     <c:otherwise>
-       <tiles:get name="headerSpecificAsTile"/>
-     </c:otherwise>
-  </c:choose>
-</div>
-
-<!-- Body content. -->
-<div id="column1">
+<body id="reviewsBody">
+	<!--bof-header logo and navigation display-->
+	<div class="top_talling3">
+		<div class="top_talling4">
+    		<div class="body_back1">
+         		<div class="main_t">
+          			<div class="header_t">
+            			<div class="row1">
+            				<img src="images/pixel_trans.gif" alt="" width="1" height="23" />
+            				<br />
+              				<html:link action="/ShowMostrarCartelera.do">
+              					<img src="images/logo.jpg" alt="" width="237" height="89" />
+        					</html:link>
+              				<br />
+            			</div>
+            			<div class="row2 h_menu">
+                     		<ul>
+								<li class="first">
+									<span>
+										<html:link action="/ShowMostrarCartelera.do">
+            								Home Page
+        								</html:link>
+        							</span>
+								</li>
+  								<li>
+  									<span>
+  										<html:link action="/MostrarMerchandising.do">
+            								<fmt:message key="MainPageHeaderSpecific.mostrarMerchandising"/>
+        								</html:link>
+  									</span>
+  								</li>
+							  	<li>
+							  		<span>
+							  			<html:link action="/Mostrardvd.do">
+            								<fmt:message key="MainPageHeaderSpecific.mostrardvd"/>
+        								</html:link>
+        							</span>
+        						</li>
+        						<li>
+							  		<span>
+        						        <html:link action="/MostrarPeliculasAdmin.do">
+            								<fmt:message key="MainPageHeaderSpecific.mostrarPeliculasAdmin"/>
+        								</html:link>
+        							</span>
+        						</li>
+        						<li>
+							  		<span>
+							  			<c:if test="${empty sessionScope.login}">
+                							<html:link action="ShowAuthentication.do">
+                								<fmt:message key="MainPageHeaderSpecific.authenticate"/>
+                							</html:link>
+                						</c:if>
+                						<c:if test="${!empty sessionScope.login}">
+                							<html:link action="Logout.do">
+            									<fmt:message key="MainPageHeaderSpecific.logout"/>
+        									</html:link>
+        								</c:if>
+        							</span>
+        						</li>
+						    </ul>
+        					<div class="clear"></div>
+            			</div>
+          			</div>
+         		</div>
+    		</div>
+		</div>
+	</div>
+	<!--bof-header logo and navigation display-->
 	
-	<c:if test="${ !empty sessionScope.login }">
-	<div class="sidebaritem">
-		<div class="sbihead">
-			<h1>
-				Carro compra
-			</h1>
-		</div>
-		<div class="sbicontent">
-			<b>Articulos : </b>.....${carroCompra.numLineas } <br />
-			<b>Total : </b>.........${carroCompra.total  }<br />
-			<a href="HistorialPedidos.do">Ver pedidos</a>  
-			 <![CDATA[&nbsp;&nbsp;&nbsp;]]>
-			<a href="VerCarro.do">Ver carro</a>         
-		</div>
-	</div>
-	</c:if>
-	<div class="sidebaritem">
-		<div class="sbihead">
-			<h1>
-				 <![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]]> Busqueda
-			</h1>
-		</div>
-		<div class="sbicontent">
-			
-			<html:form action="Busqueda.do">
-				<div>
-					<label for="label">Busqueda por palabra clave</label><p></p>
-					<html:text property="clave" size="20" maxlength="20"/>
-			
-					<p></p><p></p><p></p>
-					<html:select property="clasificacion">
-		            	<c:forEach var="clase" items="${clasificaciones}">
-							<html:option value="${clase.nombre}">
-								${clase.nombre}
-							</html:option>
-		            	</c:forEach>
-		            </html:select>      
-					
-					<p></p><p></p>
-		
-					<![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]]> <input type="submit" value="buscar"/>
+	<div class="top_talling2">
+  		<div class="body_back2">
+    		<div class="main_t">
+      			<div class="top_talling2">
+      				<img src="images/pixel_trans.gif" alt="" width="1" height="15" />
+      				<br />
+      				<div class="header_t">
+      					<div class="row3">
+          					<div class="col1 user_menu">
+            					<ul>
+                					<c:if test="${!empty sessionScope.login}">
+                						<li class="first">
+                							<html:link action="EditUserProfileForUpdating.do?action=UPDATE">
+									            <fmt:message key="MainPageHeaderSpecific.updateProfile"/>
+									        </html:link>
+                						</li>
+                						<li>
+                							<html:link action="HistorialPedidos.do">
+									            Pedidos
+									        </html:link>
+                						</li>
+                					</c:if>
+                					<c:if test="${sessionScope.login=='Administrator'}">
+	                            		<li>
+	                            			<html:link action="/ShowAnadirCine.do">
+	            								<fmt:message key="MainPageHeaderSpecific.anadirCine"/>
+	        								</html:link> 
+	        							</li>  
+	                            		<li>
+	                            			<html:link action="/ShowFormaSala.do">
+									    		<fmt:message key="MainPageHeaderSpecific.formaSala"/>
+									    	</html:link> 
+									 	</li>
+									 	<li>
+									 		<html:link action="/ShowAnadirSesion.do">
+	            								<fmt:message key="MainPageHeaderSpecific.anadirSesion"/>
+	        								</html:link>
+	        							</li> 
+	        							<li>
+	        								<span>
+	        									<html:link action="/ShowAnadirPelicula.do?action=PELICULA">
+										            <fmt:message key="MainPageHeaderSpecific.anadirPelicula"/>
+										        </html:link>
+	        								</span>
+	        							</li>
+	        							<li>
+	        								<span>
+	        									<html:link action="/ShowAnadirdvd.do?action=DVD">
+	            									<fmt:message key="MainPageHeaderSpecific.anadirdvd"/>
+	        									</html:link>
+	        								</span>
+	        							</li>  
+	                					<li class="last">
+	                						<span>
+	                							<html:link action="/ShowAnadirMerchandising.do">
+										            <fmt:message key="MainPageHeaderSpecific.anadirMerchandising"/>
+										        </html:link>  
+	                						</span>
+	                					</li>
+	                				</c:if>
+                        		</ul>
+          					</div>
+				          	<div class="clear"></div>
+				        </div>
+					</div>
 				</div>
-			</html:form>
-			
+			</div>
+			<table border="0" cellspacing="0" cellpadding="0" id="contentMainWrapper" style="width:100%;">
+				<tr>
+            		<td>
+            			<img src="images/pixel_trans.gif" alt="" width="6" height="1" />
+            		</td>
+            		<td id="column_center" valign="top" style="width:680px;background-color:#FFFFFF;border-style: solid;border-color: #CCCCCC;border-width: 1px;">
+            			<div class="column_center_bg">
+            				<div class="product_box">
+								<div class="bg_inner9">
+									<div class="column-center-background">
+                      					<tiles:get name="content"/>
+                      				</div>
+    							</div>
+							</div>
+           				</div>
+       				</td>
+            		<td>
+            			<img src="images/pixel_trans.gif" alt="" width="8" height="1" />
+            		</td>
+            		<td id="column_right" style="width:186px">
+						<!--// bof: information //-->
+						<div id="categories" style="width:186px;">
+							<div class="box">
+								<div class="background-top-4">
+									<div class="inbox1">
+										<div class="inbox2">
+											<div class="background-top-left-4">
+												<div class="background-top-right-4">
+													<div class="background-bottom-left-4">
+														<div class="background-bottom-right-4">
+						     								<div class="box-indent">
+													    		<div class="box_head">
+													    			<div class="inner1">
+																 		<div class="inner2">
+																        	<div class="inner3">
+																        		<div class="inner4">
+																        			<div class="inner5">
+																        				<div class="inner6">
+																							Busqueda        
+        																				</div>
+        																			</div>
+        																		</div>
+        																	</div>
+      																	</div>
+    																</div>
+  																</div>
+            													<div class="box1_body">
+                													<div id="informationContent" class="sideBoxContent" >
+											          					<html:form action="Busqueda.do">
+											          						<div class="col2" style="margin-bottom:5px;">Busqueda:<br /></div>
+											          						<div class="col3" style="margin-bottom:5px;">
+																				<html:text property="clave" size="18" maxlength="20"/>
+																          	</div>
+																          	<div class="col3" style="margin-bottom:15px;background-color:#FFFFFF;">
+																          		<html:select property="clasificacion">
+													            					<c:forEach var="clase" items="${clasificaciones}">
+																						<html:option value="${clase.nombre}">
+																							${clase.nombre}
+																						</html:option>
+													            					</c:forEach>
+													            				</html:select>
+													            				<input type="submit" value="buscar" style="float:right; margin-right:10px;margin-top:5px;" />
+													            				<br/>
+																          	</div>
+																          	<div class="col5">
+															          		</div>
+															          	</html:form>
+																	</div>            
+																</div> 
+    														</div>
+    													</div>
+    												</div>
+    											</div>
+    										</div>
+    									</div>
+    								</div>
+    							</div>
+							</div>
+						</div>
+						<!--// eof: information //-->
+						<!--// bof: shoppingcart //-->
+            			<c:if test="${ !empty sessionScope.login }">
+							<div  id="shoppingcart" style="width:186px;">
+								<div class="box">
+									<div class="background-top-4">
+										<div class="inbox1">
+											<div class="inbox2">
+												<div class="background-top-left-4">
+													<div class="background-top-right-4">
+														<div class="background-bottom-left-4">
+															<div class="background-bottom-right-4">
+	     														<div class="box-indent">
+	    															<div class="box_head">
+	    																<div class="inner1">
+	      																	<div class="inner2">
+	        																	<div class="inner3">
+	        																		<div class="inner4">
+	        																			<div class="inner5">
+	        																				<div class="inner6">
+	        																					<html:link action="/VerCarro.do">
+										            												Shopping Cart
+										        												</html:link>  
+	        																				</div>
+	        																			</div>
+	        																		</div>
+	        																	</div>
+	      																	</div>
+	    																</div>
+	  																</div>
+	            													<div class="box1_body">
+	                														now in your cart <strong>${carroCompra.numLineas} items</strong>
+	                														<br/>
+	                														total cost <strong>${carroCompra.total}</strong>
+	                														<br />
+	                														<div id="shoppingcartContent" class="sideBoxContent">
+	                															<div id="cartBoxEmpty"></div>
+	                														</div>
+	                														<p style="float: right;text-decoration:underline;">
+	                															<html:link action="/VerCarro.do">Ver Carro</html:link>
+	                														</p>
+	                												</div>
+	    														</div>
+	    													</div>
+	    												</div>
+	    											</div>
+	    										</div>
+	    									</div>
+	    								</div>
+	    							</div>
+								</div>
+							</div>
+						</c:if>
+						<!--// eof: shoppingcart //-->
+           			</td>
+    			</tr>
+			</table>
+			<div class="footer_t">
+	        	<div class="inner1">
+	            	<div class="inner2">
+	                	<div class="inner3">
+							<span>
+								<html:link action="/ShowMostrarCartelera.do">
+            						Home Page
+        						</html:link>
+        						|
+  								<html:link action="/MostrarMerchandising.do">
+            						<fmt:message key="MainPageHeaderSpecific.mostrarMerchandising"/>
+        						</html:link>
+        						|
+					  			<html:link action="/Mostrardvd.do">
+          							<fmt:message key="MainPageHeaderSpecific.mostrardvd"/>
+        						</html:link>
+        						|
+        				        <html:link action="/MostrarPeliculasAdmin.do">
+            						<fmt:message key="MainPageHeaderSpecific.mostrarPeliculasAdmin"/>
+        						</html:link>
+							</span>
+							<br />
+	       					<img src="images/pixel_trans.gif" alt="" width="1" height="6" />
+	       					<br />
+							Copyright 2009. Powered by Yasmin Diab and Federico Ariel.						
+	                	</div>
+	         		</div>
+	        	</div>
+      		</div>
+      		<img src="images/pixel_trans.gif" alt="" width="1" height="36" />
+      		<br />
 		</div>
 	</div>
-</div>
-
-
-<div id="column2">
-  <tiles:get name="content"/>
-</div>
-
-</div>
-
-<!-- Body footer. -->
-
-<div id="footer">
-  <tiles:get name="footer"/>
-</div>
-
-<!-- End of "window" id. -->
-
-</div>
-
-<!-- End of HTML body. -->
-
+	
+	
+	
+	
+	
+	
+	
 </body>
-
-<!-- End of HTML. -->
-
 </html:html>

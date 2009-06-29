@@ -6,52 +6,57 @@
 
 <html:xhtml/>
 
-<html:form action="RegisterUser.do" focus="login">
 
-    <html:hidden property="action" value="REGISTER"/>
 
-    <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="UserProfile.login"/>
-        </span>
-        <span class="forminput">
-            <html:text property="login" size="16" maxlength="30"/>
-            <html:errors property="login"/>
-        </span>
-    </div>
-    
-    <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="UserProfile.pass"/>
-        </span>
-        <span class="forminput">    
-            <html:password property="pass" size="16" maxlength="8"/>
-            <html:errors property="pass"/>
-        </span>
-    </div>
-    
-    <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="RegisterUserContent.retypePassword"/>
-        </span>
-        <span class="forminput">
-            <html:password property="retypePassword" size="16" maxlength="8"/>
-            <html:errors property="retypePassword"/>
-        </span>
-    </div>
-    
-    
-   
+<div class="centerColumn" id="loginDefault">
+	<div class="c_h_b">
+		<div class="c_h_t">
+    		<div class="c_h_r">
+        		<div class="c_h_l">
+            		<div class="c_h_br">
+                		<div class="c_h_bl">
+                    		<div class="c_h_tr">
+								<h1 id="loginDefaultHeading">Welcome, Please Sign Up</h1>
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+    	</div>
+	</div>
 
-    <jsp:directive.include file="UserProfileDetails.jspf"/>
-    
-    <p></p>
-   <p align="center">
-        <html:submit>
-            <fmt:message key="Buttons.register"/>
-        </html:submit>
-    </p>
-    
-</html:form>
+	
+<!--BOF normal login-->
+	<html:form action="RegisterUser.do" focus="login">
+		<html:hidden property="action" value="REGISTER"/>
+		<fieldset>
+			<legend>New? Please Provide Your Billing Information</legend>
+			<label class="inputLabel" for="login-email-address"><fmt:message key="UserProfile.login"/>:</label>
+			<html:text property="login" size="41" maxlength="16"/>
+		    <span class="alert"><html:errors property="login"/></span>
+		    <br class="clearBoth" />
+		
+			<label class="inputLabel" for="login-password"><fmt:message key="UserProfile.pass"/>:</label>
+			<html:password property="pass" size="41"  maxlength="40"/>
+		   	<span class="alert"><html:errors property="pass"/></span>
+		   	<br class="clearBoth" />
+		   	
+		   	<label class="inputLabel" for="login-password"><fmt:message key="RegisterUserContent.retypePassword"/>:</label>
+			<html:password property="retypePassword" size="41"  maxlength="40"/>
+		   	<span class="alert"><html:errors property="retypePassword"/></span>
+		   	<br class="clearBoth" />
+		   	
+		   	<jsp:directive.include file="UserProfileDetails.jspf"/>
+		   	
+		</fieldset>
+					
+		<div class="buttonRow forward">
+			<input type="image" src="images/button_submit.gif" alt="Submit the Information" title=" Submit the Information " />
+		</div>
+	</html:form>
+	<br class="clearBoth" />
+
+</div>
+
 
 </jsp:root>

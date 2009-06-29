@@ -1,115 +1,58 @@
-<div class="row">		
-	<span class="formlabel">
-		<fmt:message key="UserProfile.nombre"/>
-	</span>
-	<span class="forminput">	
-		<html:text property="nombre" size="16" maxlength="30"/>
-		<html:errors property="nombre"/>
-	</span>
-</div>
+<label class="inputLabel" for="login-email-address"><fmt:message key="UserProfile.nombre"/>:</label>
+<html:text property="nombre" size="41" maxlength="20"/>
+<span class="alert"><html:errors property="nombre"/></span>
+<br class="clearBoth" />
 
-<div class="row">		
-	<span class="formlabel">
-		<fmt:message key="UserProfile.ape1"/>
-	</span>
-	<span class="forminput">	
-		<html:text property="ape1" size="16" maxlength="40"/>
-		<html:errors property="ape1"/>
-	</span>
-</div>
+<label class="inputLabel" for="login-email-address"><fmt:message key="UserProfile.ape1"/>:</label>
+<html:text property="ape1" size="41" maxlength="20"/>
+<span class="alert"><html:errors property="ape1"/></span>
+<br class="clearBoth" />
 
-<div class="row">		
-	<span class="formlabel">
-		<fmt:message key="UserProfile.ape2"/>
-	</span>
-	<span class="forminput">	
-		<html:text property="ape2" size="16" maxlength="40"/>
-		<html:errors property="ape2"/>
-	</span>
-</div>
+<label class="inputLabel" for="login-email-address"><fmt:message key="UserProfile.ape2"/>:</label>
+<html:text property="ape2" size="41" maxlength="20"/>
+<span class="alert"><html:errors property="ape2"/></span>
+<br class="clearBoth" />
 
-<div class="row">		
-	<span class="formlabel">
-		<fmt:message key="UserDireccion.cp"/>
-	</span>
-	<span class="forminput">	
-		<html:text property="cp" size="5" maxlength="5"/>
-		<html:errors property="cp"/>
-	</span>
-</div>
+<label class="inputLabel" for="login-email-address"><fmt:message key="UserDireccion.cp"/>:</label>
+<html:text property="cp" size="10" maxlength="10"/>
+<span class="alert"><html:errors property="cp"/></span>
+<br class="clearBoth" />
 
-<div class="row">		
-	<span class="formlabel">
-		<fmt:message key="UserDireccion.ciudad"/>
-	</span>
-	<span class="forminput">	
-		<html:text property="ciudad" size="10" maxlength="12"/>
-		<html:errors property="ciudad"/>
-	</span>
-</div>
+<label class="inputLabel" for="login-email-address"><fmt:message key="UserDireccion.ciudad"/>:</label>
+<html:text property="ciudad" size="41" maxlength="20"/>
+<span class="alert"><html:errors property="ciudad"/></span>
+<br class="clearBoth" />
 
-<div class="row">		
-	<span class="formlabel">
-		<fmt:message key="UserDireccion.direccion"/>
-	</span>
-	<span class="forminput">	
-		<html:text property="direccion" size="25" maxlength="40"/>
-		<html:errors property="direccion"/>
-	</span>
-</div>
+<label class="inputLabel" for="login-email-address"><fmt:message key="UserDireccion.direccion"/>:</label>
+<html:text property="direccion" size="41" maxlength="50"/>
+<span class="alert"><html:errors property="direccion"/></span>
+<br class="clearBoth" />
 
-<div class="row">		
-	<span class="formlabel">
-		<fmt:message key="UserDireccion.numero"/>
-	</span>
-	<span class="forminput">	
-		<html:text property="numero" size="5" maxlength="5"/>
-		<html:errors property="numero"/>
-	</span>
-</div>
+<label class="inputLabel" for="login-email-address"><fmt:message key="UserDireccion.numero"/>:</label>
+<html:text property="numero" size="10" maxlength="5"/>
+<span class="alert"><html:errors property="numero"/></span>
+<br class="clearBoth" />
 
-<div class="row">		
-	<span class="formlabel">
-		<fmt:message key="UserProfile.email"/>
-	</span>
-	<span class="forminput">	
-		<html:text property="email" size="16" maxlength="60"/>
-		<html:errors property="email"/>
-	</span>
-</div>
+<label class="inputLabel" for="login-email-address"><fmt:message key="UserProfile.email"/>:</label>
+<html:text property="email" size="41" maxlength="50"/>
+<span class="alert"><html:errors property="email"/></span>
+<br class="clearBoth" />
 
-<div class="row">
-	<span class="formlabel">
-		<fmt:message key="UserProfile.language"/>
-	</span>
-	<span class="forminput">
-		<html:select property="lenguaje">
-			<html:options collection="languages" property="value" 
-						  labelProperty="label"/>
-		</html:select>
-		<html:errors property="language"/>
-	</span>
-</div>
+<label class="inputLabel" for="login-email-address"><fmt:message key="UserProfile.language"/>:</label>
+<html:select property="lenguaje">
+	<html:options collection="languages" property="value" labelProperty="label"/>
+</html:select>
+<span class="alert"><html:errors property="language"/></span>
+<br class="clearBoth" />
 
-<div class="row">
-	<span class="formlabel">
-		<fmt:message key="UserProfile.pais"/>
-	</span>
-	<span class="forminput">
-		<html:select property="pais">
-			<html:options collection="countries" property="value" 
-						  labelProperty="label"/>
-		</html:select>
-		<html:errors property="country"/>
-	</span>
-</div>
+<label class="inputLabel" for="login-email-address"><fmt:message key="UserProfile.pais"/>:</label>
+<html:select property="pais">
+	<html:options collection="countries" property="value" labelProperty="label"/>
+</html:select>
+<span class="alert"><html:errors property="country"/></span>
+<br class="clearBoth" />
 
-<div class="row">
-	<span class="formlabel">
-		<fmt:message key="UserTarjeta.tarjeta"/>
-	</span>
-	<span class="forminput">
-		<html:text property="tarjeta" size="18" maxlength="16"/>
-		<html:errors property="tarjeta"/>
-	</span>
-</div>
+<label class="inputLabel" for="login-email-address"><fmt:message key="UserTarjeta.tarjeta"/>:</label>
+<html:text property="tarjeta" size="41" maxlength="16"/>
+<span class="alert"><html:errors property="tarjeta"/></span>
+<br class="clearBoth" />
