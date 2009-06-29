@@ -37,16 +37,16 @@ public class TicketVO extends ProductoVO {
 	 * @param estado
 	 * @param precio
 	 */
-	public TicketVO(long idSesion, long fila, long butaca, int estado,double precio) {
-		//XXX cosa? 
-		super(0,precio,"ticket butaca"+fila+" "+butaca);
-		
-		this.idSesion = idSesion;
-
-		this.fila = fila;
-		this.butaca = butaca;
-		this.estado = estado;
-		}
+//	public TicketVO(long idSesion, long fila, long butaca, int estado,double precio) {
+//		//XXX cosa? 
+//		super(0,precio,"ticket butaca"+fila+" "+butaca);
+//		
+//		this.idSesion = idSesion;
+//
+//		this.fila = fila;
+//		this.butaca = butaca;
+//		this.estado = estado;
+//		}
 	/**
 	 * @param idTicket
 	 * @param idSesion
@@ -57,7 +57,7 @@ public class TicketVO extends ProductoVO {
 	 * @param precio
 	 */
 	public TicketVO(long idTicket,  long idSesion, long fila, long butaca, int estado, double precio) {
-		super(0,precio,"ticket butaca"+fila+" "+butaca);
+		super(idTicket, 0,precio,"ticket butaca"+fila+" "+butaca);
 		
 		this.idTicket = idTicket;
 		this.idSesion = idSesion;

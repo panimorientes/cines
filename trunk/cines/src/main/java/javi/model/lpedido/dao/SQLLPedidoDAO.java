@@ -14,7 +14,7 @@ public interface SQLLPedidoDAO {
     public void create(Connection connection, LPedidoVO userLPedido)
         throws DuplicateInstanceException, InternalErrorException, InstanceNotFoundException;
     
-    public List<LPedidoVO> recuperarLPedido(Connection connection, List<PedidoVO> pedidos)
+    public List<LPedidoVO> recuperarLPedido(Connection connection, PedidoVO pedido)
     	throws InternalErrorException, InstanceNotFoundException;
     
  

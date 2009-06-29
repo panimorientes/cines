@@ -6,10 +6,11 @@
           version="2.0">
           
 <html:xhtml/>
-<c:forEach var="fped" items="${fped}">
+<c:forEach var="pedido" items="${pedidos}">
 	<h1>		
-		<fmt:message key="HistorialPedidos.idPedido"/> ${fped.idPedido}
-		<fmt:message key="HistorialPedidos.fecha"/> ${fped.fechaPedido}
+		<fmt:message key="HistorialPedidos.idPedido"/> ${pedido.idPedido}
+		<fmt:message key="HistorialPedidos.fecha"/> ${pedido.fechaPedido}
+		<fmt:message key="HistorialPedidos.comprador"/> ${pedido.login}
 	</h1>	
 				<h6>
 					<td><span class="formlabel">
@@ -28,53 +29,18 @@
 						<fmt:message key="HistorialPedidos.precio"/>
 					</span></td>
 				</h6>	
-		<c:forEach var="pedidos" items="${lpedidos}">
+				<c:forEach var="lPedido" items="${pedido.lineasPedido}">
 		
-			<c:if test="${pedidos.idPedido==fped.idPedido}">	
-					
-				<p>
-					  ${pedidos.numLinea}
-					<![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]]>	
-					
-					<c:forEach var="tickets" items="${tickets}">
-						<c:if test="${tickets.idTicket==pedidos.idProducto}">
-							<c:forEach var="sesiones" items="${sesiones}">
-								<c:if test="${sesiones.idSesion==tickets.idSesion}">
-										<c:set var="precio" value="${sesiones.precio}" />	
-									<c:forEach var="peliculas" items="${peliculas}">
-										<c:if test="${sesiones.idPelicula==peliculas.idPelicula}">
-						         			
-												${peliculas.titulo}
-											
-										</c:if>
-									</c:forEach>
-								</c:if>
-							</c:forEach>
-						</c:if>
-					</c:forEach>
-					
-					<c:forEach var="dvds" items="${dvds}">
-						<c:if test="${pedidos.idProducto==dvds.idDvd}">
-		         				<c:set var="precio" value="${tickets.precio}" />	
-								${dvds.titulo}
-									
-						</c:if>
-					</c:forEach>
-					<c:forEach var="mer" items="${mer}">
-						<c:if test="${pedidos.idProducto==mer.idMerchandising}">
-		         				<c:set var="precio" value="${tickets.precio}" />	
-								${mer.referencia}
-			
-						</c:if>
-					</c:forEach>
-					<![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp; ]]>	
-					${pedidos.numUnidades}
-					<![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]]>	
-					${precio}
-				
-				</p>
-			</c:if>
-		</c:forEach>
+					<p>
+						 ${lPedido.idProducto}
+						<![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]]>	
+						${lPedido.nombre}
+						<![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp; ]]>	
+						${lPedido.numUnidades}
+						<![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]]>	
+						${lPedido.precio}
+					</p>
+				</c:forEach>
 
 </c:forEach>
 </jsp:root>

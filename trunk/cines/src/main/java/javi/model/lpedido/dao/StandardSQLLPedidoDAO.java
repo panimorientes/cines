@@ -62,7 +62,7 @@ public class StandardSQLLPedidoDAO implements SQLLPedidoDAO {
         
     }
     
-    public List<LPedidoVO> recuperarLPedido(Connection connection, List<PedidoVO> pedidos)
+    public List<LPedidoVO> recuperarLPedido(Connection connection, PedidoVO pedido)
 	throws InternalErrorException, InstanceNotFoundException{
     	
     	PreparedStatement preparedStatement = null;
@@ -70,10 +70,7 @@ public class StandardSQLLPedidoDAO implements SQLLPedidoDAO {
 		List<LPedidoVO> lpedidos = new ArrayList<LPedidoVO>();
 		try {
 			
-			//HAY QUE RECORRER LA LISTA PEDIDOS RECUPERANDO IDPEDIDO Y BUSCANDO LAS LINEAS
-			for(int j=0; j<pedidos.size(); j++){
-				
-				long idPedido=pedidos.get(j).getIdPedido();	
+				long idPedido=pedido.getIdPedido();	
 				
 				/* Create "preparedStatement". */
 				String queryString = "SELECT id_producto,num_linea,num_unidades, tipo  FROM LPEDIDO WHERE id_pedido = ?";
@@ -96,7 +93,6 @@ public class StandardSQLLPedidoDAO implements SQLLPedidoDAO {
 					lpedidos.add(new LPedidoVO(idPedido,id_producto,num_unidades,tipo, num_linea));
 				}
 			
-			}
 
 			/* Return the value object. */
 			return lpedidos;

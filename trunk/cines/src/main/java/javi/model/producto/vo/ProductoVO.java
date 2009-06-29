@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public abstract class ProductoVO implements Serializable {
 
-	
+	private Long idProducto;
     private int tipo;
     private double precio;
     private String descripcion;
@@ -17,7 +17,8 @@ public abstract class ProductoVO implements Serializable {
 
 
 
-	public ProductoVO( int tipo,double precio,String descripcion) {  	
+	public ProductoVO(Long idProducto, int tipo, double precio, String descripcion) {  
+		this.idProducto = idProducto;
     	this.tipo = tipo;
     	this.precio = precio;
     	this.descripcion = descripcion;
@@ -57,5 +58,17 @@ public abstract class ProductoVO implements Serializable {
 
 	public void setTipo(int tipo) {
 		this.tipo = tipo;
+	}
+
+
+
+	public Long getIdProducto() {
+		return idProducto;
+	}
+
+
+
+	public void setIdProducto(Long idProducto) {
+		this.idProducto = idProducto;
 	}
 }
