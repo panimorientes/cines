@@ -6,41 +6,119 @@
           version="2.0">
           
 <html:xhtml/>
-<c:forEach var="pedido" items="${pedidos}">
-	<h1>		
-		<fmt:message key="HistorialPedidos.idPedido"/> ${pedido.idPedido}
-		<fmt:message key="HistorialPedidos.fecha"/> ${pedido.fechaPedido}
-		<fmt:message key="HistorialPedidos.comprador"/> ${pedido.login}
-	</h1>	
-				<h6>
-					<td><span class="formlabel">
-						<fmt:message key="HistorialPedidos.linea"/>
-					</span></td>
-					<![CDATA[ &nbsp; ]]>
-					<td><span class="formlabel">
-						<fmt:message key="HistorialPedidos.producto"/>
-					</span></td>
-					<![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]]>
-					<td><span class="formlabel">
-						<fmt:message key="HistorialPedidos.unidades"/>
-					</span></td>
-					<![CDATA[ &nbsp;&nbsp; ]]>
-					<td><span class="formlabel">
-						<fmt:message key="HistorialPedidos.precio"/>
-					</span></td>
-				</h6>	
-				<c:forEach var="lPedido" items="${pedido.lineasPedido}">
-		
-					<p>
-						 ${lPedido.idProducto}
-						<![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]]>	
-						${lPedido.nombre}
-						<![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp; ]]>	
-						${lPedido.numUnidades}
-						<![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]]>	
-						${lPedido.precio}
-					</p>
-				</c:forEach>
 
-</c:forEach>
+
+
+<div class="centerColumn" id="indexProductList">
+
+	<div class="title_box">
+		<div class="row1">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+	    				<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+	    			</div>
+	        	</div>
+	        </div>
+	    </div>
+		<div class="row2">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+						<div class="title_inner4">
+							<html:form action="MostrarCartelera.do" focus="nombre">
+	            				<h1 id="productListHeading">
+	      							Historial de pedidos:
+	            				</h1>
+							</html:form>
+						</div>
+	        		</div>
+	        	</div>
+	        </div>
+	    </div>
+		<div class="row3">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+	    				<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+	    			</div>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+
+	<div id="productListing">
+		<br class="clearBoth" />
+			<c:forEach var="pedido" items="${pedidos}">
+				<div id="shippingInfoMainContent" class="content">
+					<p><strong><fmt:message key="HistorialPedidos.idPedido"/></strong>: ${pedido.idPedido}</p>
+					<p><strong><fmt:message key="HistorialPedidos.fecha"/></strong>: ${pedido.fechaPedido}</p>
+					<p><strong><fmt:message key="HistorialPedidos.comprador"/></strong>: ${pedido.login}</p>
+				</div>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" id="cat1Table" class="tabTable">
+		    		<tr>
+			        	<td colspan="11">
+			        		<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+			        	</td>
+			        </tr>
+	        		<tr>
+	        			<td class="productListing-data">
+							<fmt:message key="HistorialPedidos.linea"/>
+						</td>
+						<td class="productListing-data">
+							<fmt:message key="HistorialPedidos.producto"/>
+						</td>
+						<td class="productListing-data">
+							<fmt:message key="HistorialPedidos.unidades"/>
+						</td>
+						<td class="productListing-data">
+							<fmt:message key="HistorialPedidos.precio"/>
+						</td>
+						<td class="background-white-right">
+							<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
+						</td>
+					</tr>
+					<c:forEach var="lpedido" items="${pedido.lineasPedido}">
+						<tr>
+					   		<td class="productListing-data">
+						   		${lpedido.idProducto}
+						   	</td>
+							<td class="productListing-data">
+								${lpedido.nombre}
+							</td>
+							<td class="productListing-data">
+						   		${lpedido.numUnidades}
+						   	</td>
+						   	<td class="productListing-data">
+						   		${lpedido.precio}
+						   	</td>
+					         <td class="background-white-right">
+					        	<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
+						    </td>
+						</tr>
+					   	<tr>
+				       		<td colspan="11" style="overflow:hidden;">
+								<img src="images/pixel_trans.gif" alt="" width="1" height="8" />
+								<br />
+								<div class="box_line">
+									<div class="inner">
+										<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+									</div>
+								</div>
+								<img src="images/pixel_trans.gif" alt="" width="1" height="18" />
+								<br />
+						   	</td>
+						</tr>
+				    	<tr>
+				        	<td colspan="11">
+				      			<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+					      	</td>
+					  	</tr>
+				  	</c:forEach>
+			  	</table>
+				<br class="clearBoth" />
+		  	</c:forEach>
+	</div>
+</div>
+
 </jsp:root>

@@ -6,80 +6,70 @@
 
 <html:xhtml/>
 
-<html:form action="AnadirCine.do" focus="nombre">
 
-    <html:hidden property="action" value="REGISTER"/>
 
-	 
+<div class="centerColumn" id="loginDefault">
+	<div class="c_h_b">
+		<div class="c_h_t">
+    		<div class="c_h_r">
+        		<div class="c_h_l">
+            		<div class="c_h_br">
+                		<div class="c_h_bl">
+                    		<div class="c_h_tr">
+								<h1 id="loginDefaultHeading">Administer, add a new cine</h1>
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+    	</div>
+	</div>
 
-    <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="AdminCine.nombre"/>
-        </span>
-        <span class="forminput">
-            <html:text property="nombre" size="25" maxlength="50"/>
-            <html:errors property="nombre"/>
-        </span>
-    </div>
-    
-    <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="AdminCine.numSalas"/>
-        </span>
-        <span class="forminput">    
-            <html:text property="numSalas" size="25" maxlength="40"/>
-            <html:errors property="numSalas"/>
-        </span>
-    </div>
-    
-    <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="AdminCine.cp"/>
-        </span>
-        <span class="forminput">
-            <html:text property="cp" size="8" maxlength="8"/>
-            <html:errors property="cp"/>
-        </span>
-    </div>
-    
-     <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="UserDireccion.ciudad"/>
-        </span>
-        <span class="forminput">
-            <html:text property="ciudad" size="30" maxlength="30"/>
-            <html:errors property="ciudad"/>
-        </span>
-    </div>
-    
-     <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="UserDireccion.direccion"/>
-        </span>
-        <span class="forminput">
-            <html:text property="direccion" size="30" maxlength="30"/>
-            <html:errors property="direccion"/>
-        </span>
-    </div>  
+	
+<!--BOF normal login-->
+	<html:form action="AnadirCine.do" focus="nombre">
+    	<html:hidden property="action" value="REGISTER"/>
+		<fieldset>
+			<legend>Cine details</legend>
+		   	
+		   	<label class="inputLabel" for="login-email-address"><fmt:message key="AdminCine.nombre"/>:</label>
+			<html:text property="nombre" size="41" maxlength="20"/>
+			<span class="alert"><html:errors property="nombre"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="AdminCine.numSalas"/>:</label>
+			<html:text property="numSalas" size="20" maxlength="5"/>
+			<span class="alert"><html:errors property="numSalas"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="UserDireccion.cp"/>:</label>
+			<html:text property="cp" size="20" maxlength="10"/>
+			<span class="alert"><html:errors property="cp"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="UserDireccion.ciudad"/>:</label>
+			<html:text property="ciudad" size="41" maxlength="20"/>
+			<span class="alert"><html:errors property="ciudad"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="UserDireccion.direccion"/>:</label>
+			<html:text property="direccion" size="41" maxlength="50"/>
+			<span class="alert"><html:errors property="direccion"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="UserDireccion.numero"/>:</label>
+			<html:text property="numero" size="20" maxlength="5"/>
+			<span class="alert"><html:errors property="numero"/></span>
+			<br class="clearBoth" />
+		   	
+		</fieldset>
+					
+		<div class="buttonRow forward">
+			<input type="image" src="images/button_submit.gif" alt="Submit the Information" title=" Submit the Information " />
+		</div>
+	</html:form>
+	<br class="clearBoth" />
 
-	 <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="UserDireccion.numero"/>
-        </span>
-        <span class="forminput">
-            <html:text property="numero" size="2" maxlength="4"/>
-            <html:errors property="numero"/>
-        </span>
-    </div>
-    <!-- <jsp:directive.include file="UserProfileDetails.jspf"/> -->
-    
-     <p></p>
-   <p align="center">
-        <html:submit>
-            <fmt:message key="Buttons.anadir"/>
-        </html:submit>
-    </p>
-
-</html:form>
+</div>
 
 </jsp:root>

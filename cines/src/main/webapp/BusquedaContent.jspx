@@ -8,69 +8,119 @@
 <html:xhtml/>
 
 
-<p></p> 
-<h1>
- <![CDATA[ &nbsp; ]]>
-<td><span class="formlabel">
-	<fmt:message key="Pelicula.titulo"/>
-</span></td>
 
- <![CDATA[ &nbsp; ]]>
 
-<td><span class="formlabel">
-	<fmt:message key="Sesion.startDate"/>
-</span></td>
 
- <![CDATA[ &nbsp; &nbsp; ]]>
+<div class="centerColumn" id="indexProductList">
 
-<td><span class="formlabel">
-	<fmt:message key="Sesion.hora"/>
-</span></td>
-</h1>
+	<div class="title_box">
+		<div class="row1">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+	    				<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+	    			</div>
+	        	</div>
+	        </div>
+	    </div>
+		<div class="row2">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+						<div class="title_inner4">
+							<html:form action="MostrarCartelera.do" focus="nombre">
+	            				<h1 id="productListHeading">
+	      							Resultados de la busqueda:
+	            				</h1>
+							</html:form>
+						</div>
+	        		</div>
+	        	</div>
+	        </div>
+	    </div>
+		<div class="row3">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+	    				<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+	    			</div>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
 
-<p></p> 
-<table>
-<tbody>
-<thead>
-<tr>
+	<div id="productListing">
+		<br class="clearBoth" />
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" id="cat1Table" class="tabTable">
+	    		<tr>
+		        	<td colspan="11">
+		        		<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+		        	</td>
+		        </tr>
+        		<tr>
+        			<td class="productListing-data">
+						<fmt:message key="Pelicula.titulo"/>
+					</td>
+        			<td class="productListing-data">
+						<fmt:message key="Sesion.startDate"/>
+					</td>
+					<td class="productListing-data">
+						<fmt:message key="Sesion.hora"/>
+					</td>
+					<td class="background-white-right">
+						<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
+					</td>
+				</tr>
+				<c:forEach var="sesion" items="${listasesion}">
+					<c:forEach var="pelicula" items="${peliculas}">
+						<c:if test="${sesion.idPelicula==pelicula.idPelicula}">
+							<tr>
+						   		<td class="productListing-data">
+							   		<c:url var="urlDPeli" value="MostrarDetallesPelicula.do">
+										<c:param name="idCine" value="${sesion.idCine}"/>
+										<c:param name="sesion" value="${sesion.idSesion}"/>
+									</c:url>		            	
+							        <a href="${urlDPeli}">
+										${pelicula.titulo}
+									</a>
+							   	</td>
+								<td class="productListing-data">
+									<fmt:formatDate var="fecha" value="${sesion.fecha.time}"/>
+									${fecha}
+								</td>
+								<td class="productListing-data">
+									${sesion.hora}
+								</td>
+					         	<td class="background-white-right">
+					         		<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
+							    </td>
+							</tr>
+						   	<tr>
+					       		<td colspan="11" style="overflow:hidden;">
+									<img src="images/pixel_trans.gif" alt="" width="1" height="8" />
+									<br />
+									<div class="box_line">
+										<div class="inner">
+											<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+										</div>
+									</div>
+									<img src="images/pixel_trans.gif" alt="" width="1" height="18" />
+									<br />
+							   	</td>
+							</tr>
+						    <tr>
+						        <td colspan="11">
+						      		<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+						       	</td>
+						  	</tr>
+						</c:if>
+					</c:forEach>
+			  	</c:forEach>
+		  	</table>
+		  	<br class="clearBoth" />
+	</div>
+</div>
 
-</tr>
-</thead>
-<c:forEach var="sesion" items="${listasesion}">
-	<c:forEach var="pelicula" items="${peliculas}">
-
-		<c:if test="${sesion.idPelicula==pelicula.idPelicula}">    
-<tr>
-</tr>
-
-<tr>
-	
-
-<td><div style="margin-left:0px; with: 396px"> <p>
-			
-												<c:url var="urlDPeli" value="MostrarDetallesPelicula.do">
-													<c:param name="idCine" value="${sesion.idCine}"/>
-													<c:param name="sesion" value="${sesion.idSesion}"/>
-												</c:url>		            	
-							            			<a href="${urlDPeli}">
-														${pelicula.titulo}
-													</a>
-												</p>
-												
-</div></td>
-												<fmt:formatDate var="fecha" value="${sesion.fecha.time}"/>
-												<td>${fecha}</td>
-												<td>${sesion.hora}</td>
-												
-											
-											
-</tr>
-		</c:if>
-	</c:forEach>
-</c:forEach>
-
-</tbody>
-</table>
 
 
 </jsp:root>

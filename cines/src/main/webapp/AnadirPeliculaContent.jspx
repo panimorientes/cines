@@ -7,80 +7,70 @@
 
 <html:xhtml/>
 
-<html:form action="AnadirPelicula.do" focus="titulo" enctype="multipart/form-data">
 
-    <html:hidden property="action" value="REGISTER"/>
-    
-   
-    <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="AdminPelicula.titulo"/>
-        </span>
-        <span class="forminput">
-            <html:text property="titulo" size="25" maxlength="50"/>
-            <html:errors property="titulo"/>
-        </span>
-    </div>
-    
-    <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="AdminPelicula.director"/>
-        </span>
-        <span class="forminput">    
-            <html:text property="director" size="25" maxlength="40"/>
-            <html:errors property="director"/>
-        </span>
-    </div>
-    
-    <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="AdminPelicula.clasificacion"/>
-        </span>
-        <span class="forminput">
-        	 <html:select property="clasificacion">
+
+<div class="centerColumn" id="loginDefault">
+	<div class="c_h_b">
+		<div class="c_h_t">
+    		<div class="c_h_r">
+        		<div class="c_h_l">
+            		<div class="c_h_br">
+                		<div class="c_h_bl">
+                    		<div class="c_h_tr">
+								<h1 id="loginDefaultHeading">Administer, anade una nueva pelicula</h1>
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+    	</div>
+	</div>
+
+	
+<!--BOF normal login-->
+	<html:form action="AnadirPelicula.do" focus="titulo" enctype="multipart/form-data">
+		<fieldset>
+			<legend>Detalles de pelicula</legend>
+		   	
+		   	<label class="inputLabel" for="login-email-address"><fmt:message key="AdminPelicula.titulo"/>:</label>
+			<html:text property="titulo" size="41" maxlength="25"/>
+			<span class="alert"><html:errors property="titulo"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="AdminPelicula.director"/>:</label>
+			<html:text property="director" size="41" maxlength="25"/>
+			<span class="alert"><html:errors property="director"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="AdminPelicula.clasificacion"/>:</label>
+			<html:select property="clasificacion">
             	<c:forEach var="clase" items="${listaClasificaciones}">
             		<html:option value="${clase.nombre}">
 	            		${clase.nombre}
             		</html:option>
             	</c:forEach>
-            </html:select>            
-            <html:errors property="clasificacion"/>
-        </span>
-    </div>
-    
-    
-     <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="AdminPelicula.descripcion"/>
-        </span>
-        <span class="forminput">
-            <html:text property="descripcion" size="50" maxlength="50"/>
-            <html:errors property="descripcion"/>
-        </span>
-    </div>
-    
-    
-    
-     <div class="row">        
-        <span class="formlabel">
-            <fmt:message key="AnadirPelicula.file"/>
-        </span>
-        <span class="forminput">
-        	<html:file property="file" size="20"/>
-            <html:errors property="file"/>
-        </span>
-    </div>
-   
-      
-  
-    
-    <p></p> <p></p>
-   <p align="center">
-        <html:submit>
-            <fmt:message key="Buttons.anadir"/>
-        </html:submit>
-    </p>
+            </html:select>
+			<span class="alert"><html:errors property="clasificacion"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="AdminPelicula.descripcion"/>:</label>
+			<html:text property="descripcion" size="41" maxlength="50"/>
+			<span class="alert"><html:errors property="descripcion"/></span>
+			<br class="clearBoth" />
+			
+			<label class="inputLabel" for="login-email-address"><fmt:message key="AnadirPelicula.file"/>:</label>
+			<html:file property="file" size="20"/>
+			<span class="alert"><html:errors property="file"/></span>
+			<br class="clearBoth" />
+			
+		</fieldset>
+					
+		<div class="buttonRow forward">
+			<input type="image" src="images/button_submit.gif" alt="Submit the Information" title=" Submit the Information " />
+		</div>
+	</html:form>
+	<br class="clearBoth" />
 
-</html:form>
-
+</div>
+    
 </jsp:root>

@@ -7,46 +7,74 @@
 
 <html:xhtml/>
 
-<h1>
-	<fmt:message key = "MostarEstadoSalaContent.title"/> 
-</h1>
 
-<div align="center">
+<div class="centerColumn" id="indexProductList">
 
-<c:forEach var="i" begin="0" end="${numFilas - 1}">
-	<c:forEach var="j" begin="0" end="${numButacas - 1}">
-		<c:choose>
-			<c:when test="${empty butacas[i][j]}">
-				<img src="img/pasillo.jpg" align="middle" alt="20" height="20" style="border:1px solid black"/>
-			</c:when>
-			<c:otherwise>
+	<div class="title_box">
+		<div class="row1">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+	    				<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+	    			</div>
+	        	</div>
+	        </div>
+	    </div>
+		<div class="row2">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+						<div class="title_inner4">
+							<html:form action="MostrarCartelera.do" focus="nombre">
+	            				<h1 id="productListHeading">
+	      							<fmt:message key = "MostarEstadoSalaContent.title"/>
+	            				</h1>
+							</html:form>
+						</div>
+	        		</div>
+	        	</div>
+	        </div>
+	    </div>
+		<div class="row3">
+	    	<div class="title_inner1">
+	    		<div class="title_inner2">
+	    			<div class="title_inner3">
+	    				<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+	    			</div>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+	<div align="center" style="margin-top:20px;margin-bottom:20px;">
+		<c:forEach var="i" begin="0" end="${numFilas - 1}">
+			<c:forEach var="j" begin="0" end="${numButacas - 1}">
 				<c:choose>
-					<c:when test="${butacas[i][j].estado eq 0}">
-						<c:url var="comprarTicket" value="ComprarTicket.do"> 
-							<c:param name="idTicket" value="${butacas[i][j].idTicket}"/>
-						</c:url>
-						<a href="${comprarTicket}">
-							<img src="img/vacio.jpg" align="middle" alt="20" height="20" style="border:1px solid black"/>
-						</a>
+					<c:when test="${empty butacas[i][j]}">
+						<img src="img/pasillo.jpg" align="middle" alt="20" height="20" style="border:1px solid black"/>
 					</c:when>
-					<c:when test="${butacas[i][j].estado eq 1}">
-							<img src="img/marcado.jpg" align="middle" alt="20" height="20" style="border:1px solid black"/>
-					</c:when>
-
-					<c:when test="${butacas[i][j].estado eq 2}">
-							<img src="img/ocupado.jpg" align="middle" alt="20" height="20" style="border:1px solid black"/>
-					</c:when>
-				
+					<c:otherwise>
+						<c:choose>
+							<c:when test="${butacas[i][j].estado eq 0}">
+								<c:url var="comprarTicket" value="ComprarTicket.do"> 
+									<c:param name="idTicket" value="${butacas[i][j].idTicket}"/>
+								</c:url>
+								<a href="${comprarTicket}">
+									<img src="img/vacio.jpg" align="middle" alt="20" height="20" style="border:1px solid black"/>
+								</a>
+							</c:when>
+							<c:when test="${butacas[i][j].estado eq 1}">
+								<img src="img/marcado.jpg" align="middle" alt="20" height="20" style="border:1px solid black"/>
+							</c:when>
+							<c:when test="${butacas[i][j].estado eq 2}">
+								<img src="img/ocupado.jpg" align="middle" alt="20" height="20" style="border:1px solid black"/>
+							</c:when>
+						</c:choose>
+					</c:otherwise> 
 				</c:choose>
-			</c:otherwise> 
-		
-		</c:choose>
-	
-		 
-	</c:forEach>
-	<br /> 
-</c:forEach>
-
+			</c:forEach>
+			<br /> 
+		</c:forEach>
+	</div>
 </div>
 
 </jsp:root>

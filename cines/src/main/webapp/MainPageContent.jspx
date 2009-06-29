@@ -5,9 +5,13 @@
     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
     version="2.0">
 
-<p class="info">
-    <fmt:message key="MainPageContent.content"/>
-</p>
+
+<!--content_center-->	
+<div class="centerColumn" id="shippingInfo">
+	<h1 id="shippingInfoHeading">
+    	<fmt:message key="MainPageContent.content"/>
+    </h1>
+</div>
 
   
 </jsp:root>
