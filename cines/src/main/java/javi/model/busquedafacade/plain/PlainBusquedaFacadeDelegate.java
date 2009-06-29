@@ -27,6 +27,7 @@ import javi.model.busquedafacade.plain.actions.RecuperarPedidosAction;
 import javi.model.busquedafacade.plain.actions.TicketsAction;
 //import javi.model.busquedafacade.plain.actions.ReservardvdAction;
 import javi.model.busquedafacade.vo.EstadoSalaVO;
+import javi.model.busquedafacade.vo.PedidoCustomVO;
 import javi.model.cine.vo.CineVO;
 import javi.model.clasificacion.vo.ClasificacionVO;
 import javi.model.dvd.vo.dvdVO;
@@ -51,13 +52,13 @@ public class PlainBusquedaFacadeDelegate implements BusquedaFacadeDelegate {
        
     }
 	
-	public List<LPedidoVO> recuperarPedidos(String login) throws InternalErrorException {
+	public List<PedidoCustomVO> recuperarPedidos(String login) throws InternalErrorException {
         
         try {
         
             RecuperarPedidosAction action = new RecuperarPedidosAction(login);
                 
-            return (List<LPedidoVO>) PlainActionProcessor.process(getDataSource(),action);
+            return (List<PedidoCustomVO>) PlainActionProcessor.process(getDataSource(),action);
             
         } catch (InstanceNotFoundException e) {
             throw new InternalErrorException(e);

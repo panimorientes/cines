@@ -114,4 +114,40 @@ public class StandardSQLPedidoDAO implements SQLPedidoDAO {
 		}
 
 	}
+
+	public List<PedidoVO> find(Connection connection)
+			throws InternalErrorException, InstanceNotFoundException {
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		List<PedidoVO> pedido = new ArrayList<PedidoVO>();
+
+		try {
+
+			/* Create "preparedStatement". */
+			String queryString = "SELECT id_pedido,fecha,Ulogin  FROM PEDIDO";
+			preparedStatement = connection.prepareStatement(queryString);
+
+			/* Execute query. */
+			resultSet = preparedStatement.executeQuery();
+			int i;
+			while (resultSet.next()) {
+				i = 1;
+				
+				Long idPedido = resultSet.getLong(i++);
+				Date fecha = resultSet.getDate(i++);
+				String login = resultSet.getString(i++);
+				
+				pedido.add(new PedidoVO(idPedido, fecha, login));
+			}
+
+			/* Return the value object. */
+			return pedido;
+
+		} catch (SQLException e) {
+			throw new InternalErrorException(e);
+		} finally {
+			GeneralOperations.closeResultSet(resultSet);
+			GeneralOperations.closeStatement(preparedStatement);
+		}
+	}
 }

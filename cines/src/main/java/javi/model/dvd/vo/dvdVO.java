@@ -15,7 +15,7 @@ public class dvdVO extends ProductoVO {
 	    
 	    public dvdVO(long idDvd, String titulo, String director, String clasificacion,
 	    		String descripcion,double precio,boolean disponibilidad) {
-	    	 super(2,precio,"Compra dvd "+idDvd);
+	    	 super(idDvd, 2,precio,"Compra dvd "+idDvd);
 	        this.idDvd = idDvd;
 	    	this.titulo = titulo;
 	        this.director = director;
@@ -25,16 +25,16 @@ public class dvdVO extends ProductoVO {
 	        
 	    }
 	    
-	    public dvdVO(String titulo, String director, String clasificacion,
-	    		String descripcion,double precio,boolean disponibilidad) {
-	    	 super(2,precio,"Compra dvd ");
-	    	this.titulo = titulo;
-	        this.director = director;
-	        this.clasificacion = clasificacion;
-	        this.descripcion = descripcion;
-	        this.disponibilidad= disponibilidad;
-	        
-	    }
+//	    public dvdVO(String titulo, String director, String clasificacion,
+//	    		String descripcion,double precio,boolean disponibilidad) {
+//	    	 super(2,precio,"Compra dvd ");
+//	    	this.titulo = titulo;
+//	        this.director = director;
+//	        this.clasificacion = clasificacion;
+//	        this.descripcion = descripcion;
+//	        this.disponibilidad= disponibilidad;
+//	        
+//	    }
 	    
 	    
 	    

@@ -93,7 +93,7 @@ public abstract class StandardSQLMerchandisingDAO implements SQLMerchandisingDAO
 	}
         
     
-    public MerchandisingVO find(Connection connection,long referencia)
+    public MerchandisingVO find(Connection connection,long idMerchandising)
 	throws InstanceNotFoundException, InternalErrorException {
 
     	PreparedStatement preparedStatement = null;
@@ -103,13 +103,13 @@ public abstract class StandardSQLMerchandisingDAO implements SQLMerchandisingDAO
 		try {
 
 			/* Create "preparedStatement". */
-			String queryString = "SELECT idMerchandising,descripcion,tallas,precio,disponibilidad FROM MERCHANDISING " +
-			"WHERE referencia = ? ";
+			String queryString = "SELECT descripcion,referencia,tallas,precio,disponibilidad FROM MERCHANDISING " +
+			"WHERE idMerchandising = ? ";
 
 			preparedStatement = connection.prepareStatement(queryString);
 
 			int i=1;
-			preparedStatement.setDouble(i++, referencia);
+			preparedStatement.setDouble(i++, idMerchandising);
 
 
 			/* Execute query. */
@@ -117,8 +117,8 @@ public abstract class StandardSQLMerchandisingDAO implements SQLMerchandisingDAO
 
 			if(resultSet.next()){
 				i = 1;
-				Long idMerchandising = resultSet.getLong(i++);
 				String descripcion = resultSet.getString(i++);
+				Long referencia = resultSet.getLong(i++);
 				String tallas = resultSet.getString(i++);
 				double precio = resultSet.getDouble(i++);
 				boolean disponibilidad = resultSet.getBoolean(i++);

@@ -78,6 +78,12 @@
   </env-entry>
   
   <env-entry>
+    <env-entry-name>SQLProductoDAOFactory/daoClassName</env-entry-name>
+    <env-entry-value>javi.model.producto.dao.StandardSQLProductoDAO</env-entry-value>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  
+  <env-entry>
     <env-entry-name>SQLUserTarjetaDAOFactory/daoClassName</env-entry-name>
     <env-entry-value>javi.model.tarjeta.dao.StandardSQLTarjetaDAO</env-entry-value>
     <env-entry-type>java.lang.String</env-entry-type>

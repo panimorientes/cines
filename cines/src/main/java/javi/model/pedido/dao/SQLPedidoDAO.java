@@ -16,4 +16,6 @@ public interface SQLPedidoDAO {
     public List<PedidoVO> find(Connection connection, String login)
     	throws InternalErrorException, InstanceNotFoundException;
    
+    public List<PedidoVO> find(Connection connection)
+	throws InternalErrorException, InstanceNotFoundException;
 }

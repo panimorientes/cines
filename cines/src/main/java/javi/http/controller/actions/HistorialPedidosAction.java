@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import javi.http.controller.session.SessionManager;
+import javi.model.busquedafacade.vo.PedidoCustomVO;
 import javi.model.dvd.vo.dvdVO;
 import javi.model.lpedido.vo.LPedidoVO;
 import javi.model.merchandising.vo.MerchandisingVO;
@@ -32,23 +33,9 @@ public class HistorialPedidosAction extends DefaultAction {
         
     	 String login = SessionManager.getUserFacadeDelegate(request).findUserProfile().getLoginName();
         
-        /* Fill "form". */     
-        List<LPedidoVO> pedidos= SessionManager.getBusquedaFacadeDelegate(request).recuperarPedidos(login);
-        List<PedidoVO>  fped= SessionManager.getBusquedaFacadeDelegate(request).recuperarFechaPed(login);
-        List<PeliculaVO> peliculas = SessionManager.getBusquedaFacadeDelegate(request).buscaAdminPelicula();
-        List<dvdVO> dvds = SessionManager.getBusquedaFacadeDelegate(request).mostrardvd();
-        List<MerchandisingVO> mer = SessionManager.getBusquedaFacadeDelegate(request).mostrarMerchandising();
-        List<TicketVO> tickets = SessionManager.getBusquedaFacadeDelegate(request).tickets();
-        List<SesionVO> sesiones = SessionManager.getBusquedaFacadeDelegate(request).mostrarSesiones();
-        
-        request.setAttribute("lpedidos", pedidos);
-        request.setAttribute("fped", fped);
-        request.setAttribute("peliculas", peliculas);
-        request.setAttribute("dvds", dvds);
-        request.setAttribute("mer", mer);
-        request.setAttribute("tickets", tickets);
-        request.setAttribute("sesiones", sesiones);
-
+    	 List<PedidoCustomVO> pedidos = SessionManager.getBusquedaFacadeDelegate(request).recuperarPedidos(login);
+    	 
+    	 request.setAttribute("pedidos", pedidos);
         /* Return ActionForward. */
         //return new ActionForward(mapping.getInput());
             return mapping.findForward("HistorialPedidos");

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javi.model.busquedafacade.vo.EstadoSalaVO;
+import javi.model.busquedafacade.vo.PedidoCustomVO;
 import javi.model.cine.vo.CineVO;
 import javi.model.clasificacion.vo.ClasificacionVO;
 import javi.model.dvd.vo.dvdVO;
@@ -50,7 +51,7 @@ public interface BusquedaFacadeDelegate extends Serializable {
 	 
 	 public List<dvdVO> mostrardvd() throws InternalErrorException;
 	 
-	 public List<LPedidoVO> recuperarPedidos(String login) throws InternalErrorException;
+	 public List<PedidoCustomVO> recuperarPedidos(String login) throws InternalErrorException;
 	 	 	 
 	 public List<MerchandisingVO> mostrarMerchandising() throws InternalErrorException;
 	 

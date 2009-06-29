@@ -13,7 +13,7 @@ public class MerchandisingVO extends ProductoVO{
     private boolean disponibilidad;
     
     public MerchandisingVO(long idMerchandising,String descrip, Long referencia, String talla, double precio,boolean disponibilidad) {
-        super(1,precio,"Compra merchandasing "+referencia);
+        super(idMerchandising, 1,precio,"Compra merchandasing "+referencia);
     	this.idMerchandising = idMerchandising;
     	this.descrip = descrip;
         this.referencia = referencia;
@@ -23,17 +23,17 @@ public class MerchandisingVO extends ProductoVO{
         
     }
     
-    public MerchandisingVO(String descrip, Long referencia, String talla, double precio,
-    		boolean disponibilidad) {
-        super(1,precio,"Compra merchandasing ");
-
-    	this.descrip = descrip;
-        this.referencia = referencia;
-        this.talla = talla;
-        this.disponibilidad = disponibilidad;
-    
-        
-    }
+//    public MerchandisingVO(String descrip, Long referencia, String talla, double precio,
+//    		boolean disponibilidad) {
+//        super(1,precio,"Compra merchandasing ");
+//
+//    	this.descrip = descrip;
+//        this.referencia = referencia;
+//        this.talla = talla;
+//        this.disponibilidad = disponibilidad;
+//    
+//        
+//    }
     
 	
     	
