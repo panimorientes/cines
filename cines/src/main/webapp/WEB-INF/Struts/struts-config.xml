@@ -110,7 +110,10 @@ type="javi.http.controller.frontcontroller.MiniPortalActionMapping">
     </action>
     
     <action path="/Logout"
-			type="javi.http.controller.actions.LogoutAction"/>
+			type="javi.http.controller.actions.LogoutAction">
+		<forward name="MostrarCarteleraForm" path="/ShowMostrarCartelera.do" redirect="true"/>
+	</action>
+		
             
     <action path="/EditUserProfileForRegistration"
             type="org.apache.struts.actions.ForwardAction"
@@ -413,7 +416,6 @@ type="javi.http.controller.frontcontroller.MiniPortalActionMapping">
 	 <action path="/CarroTerminar"
 	 	type="javi.http.controller.actions.TerminarCarroAction">
 	 	<set-property property="authenticationRequired" value="true"/>
-	 	<forward name="Terminar" path="/VerCarro.do"></forward>
 	 </action>
 	 
 	 <action path="/ComprarM"

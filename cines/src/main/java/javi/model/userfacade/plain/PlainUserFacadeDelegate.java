@@ -61,6 +61,7 @@ public class PlainUserFacadeDelegate implements UserFacadeDelegate {
                 clearPassword, cp, ciudad, direccion, numero, userProfileDetailsVO);
                 
             PlainActionProcessor.process(getDataSource(), action);
+            this.carroCompra = new CarroCompra();
             this.loginName = loginName;
             
         } catch (DuplicateInstanceException e) {
