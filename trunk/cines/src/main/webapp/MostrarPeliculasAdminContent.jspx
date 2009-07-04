@@ -74,6 +74,7 @@
 					   	</td>
 						<td class="productListing-data">
 							${pelis.titulo}
+							
 						</td>
 						<c:if test="${sessionScope.login=='Administrator'}">
 							<td class="productListing-data">

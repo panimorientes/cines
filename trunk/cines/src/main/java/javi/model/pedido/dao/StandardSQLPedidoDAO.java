@@ -86,7 +86,7 @@ public class StandardSQLPedidoDAO implements SQLPedidoDAO {
 		try {
 
 			/* Create "preparedStatement". */
-			String queryString = "SELECT id_pedido,fecha  FROM PEDIDO WHERE Ulogin LIKE ?";
+			String queryString = "SELECT id_pedido,fecha  FROM PEDIDO WHERE Ulogin LIKE ? ORDER BY fecha DESC";
 			preparedStatement = connection.prepareStatement(queryString);
 
 			int i = 1;
@@ -124,7 +124,7 @@ public class StandardSQLPedidoDAO implements SQLPedidoDAO {
 		try {
 
 			/* Create "preparedStatement". */
-			String queryString = "SELECT id_pedido,fecha,Ulogin  FROM PEDIDO";
+			String queryString = "SELECT id_pedido,fecha,Ulogin  FROM PEDIDO ORDER BY fecha DESC";
 			preparedStatement = connection.prepareStatement(queryString);
 
 			/* Execute query. */

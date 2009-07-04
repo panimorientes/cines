@@ -101,7 +101,7 @@
 						<c:if test="${mer.disponibilidad}">
 							<td class="productListing-data">
 								<c:url var = "urlCompra" value="ComprarM.do">
-									<c:param name="id" value="${mer.referencia}"/>
+									<c:param name="id" value="${mer.idMerchandising}"/>
 								</c:url>
 								<a href="${urlCompra }">
 									Comprar

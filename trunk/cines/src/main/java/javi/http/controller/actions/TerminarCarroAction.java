@@ -29,7 +29,7 @@ public class TerminarCarroAction extends DefaultAction{
 		SessionManager.getUserFacadeDelegate(request).terminar();
 		
 
-		return mapping.findForward("Terminar");
+		return mapping.findForward("MainPage");
 	}
 
 	
