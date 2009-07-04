@@ -158,9 +158,9 @@ public abstract class StandardSQLSesionDAO implements SQLSesionDAO {
 		List<SesionVO> sesion = new ArrayList<SesionVO>();
 
 		try {
-
+			//XXX mira en internet la sintaxis
 			/* Create "preparedStatement". */
-			String queryString = "SELECT idSesion, fecha, hora, precio, numerada, idPelicula, Sid_sala,idCine  FROM SESION ";
+			String queryString = "SELECT idSesion, fecha, hora, precio, numerada, idPelicula, Sid_sala,idCine  FROM SESION WHERE fecha >= CURDATE()";
 			preparedStatement = connection.prepareStatement(queryString);
 
 			/* Execute query. */

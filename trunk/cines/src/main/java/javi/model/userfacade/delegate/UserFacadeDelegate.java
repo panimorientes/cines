@@ -14,6 +14,7 @@ import javi.model.userprofile.vo.UserProfileVO;
 import es.udc.fbellas.j2ee.util.exceptions.DuplicateInstanceException;
 import es.udc.fbellas.j2ee.util.exceptions.InstanceNotFoundException;
 import es.udc.fbellas.j2ee.util.exceptions.InternalErrorException;
+import es.udc.fbellas.j2ee.util.exceptions.ModelException;
 
 /**
  * A facade to model the interaction of the user with the portal. There exist
@@ -25,6 +26,8 @@ import es.udc.fbellas.j2ee.util.exceptions.InternalErrorException;
  * user is said to be authenticated.
  */
 public interface UserFacadeDelegate extends Serializable {
+	
+	public void liberarTickets() throws ModelException, InternalErrorException;
 
 	public void liberarTicket(long idTicket) throws InternalErrorException;
 	
