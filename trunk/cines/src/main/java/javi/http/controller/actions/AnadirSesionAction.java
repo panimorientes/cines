@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javi.http.controller.session.SessionManager;
 import javi.http.view.actionforms.AnadirSesionForm;
 import javi.model.adminfacade.delegate.AdminFacadeDelegate;
-import javi.model.busquedafacade.delegate.BusquedaFacadeDelegate;
-import javi.model.cine.vo.CineVO;
-import javi.model.pelicula.vo.PeliculaVO;
 
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;

@@ -17,6 +17,9 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+
 import es.udc.fbellas.j2ee.util.exceptions.DuplicateInstanceException;
 import es.udc.fbellas.j2ee.util.exceptions.InternalErrorException;
 import es.udc.fbellas.j2ee.util.struts.action.DefaultAction;
@@ -62,9 +65,19 @@ public class AnadirPeliculaAction extends DefaultAction {
 				}catch (IOException e) {
 					throw new InternalErrorException(e);
 				}
-			
 		/** Save links*/
 				
+				/** Anadir a twitter **/
+				String text = "Nueva pel’cula en cartelera: " + titulo + "de " + director;
+				/** Anadir a twitter **/
+			Twitter twitter = new Twitter("cinestest","testcine");
+			try {
+				twitter.updateStatus(text);
+			} catch (TwitterException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+							/** Anadir a twitter **/
      
         } catch (DuplicateInstanceException e) {
             errors.add("titulo",
