@@ -68,7 +68,7 @@ public class AnadirPeliculaAction extends DefaultAction {
 		/** Save links*/
 				
 				/** Anadir a twitter **/
-				String text = "Nueva pel’cula en cartelera: " + titulo + "de " + director;
+				String text = "Nueva pel’cula en cartelera: " + titulo + " de " + director;
 				/** Anadir a twitter **/
 			Twitter twitter = new Twitter("cinestest","testcine");
 			try {
