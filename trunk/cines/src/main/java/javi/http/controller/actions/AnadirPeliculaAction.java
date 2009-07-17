@@ -68,16 +68,18 @@ public class AnadirPeliculaAction extends DefaultAction {
 		/** Save links*/
 				
 				/** Anadir a twitter **/
-				String text = "Nueva pel’cula en cartelera: " + titulo + " de " + director;
+
+				String text = "ON BILLBOARD: " + titulo + " from " + director + " www.CineTesi.com";
+
 				/** Anadir a twitter **/
-			Twitter twitter = new Twitter("cinestest","testcine");
+			Twitter twitter = new Twitter("cinemaWebSite","cinescines");
 			try {
 				twitter.updateStatus(text);
 			} catch (TwitterException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-							/** Anadir a twitter **/
+						
      
         } catch (DuplicateInstanceException e) {
             errors.add("titulo",

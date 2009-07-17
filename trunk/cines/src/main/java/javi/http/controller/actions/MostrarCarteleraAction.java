@@ -33,6 +33,7 @@ public class MostrarCarteleraAction extends DefaultAction {
     	  /* Fill "form". */     
         List<CineVO> cines= SessionManager.getBusquedaFacadeDelegate(request).buscaUserCine();
         
+        //XXX este forward no deberia ser a esa pagina
         if (cines == null || cines.isEmpty())
         	return mapping.findForward("MainPage");
 
