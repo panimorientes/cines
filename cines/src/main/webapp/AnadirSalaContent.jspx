@@ -18,7 +18,7 @@
             		<div class="c_h_br">
                 		<div class="c_h_bl">
                     		<div class="c_h_tr">
-								<h1 id="loginDefaultHeading">Administer, anade una nueva sala</h1>
+								<h1 id="loginDefaultHeading"><fmt:message key="AdminSala.title"/></h1>
                         	</div>
                     	</div>
                 	</div>
@@ -31,7 +31,7 @@
 <!--BOF normal login-->
 	<html:form action="AnadirSala.do" focus="idCine">
 		<fieldset>
-			<legend>Detalles de la sala</legend>
+			<legend><fmt:message key="AdminSala.legend"/></legend>
 		   	
 		   	<label class="inputLabel" for="login-email-address"><fmt:message key="CineVO.nombre"/>:</label>
 			<html:select property="cine">

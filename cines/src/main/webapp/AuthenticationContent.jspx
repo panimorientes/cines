@@ -14,7 +14,7 @@
             		<div class="c_h_br">
                 		<div class="c_h_bl">
                     		<div class="c_h_tr">
-								<h1 id="loginDefaultHeading">Welcome, Please Sign In</h1>
+								<h1 id="loginDefaultHeading"><fmt:message key="AuthenticationContent.title"/></h1>
                         	</div>
                     	</div>
                 	</div>
@@ -27,7 +27,7 @@
 <!--BOF normal login-->
 	<html:form action="Login.do" focus="login">
 		<fieldset>
-			<legend>Returning Customers: Please Log In</legend>
+			<legend><fmt:message key="AuthenticationContent.legend"/></legend>
 			<label class="inputLabel" for="login-email-address"><fmt:message key="UserProfile.login"/>:</label>
 			<html:text property="login" size="41" maxlength="16"/>
 		    <span class="alert"><html:errors property="login"/></span>
