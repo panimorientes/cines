@@ -16,7 +16,7 @@
             		<div class="c_h_br">
                 		<div class="c_h_bl">
                     		<div class="c_h_tr">
-								<h1 id="loginDefaultHeading">Administer, anade un nuevo DVD</h1>
+								<h1 id="loginDefaultHeading"><fmt:message key="Anadirdvd.title"/></h1>
                         	</div>
                     	</div>
                 	</div>

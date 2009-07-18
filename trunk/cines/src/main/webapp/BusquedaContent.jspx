@@ -30,7 +30,7 @@
 						<div class="title_inner4">
 							<html:form action="MostrarCartelera.do" focus="nombre">
 	            				<h1 id="productListHeading">
-	      							Resultados de la busqueda:
+	      							<fmt:message key="Busqueda.result"/>
 	            				</h1>
 							</html:form>
 						</div>

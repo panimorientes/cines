@@ -16,7 +16,7 @@
             		<div class="c_h_br">
                 		<div class="c_h_bl">
                     		<div class="c_h_tr">
-								<h1 id="loginDefaultHeading">Administer, add a new cine</h1>
+								<h1 id="loginDefaultHeading"><fmt:message key="AdminCine.title"/></h1>
                         	</div>
                     	</div>
                 	</div>

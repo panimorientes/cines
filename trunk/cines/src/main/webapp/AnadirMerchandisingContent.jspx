@@ -16,7 +16,7 @@
             		<div class="c_h_br">
                 		<div class="c_h_bl">
                     		<div class="c_h_tr">
-								<h1 id="loginDefaultHeading">Administer, anade un merchandising</h1>
+								<h1 id="loginDefaultHeading"><fmt:message key="Merchandising.title"/></h1>
                         	</div>
                     	</div>
                 	</div>
@@ -29,7 +29,7 @@
 <!--BOF normal login-->
 	<html:form action="AnadirMerchandising.do" focus="descripcion" enctype="multipart/form-data">
 		<fieldset>
-			<legend>Detalles del Merchandising</legend>
+			<legend><fmt:message key="Merchandising.Details"/></legend>
 		   	
 		   	<label class="inputLabel" for="login-email-address"><fmt:message key="Merchandising.descripcion"/>:</label>
 			<html:text property="descripcion" size="41" maxlength="25"/>

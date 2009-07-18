@@ -17,7 +17,7 @@
             		<div class="c_h_br">
                 		<div class="c_h_bl">
                     		<div class="c_h_tr">
-								<h1 id="loginDefaultHeading">Administer, anade una nueva pelicula</h1>
+								<h1 id="loginDefaultHeading"><fmt:message key="AdminPelicula.title"/></h1>
                         	</div>
                     	</div>
                 	</div>
@@ -30,7 +30,7 @@
 <!--BOF normal login-->
 	<html:form action="AnadirPelicula.do" focus="titulo" enctype="multipart/form-data">
 		<fieldset>
-			<legend>Detalles de pelicula</legend>
+			<legend><fmt:message key="AdminPelicula.title"/></legend>
 		   	
 		   	<label class="inputLabel" for="login-email-address"><fmt:message key="AdminPelicula.titulo"/>:</label>
 			<html:text property="titulo" size="41" maxlength="25"/>
