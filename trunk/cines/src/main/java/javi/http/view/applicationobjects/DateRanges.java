@@ -10,7 +10,7 @@ public class DateRanges {
     public final static int LAST_DAY = 31;
     public final static int FIRST_MONTH = 1;
     public final static int LAST_MONTH = 12;
-    public final static int FIRST_YEAR = 1990;
+    public final static int FIRST_YEAR = Calendar.getInstance().get(Calendar.YEAR);
 
     private List days;
     private List months;
@@ -33,7 +33,7 @@ public class DateRanges {
     }
     
     public int getLastYear() {
-        return Calendar.getInstance().get(Calendar.YEAR);
+        return Calendar.getInstance().get(Calendar.YEAR)+3;
     }
     
     private List getRange(int start, int end) {
