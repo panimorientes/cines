@@ -16,7 +16,7 @@
             		<div class="c_h_br">
                 		<div class="c_h_bl">
                     		<div class="c_h_tr">
-								<h1 id="loginDefaultHeading">Welcome, Please Sign Up</h1>
+								<h1 id="loginDefaultHeading"><fmt:message key="RegisterUserContent.title"/></h1>
                         	</div>
                     	</div>
                 	</div>
@@ -30,7 +30,7 @@
 	<html:form action="RegisterUser.do" focus="login">
 		<html:hidden property="action" value="REGISTER"/>
 		<fieldset>
-			<legend>New? Please Provide Your Billing Information</legend>
+			<legend><fmt:message key="RegisterUserContent.legend"/></legend>
 			<label class="inputLabel" for="login-email-address"><fmt:message key="UserProfile.login"/>:</label>
 			<html:text property="login" size="41" maxlength="16"/>
 		    <span class="alert"><html:errors property="login"/></span>

@@ -79,7 +79,7 @@
 			                    </table>
 							</div>
 							<h3 class="itemTitle" style="margin-top:10px;">
-								Descripcion:
+								<fmt:message key="MostrarDetallesPelicula.headerSpecific"/>
 							</h3>
 							<div class="content">
 								${pelicula.descripcion}
@@ -105,7 +105,7 @@
 									<c:param name="idSesion" value="${idSesion}"/>
 								</c:url>
 								<a href="${urlFSala}">
-									Ver Sala
+									<fmt:message key="MostrarDetallesPelicula.screen" />
 								</a>
 							</div>
 							<br class="clearBoth" />

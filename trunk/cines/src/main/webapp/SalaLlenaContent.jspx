@@ -10,10 +10,10 @@
 
 <div class="centerColumn" id="shippingInfo">
 	<h1 id="shippingInfoHeading">
-    	La sala no dispone de mas butacas.
+    	<fmt:message key="SalaLlena.title"/>
     </h1>
     <p>
-    	Intentelo en otra sesion
+    	<fmt:message key="SalaLlena.retry"/>
     </p>
 </div>
 

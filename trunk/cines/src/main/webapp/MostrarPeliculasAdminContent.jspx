@@ -28,7 +28,7 @@
 						<div class="title_inner4">
 							<html:form action="MostrarCartelera.do" focus="nombre">
 	            				<h1 id="productListHeading">
-	      							Peliculas en cartelera:
+	      							<fmt:message key="MostrarPeliculas.title"/>
 	            				</h1>
 							</html:form>
 						</div>
@@ -57,10 +57,10 @@
 		        </tr>
         		<tr>
         			<td class="productListing-data">
-						FOTO
+						<fmt:message key="MostrarPeliculas.foto"/>
 					</td>
 					<td class="productListing-data">
-						TITULO
+						<fmt:message key="MostrarPeliculas.titulo"/>
 					</td>
 					<td class="background-white-right">
 						<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
