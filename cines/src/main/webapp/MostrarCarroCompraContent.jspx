@@ -58,13 +58,13 @@
 		    </tr>
         	<tr>
        			<td class="productListing-data">
-					ID
+					<fmt:message key="MostrarCarroCompraContent.id"/>
 				</td>
 				<td class="productListing-data">
-					DESCRIPCION
+					<fmt:message key="MostrarCarroCompraContent.description"/>
 				</td>
 				<td class="productListing-data">
-					IMPORTE
+					<fmt:message key="MostrarCarroCompraContent.price"/>
 				</td>
 				<td class="background-white-right">
 					<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
@@ -119,7 +119,7 @@
 	  	<br/>
 	  	<br/>
 		<div style="float: left;margin-left: 20px;">
-			<b>Importe: ${carro.total }</b>
+			<b><fmt:message key="MostrarCarroCompraContent.total"/>: ${carro.total }</b>
 		</div>
 		<div style="float: right;margin-right: 40px;">
 			<a href="CarroTerminar.do">
