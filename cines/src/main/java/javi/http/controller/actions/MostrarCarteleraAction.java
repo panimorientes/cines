@@ -35,7 +35,7 @@ public class MostrarCarteleraAction extends DefaultAction {
         
         //XXX este forward no deberia ser a esa pagina
         if (cines == null || cines.isEmpty())
-        	return mapping.findForward("MainPage");
+        	return mapping.findForward("MostrarCarteleraForm");
 
     	
     	if(form != null){
