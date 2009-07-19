@@ -71,13 +71,12 @@
             <html:select property="startMonth">
                 <html:options name="dateRanges" property="months"/>
             </html:select>
-            <![CDATA[ &nbsp; ]]>
+           	<![CDATA[ &nbsp; ]]>
             <fmt:message key="AdminSesion.year"/>
             <html:select property="startYear">
                 <html:options name="dateRanges" property="years"/>
             </html:select>
 			<br class="clearBoth" />
-			
 			<label class="inputLabel" for="login-email-address"><fmt:message key="AdminSesion.hora"/>:</label>
 			<html:text property="hora" size="20" maxlength="20"/>
 			<span class="alert"><html:errors property="hora"/></span>

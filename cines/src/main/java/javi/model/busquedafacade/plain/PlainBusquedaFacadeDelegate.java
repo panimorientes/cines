@@ -162,8 +162,10 @@ public class PlainBusquedaFacadeDelegate implements BusquedaFacadeDelegate {
 
 			BuscaSesionAction action = new BuscaSesionAction(idSesion);
 
-			return (List<SesionVO>) PlainActionProcessor.process(
+			List<SesionVO> process = (List<SesionVO>) PlainActionProcessor.process(
 					getDataSource(), action);
+			
+			return process;
 
 		} catch (InstanceNotFoundException e) {
 			throw new InternalErrorException(e);
