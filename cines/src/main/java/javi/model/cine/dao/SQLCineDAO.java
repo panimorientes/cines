@@ -32,6 +32,9 @@ public interface SQLCineDAO {
 	
 	public List<CineVO> find(Connection connection)
 		throws InstanceNotFoundException, InternalErrorException;
+	
+	public CineVO find (Connection connection, Long idCine) 
+		throws InstanceNotFoundException, InternalErrorException;
 
 
 }

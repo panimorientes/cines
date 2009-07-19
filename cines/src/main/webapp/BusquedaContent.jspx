@@ -67,55 +67,65 @@
 					<td class="productListing-data">
 						<fmt:message key="Sesion.hora"/>
 					</td>
+					<td class="productListing-data">
+						Cinema
+					</td>
 					<td class="background-white-right">
 						<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
 					</td>
 				</tr>
 				<c:forEach var="sesion" items="${listasesion}">
 					<c:forEach var="pelicula" items="${peliculas}">
-						<c:if test="${sesion.idPelicula==pelicula.idPelicula}">
-							<tr>
-						   		<td class="productListing-data">
-							   		<c:url var="urlDPeli" value="MostrarDetallesPelicula.do">
-										<c:param name="idCine" value="${sesion.idCine}"/>
-										<c:param name="sesion" value="${sesion.idSesion}"/>
-									</c:url>		            	
-							        <a href="${urlDPeli}">
-										${pelicula.titulo}
-									</a>
-							   	</td>
-								<td class="productListing-data">
-									<fmt:formatDate var="fecha" value="${sesion.fecha.time}"/>
-									${fecha}
-								</td>
-								<td class="productListing-data">
-									${sesion.hora}
-								</td>
-					         	<td class="background-white-right">
-					         		<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
-							    </td>
-							</tr>
-						   	<tr>
-					       		<td colspan="11" style="overflow:hidden;">
-									<img src="images/pixel_trans.gif" alt="" width="1" height="8" />
-									<br />
-									<div class="box_line">
-										<div class="inner">
-											<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+						<c:forEach var="cine" items="${cines}">
+							<c:if test="${sesion.idPelicula==pelicula.idPelicula}">
+							<c:if test="${sesion.idCine==cine.idCine}">
+								<tr>
+						   			<td class="productListing-data">
+							   			<c:url var="urlDPeli" value="MostrarDetallesPelicula.do">
+											<c:param name="idCine" value="${sesion.idCine}"/>
+											<c:param name="sesion" value="${sesion.idSesion}"/>
+										</c:url>		            	
+							        	<a href="${urlDPeli}">
+											${pelicula.titulo}
+										</a>
+								   	</td>
+									<td class="productListing-data">
+										<fmt:formatDate var="fecha" value="${sesion.fecha.time}"/>
+										${fecha}
+									</td>
+									<td class="productListing-data">
+										${sesion.hora}
+									</td>
+									<td class="productListing-data">
+										${cine.nombre}
+									</td>
+					         		<td class="background-white-right">
+					         			<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
+							 	   </td>
+								</tr>
+						   		<tr>
+					       			<td colspan="11" style="overflow:hidden;">
+										<img src="images/pixel_trans.gif" alt="" width="1" height="8" />
+										<br />
+										<div class="box_line">
+											<div class="inner">
+												<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+											</div>
 										</div>
-									</div>
-									<img src="images/pixel_trans.gif" alt="" width="1" height="18" />
-									<br />
-							   	</td>
-							</tr>
-						    <tr>
-						        <td colspan="11">
-						      		<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
-						       	</td>
-						  	</tr>
-						</c:if>
-					</c:forEach>
-			  	</c:forEach>
+										<img src="images/pixel_trans.gif" alt="" width="1" height="18" />
+										<br />
+							   		</td>
+								</tr>
+						    	<tr>
+						        	<td colspan="11">
+						      			<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
+						      	 	</td>
+						  		</tr>
+							</c:if>
+							</c:if>
+						</c:forEach>
+			  		</c:forEach>
+			  	</c:forEach>	
 		  	</table>
 		  	<br class="clearBoth" />
 	</div>

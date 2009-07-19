@@ -42,6 +42,10 @@ public interface BusquedaFacadeDelegate extends Serializable {
 	 public List<CineVO> buscaAdminCine() throws InternalErrorException;
 	 
 	 public CineVO buscaCine(String cine) throws InternalErrorException;
+	 
+	 public CineVO buscaCine (Long idCine) throws InternalErrorException;
+	 
+	 public List<CineVO> buscaCines () throws InternalErrorException;
 	    
 	 public List<SalaVO> buscaAdminSala(Long idCine) throws InternalErrorException;
 	    
