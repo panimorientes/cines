@@ -80,7 +80,7 @@ fmt:setLocale tag will not be necessary.
 								<li class="first">
 									<span>
 										<html:link action="/ShowMostrarCartelera.do">
-            								Home Page
+            								<fmt:message key="DefaultLayout.home"/>
         								</html:link>
         							</span>
 								</li>
@@ -147,7 +147,7 @@ fmt:setLocale tag will not be necessary.
                 						</li>
                 						<li>
                 							<html:link action="HistorialPedidos.do">
-									            Pedidos
+									            <fmt:message key="DefaultLayout.pedidos"/>
 									        </html:link>
                 						</li>
                 					</c:if>
@@ -234,7 +234,7 @@ fmt:setLocale tag will not be necessary.
 																        		<div class="inner4">
 																        			<div class="inner5">
 																        				<div class="inner6">
-																							Busqueda        
+																							<fmt:message key="DefaultLayout.busqueda"/>        
         																				</div>
         																			</div>
         																		</div>
@@ -245,7 +245,7 @@ fmt:setLocale tag will not be necessary.
             													<div class="box1_body">
                 													<div id="informationContent" class="sideBoxContent" >
 											          					<html:form action="Busqueda.do">
-											          						<div class="col2" style="margin-bottom:5px;">Busqueda:<br /></div>
+											          						<div class="col2" style="margin-bottom:5px;"><fmt:message key="DefaultLayout.busqueda"/>:<br /></div>
 											          						<div class="col3" style="margin-bottom:5px;">
 																				<html:text property="clave" size="18" maxlength="20"/>
 																          	</div>
@@ -257,7 +257,7 @@ fmt:setLocale tag will not be necessary.
 																						</html:option>
 													            					</c:forEach>
 													            				</html:select>
-													            				<input type="submit" value="buscar" style="float:right; margin-right:10px;margin-top:5px;" />
+													            				<input type="submit" value="Search" style="float:right; margin-right:10px;margin-top:5px;" />
 													            				<br/>
 																          	</div>
 																          	<div class="col5">
@@ -296,7 +296,7 @@ fmt:setLocale tag will not be necessary.
 	        																			<div class="inner5">
 	        																				<div class="inner6">
 	        																					<html:link action="/VerCarro.do">
-										            												Shopping Cart
+										            												<fmt:message key="DefaultLayout.cart"/>
 										        												</html:link>  
 	        																				</div>
 	        																			</div>
@@ -306,15 +306,15 @@ fmt:setLocale tag will not be necessary.
 	    																</div>
 	  																</div>
 	            													<div class="box1_body">
-	                														now in your cart <strong>${carroCompra.numLineas} items</strong>
+	                														<fmt:message key="DefaultLayout.incart"/> <strong>${carroCompra.numLineas} <fmt:message key="DefaultLayout.items"/></strong>
 	                														<br/>
-	                														total cost <strong>${carroCompra.total}</strong>
+	                														total <strong>${carroCompra.total}</strong>
 	                														<br />
 	                														<div id="shoppingcartContent" class="sideBoxContent">
 	                															<div id="cartBoxEmpty"></div>
 	                														</div>
 	                														<p style="float: right;text-decoration:underline;">
-	                															<html:link action="/VerCarro.do">Ver Carro</html:link>
+	                															<html:link action="/VerCarro.do"><fmt:message key="DefaultLayout.showcart"/></html:link>
 	                														</p>
 	                												</div>
 	    														</div>
@@ -338,7 +338,7 @@ fmt:setLocale tag will not be necessary.
 	                	<div class="inner3">
 							<span>
 								<html:link action="/ShowMostrarCartelera.do">
-            						Home Page
+            						<fmt:message key="DefaultLayout.home"/>
         						</html:link>
         						|
   								<html:link action="/MostrarMerchandising.do">
@@ -356,7 +356,7 @@ fmt:setLocale tag will not be necessary.
 							<br />
 	       					<img src="images/pixel_trans.gif" alt="" width="1" height="6" />
 	       					<br />
-							Copyright 2009. Powered by Yasmin Diab and Federico Ariel.						
+							Copyright 2009. Created by Yasmin Diab and Federico Foglia.						
 	                	</div>
 	         		</div>
 	        	</div>
@@ -365,12 +365,5 @@ fmt:setLocale tag will not be necessary.
       		<br />
 		</div>
 	</div>
-	
-	
-	
-	
-	
-	
-	
 </body>
 </html:html>
