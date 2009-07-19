@@ -1,6 +1,7 @@
 package javi.http.controller.actions;
 
 import java.io.IOException;
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import javi.http.controller.session.SessionManager;
 import javi.http.view.actionforms.BusquedaForm;
-import javi.http.view.actionforms.LoginForm;
 
 import javi.model.busquedafacade.delegate.BusquedaFacadeDelegate;
 import javi.model.cine.vo.CineVO;
@@ -22,31 +22,39 @@ import org.apache.struts.action.ActionMapping;
 
 import es.udc.fbellas.j2ee.util.exceptions.InternalErrorException;
 import es.udc.fbellas.j2ee.util.struts.action.DefaultAction;
-    
+
 public class BusquedaAction extends DefaultAction {
 
-    public ActionForward doExecute(ActionMapping mapping,
-        ActionForm form, HttpServletRequest request,
-        HttpServletResponse response)
-        throws IOException, ServletException, InternalErrorException {
-            
-    	BusquedaForm busquedaForm = (BusquedaForm) form;
-            
-    	String clave=busquedaForm.getClave();
-    	String clasificacion=busquedaForm.getClasificacion();
-		
-        BusquedaFacadeDelegate busquedaFacadeDelegate = SessionManager.getBusquedaFacadeDelegate(request);
-		
-		List<PeliculaVO> pelicula=busquedaFacadeDelegate.busquedaPeliculas(clave, clasificacion);
-		List<SesionVO> sesion= busquedaFacadeDelegate.mostrarSesiones();
-		
+	public ActionForward doExecute(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException, InternalErrorException {
+
+		BusquedaForm busquedaForm = (BusquedaForm) form;
+
+		String clave = busquedaForm.getClave();
+		String clasificacion = busquedaForm.getClasificacion();
+
+		BusquedaFacadeDelegate busquedaFacadeDelegate = SessionManager
+				.getBusquedaFacadeDelegate(request);
+
+		List<PeliculaVO> pelicula = busquedaFacadeDelegate.busquedaPeliculas(
+				clave, clasificacion);
+		List<SesionVO> sesion = busquedaFacadeDelegate.mostrarSesiones();
+		//List<CineVO> cines=busquedaFacadeDelegate.;
+		List<CineVO> cine = busquedaFacadeDelegate.buscaCines();
+		//for (SesionVO sesionVO : sesion) {
+
+		//CineVO cineVO = busquedaFacadeDelegate.buscaCine(sesionVO.getIdCine());
+		//cine.add(cineVO);
+
+		//}
+
 		request.setAttribute("peliculas", pelicula);
 		request.setAttribute("listasesion", sesion);
-	        
-        
-       
-        return mapping.findForward("BusquedaForm");
-        
-    }
+		request.setAttribute("cines", cine);
+
+		return mapping.findForward("BusquedaForm");
+
+	}
 
 }
