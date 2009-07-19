@@ -1,5 +1,6 @@
 package javi.model.busquedafacade.plain;
 
+import java.util.Calendar;
 import java.util.List;
 import javax.sql.DataSource;
 
@@ -388,13 +389,13 @@ public class PlainBusquedaFacadeDelegate implements BusquedaFacadeDelegate {
 
 	}
 
-	public List<PeliculaVO> busquedaPeliculas(String titulo, String categoria)
+	@SuppressWarnings("unchecked")
+	public List<PeliculaVO> busquedaPeliculas(String titulo, String categoria, boolean byDate, Calendar fecha)
 			throws InternalErrorException {
 
 		try {
 
-			BusquedaPeliculasAction action = new BusquedaPeliculasAction(
-					titulo, categoria);
+			BusquedaPeliculasAction action = new BusquedaPeliculasAction(titulo, categoria, byDate, fecha);
 
 			return (List<PeliculaVO>) PlainActionProcessor.process(
 					getDataSource(), action);

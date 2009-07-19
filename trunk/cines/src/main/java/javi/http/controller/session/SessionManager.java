@@ -164,7 +164,6 @@ public final class SessionManager {
             userProfileDetailsVO.getCountry());
         updateSesssionForAuthenticatedUser(request, 
             userProfileDetailsVO.getNombre(), locale,loginName);
-
     }
     
    

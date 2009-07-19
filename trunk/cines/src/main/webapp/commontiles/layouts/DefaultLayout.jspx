@@ -250,6 +250,7 @@ fmt:setLocale tag will not be necessary.
 																				<html:text property="clave" size="18" maxlength="20"/>
 																          	</div>
 																          	<div class="col3" style="margin-bottom:15px;background-color:#FFFFFF;">
+																          		<fmt:message key="DefaultLayout.clasification"/>
 																          		<html:select property="clasificacion">
 													            					<c:forEach var="clase" items="${clasificaciones}">
 																						<html:option value="${clase.nombre}">
@@ -257,9 +258,30 @@ fmt:setLocale tag will not be necessary.
 																						</html:option>
 													            					</c:forEach>
 													            				</html:select>
-													            				<input type="submit" value="Search" style="float:right; margin-right:10px;margin-top:5px;" />
-													            				<br/>
 																          	</div>
+																          	<div class="col3" style="margin-bottom:15px;background-color:#FFFFFF;">
+																          		<label class="inputLabel" for="login-email-address">
+																          			<html:checkbox property="byDate"/>
+																          			<![CDATA[ &nbsp; ]]>
+																          			<fmt:message key="DefaultLayout.startDate"/>:
+																          		</label>
+																				<fmt:message key="AdminSesion.day"/> 
+																	            <html:select property="startDay">
+																	                <html:options name="dateRanges" property="days"/>
+																	            </html:select>
+																	            <![CDATA[ &nbsp; ]]>
+																	            <fmt:message key="AdminSesion.month"/>
+																	            <html:select property="startMonth">
+																	                <html:options name="dateRanges" property="months"/>
+																	            </html:select>
+																	           	<![CDATA[ &nbsp; ]]>
+																	            <fmt:message key="AdminSesion.year"/>
+																	            <html:select property="startYear">
+																	                <html:options name="dateRanges" property="years"/>
+																	            </html:select>
+																	            <input type="submit" value="Search" style="float:right; margin-right:10px;margin-top:5px;" />
+													            				<br/>
+													            			</div>
 																          	<div class="col5">
 															          		</div>
 															          	</html:form>

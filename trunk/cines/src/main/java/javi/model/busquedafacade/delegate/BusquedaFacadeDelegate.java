@@ -1,6 +1,7 @@
 package javi.model.busquedafacade.delegate;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 
 import javi.model.busquedafacade.vo.EstadoSalaVO;
@@ -51,7 +52,7 @@ public interface BusquedaFacadeDelegate extends Serializable {
 	    
 	 public List<PeliculaVO> buscaAdminPelicula() throws InternalErrorException;
 	 	 
-	 public List<PeliculaVO> busquedaPeliculas(String titulo, String categoria) throws InternalErrorException;
+	 public List<PeliculaVO> busquedaPeliculas(String titulo, String categoria, boolean byDate, Calendar fecha) throws InternalErrorException;
 	 
 	 public List<dvdVO> mostrardvd() throws InternalErrorException;
 	 

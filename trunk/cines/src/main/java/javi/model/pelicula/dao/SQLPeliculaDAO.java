@@ -1,6 +1,7 @@
 package javi.model.pelicula.dao;
 
 import java.sql.Connection;
+import java.util.Calendar;
 import java.util.List;
 
 import javi.model.pelicula.vo.PeliculaVO;
@@ -52,6 +53,8 @@ public interface SQLPeliculaDAO {
 	     */
 	    public List<PeliculaVO> find(Connection connection, String titulo, String categoria)
     		throws InstanceNotFoundException, InternalErrorException;
+	    
+	    public List<PeliculaVO> find(Connection connection, String titulo, String categoria, Calendar fecha) throws InstanceNotFoundException, InternalErrorException;
 	    
 	    public List<PeliculaVO> find(Connection connection)
         	throws InstanceNotFoundException, InternalErrorException;

@@ -65,7 +65,7 @@ public class AnadirPeliculaAction extends DefaultAction {
 				}catch (IOException e) {
 					throw new InternalErrorException(e);
 				}
-		/** Save links*/
+				/** Save links*/
 				
 				/** Anadir a twitter **/
 
