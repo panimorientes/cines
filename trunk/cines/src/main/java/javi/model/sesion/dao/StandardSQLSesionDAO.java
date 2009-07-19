@@ -65,7 +65,7 @@ public abstract class StandardSQLSesionDAO implements SQLSesionDAO {
 		try {
 
 			/* Create "preparedStatement". */
-			String queryString = "SELECT idSesion, fecha, hora, precio, numerada, idPelicula, Sid_sala  FROM SESION WHERE idCine = ? AND fecha >= CURDATE()";
+			String queryString = "SELECT idSesion, fecha, hora, precio, numerada, idPelicula, Sid_sala  FROM SESION WHERE idCine = ? AND fecha >= CURDATE() ORDER BY fecha";
 			preparedStatement = connection.prepareStatement(queryString);
 
 			int i = 1;

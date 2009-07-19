@@ -43,6 +43,7 @@
 			
 			<label class="inputLabel" for="login-email-address"><fmt:message key="Merchandising.talla"/>:</label>
 			<html:select property="talla">
+				<html:option value=" "> </html:option>
             	<html:option value="S">S</html:option>
             	<html:option value="M">M</html:option>
            		<html:option value="L">L</html:option>

@@ -87,13 +87,9 @@
 			<span class="alert"><html:errors property="precio"/></span>
 			<br class="clearBoth" />
 			
-			<label class="inputLabel" for="login-email-address"><fmt:message key="AdminSesion.numerada"/>:</label>
-			<html:select property="numerada">
+			<html:select style="display:none;" property="numerada">
             	<html:option value="true">
 	            	True
-            	</html:option>
-            	<html:option value="false">
-	            	False
             	</html:option>
             </html:select>
 			<span class="alert"><html:errors property="numerada"/></span>

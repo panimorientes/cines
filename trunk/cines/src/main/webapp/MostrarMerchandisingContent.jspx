@@ -104,7 +104,7 @@
 									<c:param name="id" value="${mer.idMerchandising}"/>
 								</c:url>
 								<a href="${urlCompra }">
-									Comprar
+									<fmt:message key="Buy"/>
 								</a>
 							</td>			
 						</c:if>

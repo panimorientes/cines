@@ -33,12 +33,12 @@
 			<legend><fmt:message key="AdminPelicula.title"/></legend>
 		   	
 		   	<label class="inputLabel" for="login-email-address"><fmt:message key="AdminPelicula.titulo"/>:</label>
-			<html:text property="titulo" size="41" maxlength="25"/>
+			<html:text property="titulo" size="41" maxlength="50"/>
 			<span class="alert"><html:errors property="titulo"/></span>
 			<br class="clearBoth" />
 			
 			<label class="inputLabel" for="login-email-address"><fmt:message key="AdminPelicula.director"/>:</label>
-			<html:text property="director" size="41" maxlength="25"/>
+			<html:text property="director" size="41" maxlength="50"/>
 			<span class="alert"><html:errors property="director"/></span>
 			<br class="clearBoth" />
 			
@@ -54,7 +54,7 @@
 			<br class="clearBoth" />
 			
 			<label class="inputLabel" for="login-email-address"><fmt:message key="AdminPelicula.descripcion"/>:</label>
-			<html:text property="descripcion" size="41" maxlength="50"/>
+			<html:text property="descripcion" size="41" maxlength="1000"/>
 			<span class="alert"><html:errors property="descripcion"/></span>
 			<br class="clearBoth" />
 			
