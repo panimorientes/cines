@@ -15,7 +15,7 @@
             		<div class="c_h_br">
                 		<div class="c_h_bl">
                     		<div class="c_h_tr">
-								<h1 id="loginDefaultHeading">Welcome, update your profile</h1>
+								<h1 id="loginDefaultHeading"><fmt:message key="UpdateUserProfileDetailsContent.title"/></h1>
                         	</div>
                     	</div>
                 	</div>
@@ -29,7 +29,7 @@
 	<html:form action="UpdateUserProfileDetails.do" focus="firstName">
     	<html:hidden property="action" value="UPDATE"/>
 		<fieldset>
-			<legend>Update your profile</legend>
+			<legend><fmt:message key="UpdateUserProfileDetailsContent.legend"/></legend>
 		   	
 		   	<jsp:directive.include file="UserProfileDetails.jspf"/>
 		   	

@@ -27,7 +27,7 @@
 						<div class="title_inner4">
 							<html:form action="MostrarCartelera.do" focus="nombre">
 	            				<h1 id="productListHeading">
-	      							Catalogo de DVD's:
+	      							<fmt:message key="MostrarDvd.title" />:
 	            				</h1>
 							</html:form>
 						</div>
@@ -56,19 +56,19 @@
 		        </tr>
         		<tr>
         			<td class="productListing-data">
-						FOTO
+						<fmt:message key="MostrarDvd.foto" />:
 					</td>
         			<td class="productListing-data">
-						TITULO
+						<fmt:message key="MostrarDvd.title" />:
 					</td>
 					<td class="productListing-data">
-						DIRECTOR
+						<fmt:message key="MostrarDvd.director" />:
 					</td>
 					<td class="productListing-data">
-						CLASIFICACION
+						<fmt:message key="MostrarDvd.clasificacion" />:
 					</td>
 					<td class="productListing-data">
-						PRECIO
+						<fmt:message key="MostrarDvd.precio" />:
 					</td>
 					<td class="background-white-right">
 						<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
@@ -108,7 +108,7 @@
 									<c:param name="id" value="${dvd.titulo}"/>
 								</c:url>
 								<a href="${urlCompra }">
-									Comprar
+									<fmt:message key="Buy" />:
 								</a>
 							</td>			
 						</c:if>

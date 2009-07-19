@@ -32,7 +32,7 @@
 <!--BOF normal login-->
 	<html:form action="AnadirSesion.do" focus="titulo">
 		<fieldset>
-			<legend><fmt:message key="AdminSesion.Legend"/></legend>
+			<legend><fmt:message key="AdminSesion.legend"/></legend>
 		   	
 		   	<label class="inputLabel" for="login-email-address"><fmt:message key="AnadirSesion.titulo"/>:</label>
 			<html:select property="titulo">

@@ -29,7 +29,7 @@
 						<div class="title_inner4">
 							<html:form action="MostrarCartelera.do" focus="nombre">
 	            				<h1 id="productListHeading">
-	      							Catalogo de merchandising:
+	      							<fmt:message key="MostrarMerchandising.title"/>
 	            				</h1>
 							</html:form>
 						</div>
@@ -58,16 +58,16 @@
 		        </tr>
         		<tr>
         			<td class="productListing-data">
-						FOTO
+						<fmt:message key="MostrarMerchandising.foto"/>
 					</td>
 					<td class="productListing-data">
-						DESCRIPCION
+						<fmt:message key="MostrarMerchandising.descripcion"/>
 					</td>
 					<td class="productListing-data">
-						TALLA
+						<fmt:message key="MostrarMerchandising.talla"/>
 					</td>
 					<td class="productListing-data">
-						PRECIO
+						<fmt:message key="MostrarMerchandising.precio"/>
 					</td>
 					<td class="background-white-right">
 						<img src="images/pixel_trans.gif" alt="" width="11" height="1" />

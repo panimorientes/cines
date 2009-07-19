@@ -28,7 +28,7 @@
 						<div class="title_inner4">
 							<html:form action="MostrarCartelera.do" focus="nombre">
 	            				<h1 id="productListHeading">
-	      							Historial de pedidos:
+	      							<fmt:message key="HistorialPedidos.title"/>
 	            				</h1>
 							</html:form>
 						</div>
