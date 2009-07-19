@@ -32,7 +32,7 @@ FIELDSET#contactUsForm{padding:15px 0 15px 15px; width:91%;}
 #loginDefault FIELDSET{padding:15px;}
 #gvFaqDefault FIELDSET{padding:15px;}
 
-.ccinfo .inputLabelPayment {display:block; width:80%; padding:5px 0 5px 0;}
+.ccinfo .inputLabelPayment {display:block; width:80%; padding:5px 0 5px 0; }
 
 .wrapperAttribsOptions .back{display:block !important; clear:both;}
 		
@@ -83,6 +83,8 @@ LABEL.inputLabel {
         width: 11em;
 		padding-right:10px;
 		padding-bottom:3px;
+		margin-top: 5px;
+		margin-bottom: 5px;
 		float:left;		
         }
 #indexProductList LABEL.inputLabel{display:block; width:90%;}

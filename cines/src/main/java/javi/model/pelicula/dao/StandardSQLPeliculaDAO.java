@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javi.model.pelicula.vo.PeliculaVO;
@@ -310,6 +312,101 @@ public abstract class StandardSQLPeliculaDAO implements SQLPeliculaDAO {
 						preparedStatement = connection.prepareStatement(queryString);
 						
 						int i=1;
+						preparedStatement.setString(i++, "%"+titulo+"%");
+						preparedStatement.setString(i++, categoria);
+						
+						/* Execute query. */
+						resultSet = preparedStatement.executeQuery();
+		
+						while(resultSet.next()){
+							i=1;
+							long idPelicula = resultSet.getLong(i++);
+							String tit = resultSet.getString(i++);
+							String director = resultSet.getString(i++);
+							String descripcion = resultSet.getString(i++);
+		
+							peliculas.add(new PeliculaVO(idPelicula,tit, director, categoria, descripcion));
+						}
+					}
+				}
+				
+			}
+
+
+			/* Return the value object. */
+			return peliculas; 
+
+
+		} catch (SQLException e) {
+			throw new InternalErrorException(e);    
+		} finally {
+			GeneralOperations.closeResultSet(resultSet);
+			GeneralOperations.closeStatement(preparedStatement);
+		}    
+
+	}
+	
+	
+	//XXX creo que este es el metodo que funciona mal
+	//	  en el codigo hace cosas raras por haber hardcodeado las categorias
+	public List<PeliculaVO> find(Connection connection, String titulo, String categoria, Calendar fecha)
+	throws InstanceNotFoundException, InternalErrorException {
+
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		List<PeliculaVO> peliculas = new ArrayList<PeliculaVO>();
+
+		try {
+			Timestamp date = new Timestamp(fecha.getTime().getTime());
+			String queryString = "SELECT p.idPelicula,p.titulo,p.director,p.clasificacion,p.descripcion FROM PELICULA as p, SESION as s " +
+			"WHERE p.idPelicula = s.idPelicula AND s.fecha = ?";
+			
+			preparedStatement = connection.prepareStatement(queryString);
+			
+			int i=1;
+			preparedStatement.setTimestamp(i++, date);
+			
+			if(categoria.equals(" ") && (!titulo.equals("".trim()))){
+				queryString += " AND titulo LIKE ?";
+				preparedStatement.setString(i++, "%"+titulo+"%");
+				
+				/* Execute query. */
+				resultSet = preparedStatement.executeQuery();
+
+				while(resultSet.next()){
+					i=1;
+					long idPelicula = resultSet.getLong(i++);
+					String tit = resultSet.getString(i++);
+					String director = resultSet.getString(i++);
+					String clasificacion = resultSet.getString(i++);
+					String descripcion = resultSet.getString(i++);
+
+					peliculas.add(new PeliculaVO(idPelicula,tit, director, clasificacion, descripcion));
+				}
+
+			} else {
+				if (titulo.equals("".trim()) && (!categoria.equals(" "))){
+					queryString += " AND clasificacion LIKE ?";
+					preparedStatement.setString(i++, categoria);
+					
+					/* Execute query. */
+					resultSet = preparedStatement.executeQuery();
+	
+					while(resultSet.next()){
+						i=1;
+						long idPelicula = resultSet.getLong(i++);
+						String nombPeli = resultSet.getString(i++);
+						String director = resultSet.getString(i++);
+						String descripcion = resultSet.getString(i++);
+	
+						peliculas.add(new PeliculaVO(idPelicula,nombPeli, director, categoria, descripcion));
+					}
+				
+				
+			
+				} else { 
+					if(!categoria.equals(" ") && (!titulo.equals("".trim()))){
+						queryString += " AND titulo LIKE ? AND clasificacion LIKE ?";
 						preparedStatement.setString(i++, "%"+titulo+"%");
 						preparedStatement.setString(i++, categoria);
 						

@@ -1,6 +1,7 @@
 package javi.model.busquedafacade.plain.actions;
 
 import java.sql.Connection;
+import java.util.Calendar;
 
 import javi.model.pelicula.dao.SQLPeliculaDAO;
 import javi.model.pelicula.dao.SQLPeliculaDAOFactory;
@@ -12,11 +13,14 @@ public class BusquedaPeliculasAction implements NonTransactionalPlainAction {
 
     private String titulo;
     private String categoria;
+    private boolean byDate;
+    private Calendar fecha;
 	
-    public BusquedaPeliculasAction(String titulo, String categoria) {
+    public BusquedaPeliculasAction(String titulo, String categoria, boolean byDate, Calendar fecha) {
     	this.titulo = titulo;
     	this.categoria = categoria;
-        
+    	this.byDate = byDate;
+    	this.fecha = fecha;
     }
     
     /**
@@ -28,8 +32,10 @@ public class BusquedaPeliculasAction implements NonTransactionalPlainAction {
                 
         SQLPeliculaDAO busquedaPeliculaDAO = SQLPeliculaDAOFactory.getDAO();
         
-        
-        return busquedaPeliculaDAO.find(connection, titulo, categoria);                
+        if (!byDate)
+        	return busquedaPeliculaDAO.find(connection, titulo, categoria);
+        else
+        	return busquedaPeliculaDAO.find(connection, titulo, categoria, fecha);
 
     }
     

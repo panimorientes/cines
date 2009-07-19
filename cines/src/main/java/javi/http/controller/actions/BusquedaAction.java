@@ -2,6 +2,7 @@ package javi.http.controller.actions;
 
 import java.io.IOException;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -33,12 +34,14 @@ public class BusquedaAction extends DefaultAction {
 
 		String clave = busquedaForm.getClave();
 		String clasificacion = busquedaForm.getClasificacion();
+		boolean byDate = busquedaForm.getByDate();
+		Calendar fecha = busquedaForm.getStartDate();
 
 		BusquedaFacadeDelegate busquedaFacadeDelegate = SessionManager
 				.getBusquedaFacadeDelegate(request);
 
 		List<PeliculaVO> pelicula = busquedaFacadeDelegate.busquedaPeliculas(
-				clave, clasificacion);
+				clave, clasificacion, byDate, fecha);
 		List<SesionVO> sesion = busquedaFacadeDelegate.mostrarSesiones();
 		//List<CineVO> cines=busquedaFacadeDelegate.;
 		List<CineVO> cine = busquedaFacadeDelegate.buscaCines();
