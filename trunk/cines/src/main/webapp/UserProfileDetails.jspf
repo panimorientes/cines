@@ -38,19 +38,26 @@
 <span class="alert"><html:errors property="email"/></span>
 <br class="clearBoth" />
 
+<!-- 
 <label class="inputLabel" for="login-email-address"><fmt:message key="UserProfile.language"/>:</label>
 <html:select property="lenguaje">
 	<html:options collection="languages" property="value" labelProperty="label"/>
 </html:select>
 <span class="alert"><html:errors property="language"/></span>
 <br class="clearBoth" />
+-->
+<input type="hidden" name="lenguaje" value="es">
 
+
+<!-- 
 <label class="inputLabel" for="login-email-address"><fmt:message key="UserProfile.pais"/>:</label>
 <html:select property="pais">
 	<html:options collection="countries" property="value" labelProperty="label"/>
 </html:select>
 <span class="alert"><html:errors property="country"/></span>
 <br class="clearBoth" />
+ -->
+<input type="hidden" name="pais" value="ES">
 
 <label class="inputLabel" for="login-email-address"><fmt:message key="UserTarjeta.tarjeta"/>:</label>
 <html:text property="tarjeta" size="41" maxlength="16"/>

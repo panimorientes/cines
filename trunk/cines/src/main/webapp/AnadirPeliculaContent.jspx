@@ -46,7 +46,7 @@
 			<html:select property="clasificacion">
             	<c:forEach var="clase" items="${listaClasificaciones}">
             		<html:option value="${clase.nombre}">
-	            		${clase.nombre}
+	            		${clase.nombre}<![CDATA[ &nbsp;&nbsp; ]]>
             		</html:option>
             	</c:forEach>
             </html:select>

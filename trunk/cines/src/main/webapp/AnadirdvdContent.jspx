@@ -46,7 +46,7 @@
 			<html:select property="clasificacion">
             	<c:forEach var="clase" items="${listaClasificaciones}">
             		<html:option value="${clase.nombre}">
-	            		${clase.nombre}
+	            		${clase.nombre}<![CDATA[ &nbsp;&nbsp; ]]>
             		</html:option>
             	</c:forEach>
             </html:select>
@@ -66,10 +66,10 @@
 			<label class="inputLabel" for="login-email-address"><fmt:message key="dvd.disponibilidad"/>:</label>
 			<html:select property="disponibilidad">
             	<html:option value="true">
-	           		True
+	           		True<![CDATA[ &nbsp;&nbsp; ]]>
             	</html:option>
            		<html:option value="false">
-	           		False
+	           		False<![CDATA[ &nbsp;&nbsp; ]]>
            		</html:option>
             </html:select>
 			<span class="alert"><html:errors property="disponibilidad"/></span>

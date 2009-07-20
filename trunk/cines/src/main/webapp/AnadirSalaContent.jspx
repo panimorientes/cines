@@ -37,7 +37,7 @@
 			<html:select property="cine">
             	<c:forEach var="cines" items="${listacines}">
             		<html:option value="${cines.nombre}">
-	            		${cines.nombre}
+	            		${cines.nombre}<![CDATA[ &nbsp;&nbsp; ]]>
             		</html:option>
             	</c:forEach>
             </html:select>

@@ -43,12 +43,12 @@
 			
 			<label class="inputLabel" for="login-email-address"><fmt:message key="Merchandising.talla"/>:</label>
 			<html:select property="talla">
-				<html:option value=" "> </html:option>
-            	<html:option value="S">S</html:option>
-            	<html:option value="M">M</html:option>
-           		<html:option value="L">L</html:option>
-           		<html:option value="XL">XL</html:option>
-           		<html:option value="XXL">XXL</html:option>
+				<html:option value=" "> <![CDATA[ &nbsp;&nbsp; ]]></html:option>
+            	<html:option value="S">S<![CDATA[ &nbsp;&nbsp; ]]></html:option>
+            	<html:option value="M">M<![CDATA[ &nbsp;&nbsp; ]]></html:option>
+           		<html:option value="L">L<![CDATA[ &nbsp;&nbsp; ]]></html:option>
+           		<html:option value="XL">XL<![CDATA[ &nbsp;&nbsp; ]]></html:option>
+           		<html:option value="XXL">XXL<![CDATA[ &nbsp;&nbsp; ]]></html:option>
             </html:select>
 			<span class="alert"><html:errors property="talla"/></span>
 			<br class="clearBoth" />
@@ -60,8 +60,8 @@
 			
 			<label class="inputLabel" for="login-email-address"><fmt:message key="Merchandising.disponibilidad"/>:</label>
 			<html:select property="disponibilidad">
-            	<html:option value="true">True</html:option>
-            	<html:option value="false">False</html:option>
+            	<html:option value="true">True<![CDATA[ &nbsp;&nbsp; ]]></html:option>
+            	<html:option value="false">False<![CDATA[ &nbsp;&nbsp; ]]></html:option>
             </html:select>
 			<span class="alert"><html:errors property="disponibilidad"/></span>
 			<br class="clearBoth" />

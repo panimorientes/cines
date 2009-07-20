@@ -254,7 +254,7 @@ fmt:setLocale tag will not be necessary.
 																          		<html:select property="clasificacion">
 													            					<c:forEach var="clase" items="${clasificaciones}">
 																						<html:option value="${clase.nombre}">
-																							${clase.nombre}
+																							${clase.nombre}<![CDATA[ &nbsp;&nbsp; ]]>
 																						</html:option>
 													            					</c:forEach>
 													            				</html:select>
@@ -267,17 +267,29 @@ fmt:setLocale tag will not be necessary.
 																          		</label>
 																				<fmt:message key="AdminSesion.day"/> 
 																	            <html:select property="startDay">
-																	                <html:options name="dateRanges" property="days"/>
+																	            	<c:forEach var="day" items="${dateRanges.days}">
+																						<html:option value="${day}">
+																							${day}<![CDATA[ &nbsp;&nbsp; ]]>
+																						</html:option>
+													            					</c:forEach>
 																	            </html:select>
 																	            <![CDATA[ &nbsp; ]]>
 																	            <fmt:message key="AdminSesion.month"/>
 																	            <html:select property="startMonth">
-																	                <html:options name="dateRanges" property="months"/>
+																	            	<c:forEach var="month" items="${dateRanges.months}">
+																						<html:option value="${month}">
+																							${month}<![CDATA[ &nbsp;&nbsp; ]]>
+																						</html:option>
+													            					</c:forEach>
 																	            </html:select>
 																	           	<![CDATA[ &nbsp; ]]>
 																	            <fmt:message key="AdminSesion.year"/>
 																	            <html:select property="startYear">
-																	                <html:options name="dateRanges" property="years" />
+																	            	<c:forEach var="year" items="${dateRanges.years}">
+																						<html:option value="${year}">
+																							${year}<![CDATA[ &nbsp;&nbsp; ]]>
+																						</html:option>
+													            					</c:forEach>
 																	            </html:select>
 																	            <input type="submit" value="Search" style="float:right; margin-right:10px;margin-top:5px;" />
 													            				<br/>
