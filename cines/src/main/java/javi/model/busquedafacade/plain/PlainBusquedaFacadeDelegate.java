@@ -29,6 +29,7 @@ import javi.model.busquedafacade.plain.actions.RecuperarPedidosAction;
 import javi.model.busquedafacade.plain.actions.TicketsAction; //import javi.model.busquedafacade.plain.actions.ReservardvdAction;
 import javi.model.busquedafacade.vo.EstadoSalaVO;
 import javi.model.busquedafacade.vo.PedidoCustomVO;
+import javi.model.busquedafacade.vo.PeliculaInfoVO;
 import javi.model.cine.vo.CineVO;
 import javi.model.clasificacion.vo.ClasificacionVO;
 import javi.model.dvd.vo.dvdVO;
@@ -390,14 +391,14 @@ public class PlainBusquedaFacadeDelegate implements BusquedaFacadeDelegate {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<PeliculaVO> busquedaPeliculas(String titulo, String categoria, boolean byDate, Calendar fecha)
+	public List<PeliculaInfoVO> busquedaPeliculas(String titulo, String categoria, boolean byDate, Calendar fecha)
 			throws InternalErrorException {
 
 		try {
 
 			BusquedaPeliculasAction action = new BusquedaPeliculasAction(titulo, categoria, byDate, fecha);
 
-			return (List<PeliculaVO>) PlainActionProcessor.process(
+			return (List<PeliculaInfoVO>) PlainActionProcessor.process(
 					getDataSource(), action);
 
 		} catch (InstanceNotFoundException e) {

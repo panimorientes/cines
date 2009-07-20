@@ -74,30 +74,26 @@
 						<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
 					</td>
 				</tr>
-				<c:forEach var="sesion" items="${listasesion}">
 					<c:forEach var="pelicula" items="${peliculas}">
-						<c:forEach var="cine" items="${cines}">
-							<c:if test="${sesion.idPelicula==pelicula.idPelicula}">
-							<c:if test="${sesion.idCine==cine.idCine}">
 								<tr>
 						   			<td class="productListing-data">
 							   			<c:url var="urlDPeli" value="MostrarDetallesPelicula.do">
-											<c:param name="idCine" value="${sesion.idCine}"/>
-											<c:param name="sesion" value="${sesion.idSesion}"/>
+											<c:param name="idCine" value="${pelicula.idCine}"/>
+											<c:param name="sesion" value="${pelicula.idSesion}"/>
 										</c:url>		            	
 							        	<a href="${urlDPeli}">
 											${pelicula.titulo}
 										</a>
 								   	</td>
 									<td class="productListing-data">
-										<fmt:formatDate var="fecha" value="${sesion.fecha.time}"/>
+										<fmt:formatDate var="fecha" value="${pelicula.fecha.time}"/>
 										${fecha}
 									</td>
 									<td class="productListing-data">
-										${sesion.hora}
+										${pelicula.hora}
 									</td>
 									<td class="productListing-data">
-										${cine.nombre}
+										${pelicula.nombre}
 									</td>
 					         		<td class="background-white-right">
 					         			<img src="images/pixel_trans.gif" alt="" width="11" height="1" />
@@ -121,11 +117,7 @@
 						      			<img src="images/pixel_trans.gif" alt="" width="1" height="1" />
 						      	 	</td>
 						  		</tr>
-							</c:if>
-							</c:if>
-						</c:forEach>
 			  		</c:forEach>
-			  	</c:forEach>	
 		  	</table>
 		  	<br class="clearBoth" />
 	</div>

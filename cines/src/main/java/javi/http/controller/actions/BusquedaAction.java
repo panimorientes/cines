@@ -13,6 +13,7 @@ import javi.http.controller.session.SessionManager;
 import javi.http.view.actionforms.BusquedaForm;
 
 import javi.model.busquedafacade.delegate.BusquedaFacadeDelegate;
+import javi.model.busquedafacade.vo.PeliculaInfoVO;
 import javi.model.cine.vo.CineVO;
 import javi.model.pelicula.vo.PeliculaVO;
 import javi.model.sesion.vo.SesionVO;
@@ -40,7 +41,7 @@ public class BusquedaAction extends DefaultAction {
 		BusquedaFacadeDelegate busquedaFacadeDelegate = SessionManager
 				.getBusquedaFacadeDelegate(request);
 
-		List<PeliculaVO> pelicula = busquedaFacadeDelegate.busquedaPeliculas(
+		List<PeliculaInfoVO> pelicula = busquedaFacadeDelegate.busquedaPeliculas(
 				clave, clasificacion, byDate, fecha);
 		List<SesionVO> sesion = busquedaFacadeDelegate.mostrarSesiones();
 		//List<CineVO> cines=busquedaFacadeDelegate.;

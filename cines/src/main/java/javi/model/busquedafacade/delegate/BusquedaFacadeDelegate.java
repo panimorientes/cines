@@ -6,6 +6,7 @@ import java.util.List;
 
 import javi.model.busquedafacade.vo.EstadoSalaVO;
 import javi.model.busquedafacade.vo.PedidoCustomVO;
+import javi.model.busquedafacade.vo.PeliculaInfoVO;
 import javi.model.cine.vo.CineVO;
 import javi.model.clasificacion.vo.ClasificacionVO;
 import javi.model.dvd.vo.dvdVO;
@@ -52,7 +53,7 @@ public interface BusquedaFacadeDelegate extends Serializable {
 	    
 	 public List<PeliculaVO> buscaAdminPelicula() throws InternalErrorException;
 	 	 
-	 public List<PeliculaVO> busquedaPeliculas(String titulo, String categoria, boolean byDate, Calendar fecha) throws InternalErrorException;
+	 public List<PeliculaInfoVO> busquedaPeliculas(String titulo, String categoria, boolean byDate, Calendar fecha) throws InternalErrorException;
 	 
 	 public List<dvdVO> mostrardvd() throws InternalErrorException;
 	 
