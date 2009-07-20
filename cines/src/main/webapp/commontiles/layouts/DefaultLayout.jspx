@@ -277,7 +277,7 @@ fmt:setLocale tag will not be necessary.
 																	           	<![CDATA[ &nbsp; ]]>
 																	            <fmt:message key="AdminSesion.year"/>
 																	            <html:select property="startYear">
-																	                <html:options name="dateRanges" property="years"/>
+																	                <html:options name="dateRanges" property="years" />
 																	            </html:select>
 																	            <input type="submit" value="Search" style="float:right; margin-right:10px;margin-top:5px;" />
 													            				<br/>
