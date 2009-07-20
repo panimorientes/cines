@@ -36,7 +36,7 @@
 			<html:select property="numFilas">
             	<c:forEach var="i" begin="0" end="20">
             		<html:option value="${i}">
-	            		${i}
+	            		${i}<![CDATA[ &nbsp;&nbsp; ]]>
             		</html:option>
             	</c:forEach> 
             </html:select>
@@ -47,7 +47,7 @@
 			<html:select property="asientos">
             	<c:forEach var="i" begin="0" end="20">
             		<html:option value="${i}">
-	            		${i}
+	            		${i}<![CDATA[ &nbsp;&nbsp; ]]>
             		</html:option>
             	</c:forEach> 
             </html:select>
