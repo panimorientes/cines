@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.Calendar;
 import java.util.List;
 
+import javi.model.busquedafacade.vo.PeliculaInfoVO;
 import javi.model.pelicula.vo.PeliculaVO;
 import es.udc.fbellas.j2ee.util.exceptions.DuplicateInstanceException;
 import es.udc.fbellas.j2ee.util.exceptions.InstanceNotFoundException;
@@ -51,10 +52,10 @@ public interface SQLPeliculaDAO {
 	     * @throws InstanceNotFoundException
 	     * @throws InternalErrorException
 	     */
-	    public List<PeliculaVO> find(Connection connection, String titulo, String categoria)
+	    public List<PeliculaInfoVO> find(Connection connection, String titulo, String categoria)
     		throws InstanceNotFoundException, InternalErrorException;
 	    
-	    public List<PeliculaVO> find(Connection connection, String titulo, String categoria, Calendar fecha) throws InstanceNotFoundException, InternalErrorException;
+	    public List<PeliculaInfoVO> find(Connection connection, String titulo, String categoria, Calendar fecha) throws InstanceNotFoundException, InternalErrorException;
 	    
 	    public List<PeliculaVO> find(Connection connection)
         	throws InstanceNotFoundException, InternalErrorException;
