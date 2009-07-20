@@ -358,16 +358,15 @@ public abstract class StandardSQLPeliculaDAO implements SQLPeliculaDAO {
 
 		try {
 			Timestamp date = new Timestamp(fecha.getTime().getTime());
-			String queryString = "SELECT p.idPelicula,p.titulo,p.director,p.clasificacion,p.descripcion FROM PELICULA as p, SESION as s " +
-			"WHERE p.idPelicula = s.idPelicula AND s.fecha = ?";
-			
-			preparedStatement = connection.prepareStatement(queryString);
-			
-			int i=1;
-			preparedStatement.setTimestamp(i++, date);
-			
+
 			if(categoria.equals(" ") && (!titulo.equals("".trim()))){
-				queryString += " AND titulo LIKE ?";
+				String queryString = "SELECT p.idPelicula,p.titulo,p.director,p.clasificacion,p.descripcion FROM PELICULA as p, SESION as s " +
+				"WHERE p.idPelicula = s.idPelicula AND s.fecha = ? AND titulo LIKE ?";
+				
+				preparedStatement = connection.prepareStatement(queryString);
+				
+				int i=1;
+				preparedStatement.setTimestamp(i++, date);
 				preparedStatement.setString(i++, "%"+titulo+"%");
 				
 				/* Execute query. */
@@ -386,7 +385,13 @@ public abstract class StandardSQLPeliculaDAO implements SQLPeliculaDAO {
 
 			} else {
 				if (titulo.equals("".trim()) && (!categoria.equals(" "))){
-					queryString += " AND clasificacion LIKE ?";
+					String queryString = "SELECT p.idPelicula,p.titulo,p.director,p.clasificacion,p.descripcion FROM PELICULA as p, SESION as s " +
+					"WHERE p.idPelicula = s.idPelicula AND s.fecha = ? AND clasificacion LIKE ?";
+					
+					preparedStatement = connection.prepareStatement(queryString);
+					
+					int i=1;
+					preparedStatement.setTimestamp(i++, date);
 					preparedStatement.setString(i++, categoria);
 					
 					/* Execute query. */
@@ -406,7 +411,13 @@ public abstract class StandardSQLPeliculaDAO implements SQLPeliculaDAO {
 			
 				} else { 
 					if(!categoria.equals(" ") && (!titulo.equals("".trim()))){
-						queryString += " AND titulo LIKE ? AND clasificacion LIKE ?";
+						String queryString = "SELECT p.idPelicula,p.titulo,p.director,p.clasificacion,p.descripcion FROM PELICULA as p, SESION as s " +
+						"WHERE p.idPelicula = s.idPelicula AND s.fecha = ? AND titulo LIKE ? AND clasificacion LIKE ?";
+						
+						preparedStatement = connection.prepareStatement(queryString);
+						
+						int i=1;
+						preparedStatement.setTimestamp(i++, date);
 						preparedStatement.setString(i++, "%"+titulo+"%");
 						preparedStatement.setString(i++, categoria);
 						

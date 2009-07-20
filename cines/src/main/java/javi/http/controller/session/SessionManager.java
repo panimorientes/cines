@@ -160,8 +160,7 @@ public final class SessionManager {
          * Update session with the necessary objects for an authenticated
          * user. 
          */
-        Locale locale = new Locale(userProfileDetailsVO.getLanguage(),
-            userProfileDetailsVO.getCountry());
+        Locale locale = new Locale(userProfileDetailsVO.getLanguage());
         updateSesssionForAuthenticatedUser(request, 
             userProfileDetailsVO.getNombre(), locale,loginName);
     }
@@ -179,8 +178,7 @@ public final class SessionManager {
         userFacadeDelegate.updateUserProfileDetails(userProfileDetailsVO,cp,ciudad,direccion,numero);
         
         /* Update user's session objects.*/
-        Locale locale = new Locale(userProfileDetailsVO.getLanguage(),
-            userProfileDetailsVO.getCountry());
+        Locale locale = new Locale(userProfileDetailsVO.getLanguage());
         
         updateSesssionForAuthenticatedUser(request, 
             userProfileDetailsVO.getNombre(), locale, userFacadeDelegate.findUserProfile().getLoginName());
@@ -432,8 +430,7 @@ public final class SessionManager {
             loginName, password, passwordIsEncrypted);
         
         /* Insert necessary objects in the session. */
-        Locale locale = new Locale(loginResultVO.getLanguage(),
-            loginResultVO.getCountry());
+        Locale locale = new Locale(loginResultVO.getLanguage());
         updateSesssionForAuthenticatedUser(request, 
             loginResultVO.getFirstName(), locale, loginName);
         
